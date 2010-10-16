@@ -40,7 +40,6 @@ html {
   position: relative;
   background: url("/images/timeline-bg.jpg") repeat;
   width: 100%;
-  padding: 10px 0;
   overflow: hidden;
 }
 
@@ -51,4 +50,11 @@ html {
   margin: 20px 0;
   border: 1px solid #0d7f94;
   @include border-radius(5px);
+}
+
+#timeline #today_bar {
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background: url("/images/today-bar.png") repeat-y;
 }

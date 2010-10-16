@@ -25,7 +25,6 @@ html {
   position: relative;
   background: url("/images/timeline-bg.jpg") repeat;
   width: 100%;
-  padding: 10px 0;
   overflow: hidden; }
 
 #timeline .project {
@@ -37,3 +36,9 @@ html {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px; }
+
+#timeline #today_bar {
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background: url("/images/today-bar.png") repeat-y; }

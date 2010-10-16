@@ -20,4 +20,8 @@ module ProjectsHelper
     Date.today.beginning_of_week - 14
   end
 
+  def today_left_margin
+    (Date.today - first_visible_day).to_i * 8
+  end
+
 end

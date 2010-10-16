@@ -1,4 +1,5 @@
 .grid_24
   #timeline
+    #today_bar{ :style => "left: #{today_left_margin}px;"}
     - @projects.each do |project|
       .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;" }
