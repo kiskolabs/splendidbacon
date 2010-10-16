@@ -70,12 +70,13 @@ textarea {
 
 #top, #update, #sidebar {
   padding-top: 20px;
+  margin:0;
 }
 
 #top {
-  border-bottom: 1px solid #48494b;
+  border-bottom: 1px solid #3c3c3e;
   padding-bottom: 17px;
-  @include box-shadow(0px, 1px, 0px, #111);
+  @include box-shadow(0px, 1px, 0px, #1b1c1f);
 }
 
 #top h1 {

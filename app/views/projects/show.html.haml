@@ -1,6 +1,7 @@
 #top
   %span.push_1.project_label Project
   %h1.push_1.grid_22= @project.name
+  %a.button= "Edit"
   .clear
 #update.push_1.grid_15
   = simple_form_for [@project, @comment] do |f|
@@ -8,7 +9,7 @@
     .clear
     %span.hint How is the project going?
     = f.button :submit, "Create", :class => "button"
-#sidebar.grid_7.push_1
+#sidebar.grid_7.push_2
   %p Status
   %div.flip 
     %span.green Working
@@ -18,13 +19,11 @@
   %p Countdown
   %div.flip
     %span 19 Days
-  %hr.grid_8
   %h3 Team
   - @project.users.each do |user|
     = image_tag user.gravatar_url
     %span= user.name
 .clear
-%hr.grid_16
 #activity.push_1.grid_15
   %ol
     - @project.statuses.each do |status|
