@@ -15,6 +15,7 @@ class StatusesController < ApplicationController
   private
   
   def current_project
-    @project = current_user.projects.find(params[:project_id])
+    @project = Project.find(params[:project_id])
+    raise ActiveRecord::RecordNotFound unless @project.organization.user_ids.include? current_user.id
   end
 end
