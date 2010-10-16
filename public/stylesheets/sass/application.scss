@@ -163,6 +163,7 @@ textarea {
   border:1px solid #0d0e0e;
   @include inset-shadow(0, 3px, 5px, #000);
   border-bottom:1px solid #333436;
+  color:#fff;
 }
 
 .green {

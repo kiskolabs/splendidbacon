@@ -5,9 +5,9 @@
 
 %h2= "Invitation"
 = simple_form_for(@invitation, :html => {:name => "new_invitation"}, :remote => true) do |f|
-  = f.input :email, :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();" }
-  = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden
-  = f.submit "Invite"
+  = f.input :email, :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();", :class => "flip" }
+  = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden, :class => "flip"
+  = f.submit "Invite", :class => "button"
 
 #sent_invitations
   
@@ -18,4 +18,4 @@
     %li{:id => "member_#{member.id}"}
       = member.user.name
       = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
-= button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?"
+= button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button"
