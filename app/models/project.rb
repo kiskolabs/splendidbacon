@@ -10,6 +10,10 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_date :end, :on_or_after => :start, :on_or_after_message => "cannot be before the start date."
   
+  def last_activity
+    self.statuses.order(:created_at).select(:created_at).last.created_at
+  end
+  
   def regenerate_api_token
     self.generate_api_token
     self.save
