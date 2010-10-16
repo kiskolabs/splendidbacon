@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
   before_filter :current_project, :only => [:show, :edit, :update, :destroy]
 
   def show
+    @project = @organization.projects.find(params[:id])
+    @comment = @project.statuses.new
   end
 
   def new
