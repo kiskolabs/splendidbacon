@@ -21,6 +21,11 @@ html {
   color: #fff;
 }
 
+hr {
+  border-color: #48494B;
+  margin: 15px 0 15px 0 !important;
+}
+
 h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
@@ -63,7 +68,7 @@ textarea {
   @include box-shadow(0px, 1px, 7px, #222);
 }
 
-#top, #middle {
+#top, #update, #sidebar {
   padding-top: 20px;
 }
 
@@ -79,14 +84,14 @@ textarea {
   line-height: 29px;
 }
 
-#middle #new_status label {
+#update #new_status label {
   text-transform: uppercase;
   font-size: 16px;
   font-weight: bold;
 }
 
-#middle #new_status input,
-#middle #new_status label {
+#update #new_status input,
+#update #new_status label {
   display: block;
 }
 
