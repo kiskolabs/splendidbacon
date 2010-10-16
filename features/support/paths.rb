@@ -19,7 +19,8 @@ module NavigationHelpers
 
     when /organizations page/
       organizations_path
-      
+    when /the accept invitation page/
+      invitation_path(Invitation.last.token)
     when /^"(.*)" organization page$/i
       organization_path(Organization.where(:name => $1).first)
 
