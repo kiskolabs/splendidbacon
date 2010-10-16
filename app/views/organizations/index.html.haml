@@ -1,4 +1,4 @@
-- unless @organizations.any?
+- if @organizations.empty?
   %p
     You have no organizations.
     = link_to "Would you like to create one?", new_organization_path
