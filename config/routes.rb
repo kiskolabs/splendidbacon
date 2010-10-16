@@ -7,11 +7,21 @@ SplendidBacon::Application.routes.draw do
   resources :invitations
   
   resources :organizations do 
+    get :timeline, :on => :member
     resources :memberships
   end
   
   resources :projects do
     resources :participants
+    resources :statuses
+  end
+  
+  namespace :api do
+    namespace :v1 do
+      resources :projects, :only => [] do
+        post :github, :on => :member
+      end
+    end
   end
 
 end

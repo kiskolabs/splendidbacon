@@ -1,12 +1,22 @@
 !!!
 %html
   %head
-    %title SplendidBacon
-    = stylesheet_link_tag :all
-    = javascript_include_tag :defaults
+    %title Splendid Bacon
+    = stylesheet_link_tag "reset", "text", "960_24_col", "application", :cache => true
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
   %body
+    #header
+      .container_24
+        #title.grid_7
+          &nbsp;
+        #buttons.grid_13
+          = link_to image_tag("dashboard-button.png"), organization_path
+          = link_to image_tag("timeline-button.png"), timeline_organization_path
+        #logo.grid_4.omega
+          = link_to image_tag("header-logo.png"), root_path
     - unless flash.empty?
       - flash.each do |key, value|
         %div{:class => "#{key} flash"}= value
-    = yield
+    .container_24= yield
