@@ -17,6 +17,20 @@
             = link_to image_tag("timeline-button.png"), timeline_organization_path(@organization)
         #logo.grid_4.omega
           = link_to image_tag("header-logo.png"), root_path
+    #parked_links
+      - if user_signed_in?
+        #organization_nav
+          %ul
+            - if @organization && @organization.id
+              %li= link_to @organization.name, @organization
+            - current_user.organizations && current_user.organizations.each do |organization|
+              - unless @organization == organization
+                %li= link_to organization.name, organization
+      - if user_signed_in?
+        = link_to "Organizations", organizations_path
+        = link_to "Logout", destroy_user_session_path
+      - else
+        = link_to "Login", new_user_session_path
     - unless flash.empty?
       - flash.each do |key, value|
         %div{:class => "#{key} flash"}= value
