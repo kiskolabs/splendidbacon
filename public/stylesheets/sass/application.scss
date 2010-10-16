@@ -206,6 +206,7 @@ textarea {
 
 .button:hover {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
+  @include inset-shadow(0, 1px, 6px, #111);
 }
 
 #activity ol {
@@ -247,7 +248,7 @@ textarea {
 }
 
 #title {
-  margin-top:26px;
+  margin-top:20px;
 }
 
 #title a {
@@ -256,7 +257,7 @@ textarea {
   text-decoration:none;
 }
 
-#title li { list-style:none; margin:0;}
+#title li, #title ul { list-style:none; margin:0;}
 
 .clearfix:after, .container_24:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container_24 {display:block;}
