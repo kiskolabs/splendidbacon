@@ -1,7 +1,7 @@
 Feature: Users can do bunch of stuff with organizations
 
   Scenario: User can add an organization
-    Given I am authenticated as "User X"
+    Given I am authenticated as "userx@example.com"
     When I go to organizations page
     And follow "Add an organization"
     And fill in "Name" with "My Company"
@@ -10,7 +10,7 @@ Feature: Users can do bunch of stuff with organizations
     And I should be part of "My Company" organization
 
   Scenario: Member can edit an organization
-    Given I am authenticated as "User X"
+    Given I am authenticated as "userx@example.com"
     And I am part of "Company X" organization
     When I go to "Company X" organization page
     And follow "Edit"
@@ -20,7 +20,7 @@ Feature: Users can do bunch of stuff with organizations
     And I should see "Company Z"
     
   Scenario: Member can destroy an organization
-    Given I am authenticated as "User X"
+    Given I am authenticated as "userx@example.com"
     And I am part of "Company X" organization
     When I go to "Company X" organization page
     And follow "Delete"
