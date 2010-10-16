@@ -18,7 +18,22 @@ html {
   height: 80px;
   background: url("/images/dark-bg.jpg") repeat;
   border-bottom: 1px solid #303030;
+  margin-bottom: 40px;
   @include box-shadow(0px, 1px, 7px, #222);
+}
+
+#header #logo img {
+  position: relative;
+  top: 23px;
+  margin-left: 21px;
+}
+
+#header #buttons {
+  margin-top: 29px;
+}
+
+#header #buttons a {
+  margin-right: 10px;
 }
 
 #timeline {
