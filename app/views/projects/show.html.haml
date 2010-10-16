@@ -1,0 +1,14 @@
+%h1= @project.name
+
+%h2 Activity
+%h3 Add comment
+= simple_form_for [@project, @comment] do |f|
+  = f.input :text, :label => "Comment"
+  = f.button :submit, "Create"
+%ol
+  - @project.statuses.each do |status|
+    %li
+      %span= status.user.name if status.user
+      %span= status.created_at
+      %span= status.text
+      %span= link_to status.source, status.link

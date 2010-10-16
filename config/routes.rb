@@ -11,6 +11,7 @@ SplendidBacon::Application.routes.draw do
   
   resources :projects do
     resources :participants
+    resources :statuses
   end
   
   namespace :api do
