@@ -16,7 +16,7 @@
     %ol
       - @project.statuses.each do |status|
         %li.clearfix
-          %span.avatar= image_tag(status.user.gravatar_url 48)
+          %span.avatar= image_tag(status.user.gravatar_url 48) if status.user
           %div.activity
             %span.text= status.text
             %span= status.user.name if status.user

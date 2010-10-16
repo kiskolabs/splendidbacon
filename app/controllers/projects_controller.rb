@@ -23,6 +23,9 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = current_organization.find(params[:id])
+    @project.update_attributes(params[:project])
+    respond_with @project
   end
 
   def update
