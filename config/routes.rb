@@ -11,5 +11,13 @@ SplendidBacon::Application.routes.draw do
   resources :projects do
     resources :participants
   end
+  
+  namespace :api do
+    namespace :v1 do
+      resources :projects, :only => [] do
+        post :github, :on => :member
+      end
+    end
+  end
 
 end
