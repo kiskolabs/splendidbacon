@@ -1,4 +1,54 @@
-%h1= @organization.name
+#dashboard
+  .projectdash.grid_12
+    .projectcontent
+      .clearfix
+        %h2 Splendid Bacon
+        .hr
+        .stats
+          .grid_4
+            %p Last Activity
+            %div.flip 
+              %span 2 Days ago
+          .grid_4
+            %p Countdown
+            %div.flip
+              %span 19 Days
+          .grid_4
+            %p Status
+            %div.flip 
+              %span.green Working
+      .hr
+      .grid_12.lineup
+        %ul.team
+          %li Karri S.
+          
 
+
+  
+  .projectdash.grid_12
+    .projectcontent
+      .clearfix
+        %h2 Splendid Bacon
+        .hr
+        .stats
+          .grid_4
+            %p Last Activity
+            %div.flip 
+              %span 2 Days ago
+          .grid_4
+            %p Countdown
+            %div.flip
+              %span 19 Days
+          .grid_4
+            %p Status
+            %div.flip 
+              %span.green Working
+      .hr
+      .grid_12.lineup
+        %ul.team
+          %li Karri S.
+          
+        
 %p
+  =  @organization.name
   = link_to "Edit", edit_organization_path(@organization)

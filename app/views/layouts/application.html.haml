@@ -14,7 +14,8 @@
           #organization_nav
             %ul
               - if @organization && @organization.id
-                %li= link_to @organization.name, @organization
+                %li
+                  %h1= link_to @organization.name, @organization
               - current_user.organizations && current_user.organizations.each do |organization|
                 - unless @organization == organization
                   %li= link_to organization.name, organization
@@ -33,4 +34,5 @@
     - unless flash.empty?
       - flash.each do |key, value|
         %div{:class => "#{key} flash"}= value
-    #content.container_24= yield
+    .container_24= yield
+  

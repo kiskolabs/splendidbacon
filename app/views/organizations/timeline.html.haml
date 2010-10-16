@@ -10,7 +10,7 @@
       - @projects.each do |project|
         .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;" }
           .name= project.name
-          %ul
+          %ul.team
             - project.users.each do |user|
               %li= user.name
   .grid_1.omega

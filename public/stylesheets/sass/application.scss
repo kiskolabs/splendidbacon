@@ -33,19 +33,27 @@ h2, h3, h4, h5, h6 {
   margin:20px 0 0 0;
 }
 
+h1, h2 {text-shadow:0 2px 1px #111; font-weight:bold;}
+
 h2 {
   font-size:18px;
 }
 
 a {
   text-decoration:none;
+  color:white;
+}
+
+a:hover {
+  color:#328acf;
 }
 
 textarea {
   border: 1px solid #303030;
   background-color: #1c1c1f;
-  padding: 5px;
+  padding: 10px 15px;
   color: #fff;
+  font-size:18px;
   @include inset-shadow(0, 0, 5px, #ff0000);
   @include border-radius(5px);
 }
@@ -65,7 +73,7 @@ textarea {
 }
 
 #header #buttons {
-  margin-top: 29px;
+  margin-top: 30px;
 }
 
 #header #buttons a {
@@ -146,6 +154,7 @@ textarea {
   overflow: hidden;
 }
 
+
 #timeline .project {
   position: relative;
   background: url("/images/project-bg.png") repeat-x;
@@ -153,10 +162,12 @@ textarea {
   margin: 20px 0;
   border: 1px solid #0d7f94;
   @include border-radius(5px);
+  -webkit-transition: -webkit-box-shadow 0.25s linear;
 }
 
 #timeline .project:hover {
-  @include box-shadow(0, 0px, 10px, #0e84a2)
+  @include box-shadow(0, 0px, 10px, #0e84a2);
+  -webkit-transition: -webkit-box-shadow 0.25s linear;
 }
 
 #timeline #today_bar {
@@ -167,9 +178,23 @@ textarea {
 }
 
 #timeline .project .name {
-  padding:8px 15px;
+  padding:8px 15px 4px 15px;
   font-size:16px;
   font-weight:bold;
+}
+
+.team {
+  margin:0;
+  list-style:none;
+  padding:0 15px;
+  opacity:0.8;
+}
+
+.team li {
+  background:url("/images/user-icon.png") no-repeat 0 2px;
+  margin:0;
+  padding-left:16px;
+  display:inline;
 }
 
 .flip {
@@ -196,21 +221,28 @@ textarea {
 }
 
 .button {
-  padding:5px 10px;
+  padding:5px 12px;
   background-color:#1f1f21;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2a2b2d), to(#222));
   border:4px solid #1f1f21;
   @include border-radius(8px);
   color:#fff;
   display:inline;
-  font-size:18px;
+  font-size:16px;
   cursor:pointer;
   @include inset-shadow(0, 1px, 1px, #444);
+  font-weight:bold;
+  text-shadow:0 0 1px #111;
+  -webkit-transition: text-shadow 0.30s linear;
+
 }
 
 .button:hover {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
   @include inset-shadow(0, 1px, 6px, #111);
+  color:#fff;
+  text-shadow:0 0px 6px #198ce5;
+  -webkit-transition: text-shadow 0.20s linear;
 }
 
 #activity ol {
@@ -219,22 +251,27 @@ textarea {
 
 #activity ol li {
   margin:0;
-  border-bottom:1px solid #111;
+  border-bottom:1px solid #222;
   padding:15px 20px;
+  @include box-shadow(0, 1px, 1px, #111);
 }
 
-#activity .avatar {
+.avatar {
   float:left;
+  width:60px;
 }
 
-#activity .avatar img {
+.avatar img {
   @include border-radius(4px);
-  border:4px solid #111;
+  @include box-shadow(0, 2px, 6px, #000);
+}
+
+.user {
+  font-size:18px;
 }
 
 #activity .activity {
-  margin-left:20px;
-  float:left;
+  margin-left:60px;
 }
 
 #activity .activity span {color:#999;}
@@ -243,6 +280,8 @@ textarea {
   font-size:18px;
   display:block;
   color:#fff;
+  line-height:1.1;
+  margin-bottom:6px;
 }
 
 #activity {
@@ -262,6 +301,75 @@ textarea {
 }
 
 #title li, #title ul { list-style:none; margin:0;}
+
+#dashboard .projectdash {
+  background:#222;
+  background: url("/images/dark-bg.jpg") repeat;
+  border: 1px solid #303030;
+  @include border-radius(5px);
+  @include box-shadow(0px, 1px, 7px, #111);
+  -webkit-transition:-webkit-box-shadow 0.25s linear;
+}
+
+#dashboard .projectdash:hover {
+  @include box-shadow(0px, 1px, 7px, #198ce5);
+  -webkit-transition:-webkit-box-shadow 0.25s linear;
+  cursor:pointer;
+}
+
+.projectcontent {
+  padding:11px;
+}
+
+.projectcontent p {
+  margin:0;
+  text-shadow:0 1px 1px #222;
+  text-transform:uppercase;
+  color:#999;
+  font-size:13px;
+}
+
+.projectcontent .flip {
+  font-size:16px;
+  height:22px;
+  padding:5px 10px;
+}
+
+.projectcontent .grid_4 {
+  width:136px;
+}
+
+#dashboard .grid_12 {
+  width:460px;
+  margin-right:13px;
+}
+
+#dashboard .team {
+  margin:0;
+  padding:0;
+}
+
+#dashboard .lineup {
+  margin:0 0 10px 0;
+}
+
+#dashboard h2 {
+  margin:0 0 -8px 0;
+  padding:0; 
+  font-size:24px; 
+  text-transform:none;
+}
+
+#dashboard .stats {
+  height:60px;
+  padding:0px 0;
+}
+
+.hr {
+  margin:10px 0; 
+  border-top:1px solid #444;
+  @include box-shadow(0px, -1px, 0px, #111);
+}
 
 .clearfix:after, .container_24:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container_24 {display:block;}
