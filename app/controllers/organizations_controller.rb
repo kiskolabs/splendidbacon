@@ -18,7 +18,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(params[:organization])
     if @organization.save
-      Membership.create!(:user_id => current_user, :organization_id => @organization)
+      Membership.create!(:user_id => current_user.id, :organization_id => @organization.id)
       flash[:notice] = 'Organization was successfully created.'
     end
     respond_with @organization
