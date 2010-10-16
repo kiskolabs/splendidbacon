@@ -6,4 +6,7 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
+    - unless flash.empty?
+      - flash.each do |key, value|
+        %div{:class => "#{key} flash"}= value
     = yield
