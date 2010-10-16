@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-  belongs_to :user
+  has_many :participations
+  has_many :users, :through => :participations
   belongs_to :organization
   has_many :statuses
   

@@ -1,5 +1,5 @@
 class InvitationsController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
   before_filter :authenticate_user!
   
   def show
@@ -12,15 +12,11 @@ class InvitationsController < ApplicationController
     organization = @invitation.organization
     @invitation.token = ActiveSupport::SecureRandom.base64(8).gsub("/","_").gsub(/=+$/,"")
     unless current_user.organizations.include?(organization)
-      flash[:notice] = "Bad boy!"
-      redirect_to root_path
+      @invitation = nil
     else
-      if @invitation.save
-        redirect_to edit_organization_path(organization), :notice => "Invitation sent succesfully to #{@invitation.email}"
-      else
-        redirect_to edit_organization_path(organization), :notice => "Invitation not sent, check email address!"
-      end
+      @invitation.save
     end
+    respond_with(@invitation)
   end
   
   def update

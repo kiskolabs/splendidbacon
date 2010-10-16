@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  respond_to :html
+  respond_to :html, :js
   before_filter :authenticate_user!
   
   def destroy
@@ -12,12 +12,8 @@ class MembershipsController < ApplicationController
           Participation.destroy_all(:user_id => user.id, :project_id => project.id)
         end
       end
-      flash[:notice] = "User removed"
-      redirect_to edit_organization_path(organization)
-    else
-      flash[:notice] = "Bad boy!"
-      redirect_to root_path
     end
+    respond_with(@membership)
   end
   
 end

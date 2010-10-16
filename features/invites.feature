@@ -8,8 +8,8 @@ Feature: Invites
     And I follow "Company X"
     And I follow "Edit"
     And I fill in "invitation_email" with "user2@example.com"
-    And I press "Send"
-    Then I should see "Invitation sent succesfully to user2@example.com"
+    And I press "Invite"
+    Then I should see "Invitation sent to user2@example.com"
 
   Scenario: Accepting an invite as an user
     Given I am authenticated as "usery@example.com"
