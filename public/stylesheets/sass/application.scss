@@ -39,7 +39,7 @@ textarea {
   background: url("/images/dark-bg.jpg") repeat;
   border-bottom: 1px solid #303030;
   margin-bottom: 40px;
-  @include box-shadow(0px, 1px, 7px, #222);
+  @include box-shadow(0px, 1px, 7px, #111);
 }
 
 #header #logo img {
@@ -60,7 +60,7 @@ textarea {
   background: url("/images/dark-bg.jpg") repeat;
   border: 1px solid #303030;
   @include border-radius(5px);
-  @include box-shadow(0px, 1px, 7px, #222);
+  @include box-shadow(0px, 1px, 7px, #111);
 }
 
 #top, #middle {
@@ -70,7 +70,7 @@ textarea {
 #top {
   border-bottom: 1px solid #48494b;
   padding-bottom: 17px;
-  @include box-shadow(0px, 1px, 0px, #222);
+  @include box-shadow(0px, 1px, 0px, #111);
 }
 
 #top h1 {
