@@ -25,6 +25,7 @@ class OrganizationsController < ApplicationController
   end
   
   def edit
+    @invitation = Invitation.new
   end
   
   def update

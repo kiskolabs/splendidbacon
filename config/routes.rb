@@ -4,6 +4,8 @@ SplendidBacon::Application.routes.draw do
 
   root :to => "pages#home"
   
+  resources :invitations
+  
   resources :organizations do 
     resources :memberships
   end

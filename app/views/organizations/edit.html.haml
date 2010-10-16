@@ -2,4 +2,18 @@
 
 = render "form"
 
-= button_to "Delete", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?"
+%h2
+  Invite an user to the organization
+= simple_form_for(@invitation) do |f|
+  = f.input :email
+  = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden
+  = f.submit "Send"
+
+%h2 Users
+
+%ul
+  - @organization.memberships && @organization.memberships.each do |member|
+    %li
+      = member.user.name
+      = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?"
+= button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?"
