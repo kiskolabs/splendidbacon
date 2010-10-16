@@ -1,7 +1,7 @@
 - unless @organizations.any?
   %p
     You have no organizations.
-    = link_to "Would you like to reate one?", new_organization_path
+    = link_to "Would you like to create one?", new_organization_path
 - else
   %ul
     - @organizations.each do |organization|

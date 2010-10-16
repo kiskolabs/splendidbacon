@@ -10,6 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20101016062711) do
 
   create_table "memberships", :force => true do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20101016062711) do
     t.boolean "active"
     t.string  "name"
     t.string  "token"
+    t.integer "organization_id"
   end
 
   create_table "users", :force => true do |t|
