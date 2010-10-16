@@ -2,10 +2,14 @@ class OrganizationsController < ApplicationController
   respond_to :html
 
   before_filter :authenticate_user!
-  before_filter :current_organization, :only => [:show, :edit, :update, :destroy]
+  before_filter :current_organization, :only => [:timeline, :show, :edit, :update, :destroy]
   
   def index
     @organizations = current_user.organizations
+  end
+
+  def timeline
+    @projects = @organization.projects
   end
 
   def show
