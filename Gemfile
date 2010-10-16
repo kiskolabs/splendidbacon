@@ -6,8 +6,10 @@ gem "haml"
 gem "devise"
 gem "simple_form"
 gem "RedCloth"
+gem "validates_timeliness", "3.0.0.beta.5"
 
 group :development do
+  gem "awesome_print", :require => "ap"
   gem "sqlite3-ruby", :require => "sqlite3"
 end
 
@@ -15,8 +17,11 @@ group :production do
   gem "mysql2"
 end
 
-group :test do
+group :test, :development do
   gem "rspec-rails"
+end
+
+group :test do
   gem "cucumber-rails"
   gem "factory_girl_rails"
   gem "capybara"
