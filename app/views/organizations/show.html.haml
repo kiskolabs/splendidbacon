@@ -1,0 +1,5 @@
+%h1= @organization.name
+
+%p
+  = link_to "Edit", edit_organization_path(@organization)
+  = link_to "Delete", @organization, :method => :delete, :confirmation => "Are you sure?"
