@@ -173,3 +173,20 @@ textarea {
   margin:20px 0 0 0;
   text-transform:uppercase;
 }
+
+.button {
+  padding:5px 10px;
+  background-color:#1f1f21;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2a2b2d), to(#222));
+  border:4px solid #1f1f21;
+  @include border-radius(8px);
+  color:#fff;
+  display:inline;
+  font-size:18px;
+  cursor:pointer;
+  @include inset-shadow(0, 1px, 1px, #444);
+}
+
+.button:hover {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
+}
