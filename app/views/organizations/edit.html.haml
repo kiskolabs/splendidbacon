@@ -2,18 +2,20 @@
 
 = render "form"
 
-%h2
-  Invite an user to the organization
-= simple_form_for(@invitation) do |f|
-  = f.input :email
+
+%h2= "Invitation"
+= simple_form_for(@invitation, :html => {:name => "new_invitation"}, :remote => true) do |f|
+  = f.input :email, :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();" }
   = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden
-  = f.submit "Send"
+  = f.submit "Invite"
 
-%h2 Users
-
+#sent_invitations
+  
+%h2= "People"
+    
 %ul
   - @organization.memberships && @organization.memberships.each do |member|
-    %li
+    %li{:id => "member_#{member.id}"}
       = member.user.name
-      = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?"
+      = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
 = button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?"

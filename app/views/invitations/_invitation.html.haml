@@ -1,0 +1,4 @@
+- if @invitation.nil? or @invitation.id.nil?
+  %p{:class => "invitation_notification"}= "Invitation NOT sent to #{@invitation.email} check the address"
+- else
+  %p{:class => "invitation_notification"}= "Invitation sent to #{@invitation.email}"
