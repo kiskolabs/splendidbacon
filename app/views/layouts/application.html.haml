@@ -12,7 +12,7 @@
         #title.grid_7
           &nbsp;
         #buttons.grid_13
-          - if @organization
+          - if @organization && @organization.id
             = link_to image_tag("dashboard-button.png"), organization_path(@organization)
             = link_to image_tag("timeline-button.png"), timeline_organization_path(@organization)
         #logo.grid_4.omega

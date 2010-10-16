@@ -1,0 +1,6 @@
+%h2= "Accept invitation "
+
+= simple_form_for(@invitation) do |f|
+  %p
+    = "You have been invited to the organization: #{@invitation.organization.name}"
+    = f.submit "Accept invitation"

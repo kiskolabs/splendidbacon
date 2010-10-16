@@ -50,6 +50,9 @@ class OrganizationsController < ApplicationController
   def current_organization
     @organization = current_user.organizations.readonly(false).find(params[:id])
     cookies[:organization] = @organization.id
+  rescue ActiveRecord::RecordNotFound
+    cookies.delete(:organization)
+    redirect_to root_path
   end
   
 end
