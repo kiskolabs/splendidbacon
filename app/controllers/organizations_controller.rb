@@ -19,7 +19,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(params[:organization])
     if @organization.save
       Membership.create!(:user_id => current_user.id, :organization_id => @organization.id)
-      flash[:notice] = 'Organization was successfully created.'
+      flash[:notice] = "Organization was successfully created."
     end
     respond_with @organization
   end
@@ -29,14 +29,14 @@ class OrganizationsController < ApplicationController
   
   def update
     if @organization.update_attributes(params[:organization])
-      flash[:notice] = 'Organization was successfully updated.'
+      flash[:notice] = "Organization was successfully updated."
     end
     respond_with @organization
   end
   
   def destroy
     @organization.destroy
-    flash[:notice] = "Organization was successfully deleted"
+    flash[:notice] = "Organization was successfully deleted."
     redirect_to(organizations_path)
   end
   
