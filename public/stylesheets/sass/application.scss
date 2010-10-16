@@ -98,6 +98,32 @@ textarea {
   display: block;
 }
 
+#outer_timeline {
+  padding: 80px 0;
+  margin-bottom: 60px;
+  background: url("/images/dark-bg.jpg") repeat;
+  border: 1px solid #202123;
+  @include box-shadow(0px, 4px, 7px, #111);
+  @include border-radius(5px);
+}
+
+#outer_timeline #months {
+  height: 32px;
+  background: url("/images/bg.jpg") repeat;
+  border-bottom: 2px solid #515254;
+}
+
+#months .month {
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  padding-left: 10px;
+  border-left: 1px solid #5d5d5e;
+  line-height: 22px;
+  top: 10px;
+  float: left;
+}
+
 #timeline {
   position: relative;
   background: url("/images/timeline-bg.jpg") repeat;
