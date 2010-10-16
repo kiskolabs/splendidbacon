@@ -119,15 +119,13 @@ textarea {
   padding: 80px 0;
   margin-bottom: 60px;
   background: url("/images/dark-bg.jpg") repeat;
-  border: 1px solid #202123;
-  @include box-shadow(0px, 4px, 7px, #111);
-  @include border-radius(5px);
 }
 
 #outer_timeline #months {
   height: 32px;
-  background: url("/images/bg.jpg") repeat;
   border-bottom: 2px solid #515254;
+  background:#111;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#222));
 }
 
 #months .month {
@@ -166,6 +164,12 @@ textarea {
   width: 8px;
   height: 100%;
   background: url("/images/today-bar.png") repeat-y;
+}
+
+#timeline .project .name {
+  padding:8px 15px;
+  font-size:16px;
+  font-weight:bold;
 }
 
 .flip {
