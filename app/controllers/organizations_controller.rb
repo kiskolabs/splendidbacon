@@ -37,7 +37,7 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     flash[:notice] = "Organization was successfully deleted."
-    redirect_to(organizations_path)
+    respond_with @organization
   end
   
   private
