@@ -20,7 +20,7 @@ module NavigationHelpers
     when /organizations page/
       organizations_path
       
-    when /^(.*) organization page$/i
+    when /^"(.*)" organization page$/i
       organization_path(Organization.where(:name => $1).first)
 
     # Add more mappings here.
