@@ -5,6 +5,7 @@ SplendidBacon::Application.routes.draw do
   root :to => "pages#home"
   
   resources :organizations do 
+    get :timeline, :on => :member
     resources :memberships
   end
   

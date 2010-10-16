@@ -2,12 +2,14 @@
 %html
   %head
     %title Splendid Bacon
-    = stylesheet_link_tag "reset", "text", "960_24_col", "application"
+    = stylesheet_link_tag "reset", "text", "960_24_col", "application", :cache => true
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
   %body
+    #header
+      #title= @organization.try(:name)
     - unless flash.empty?
       - flash.each do |key, value|
         %div{:class => "#{key} flash"}= value
-    = yield
+    .container_24= yield

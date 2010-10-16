@@ -1,0 +1,4 @@
+.grid_24
+  #timeline
+    - @projects.each do |project|
+      .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;" }

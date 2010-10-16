@@ -5,14 +5,14 @@ module ProjectsHelper
       (project.end - first_visible_day + 1) * 8
     else
       (project.end - project.start + 1) * 8
-    end
+    end.to_i
   end
 
   def left_margin(project)
     if project.start <= first_visible_day
       0
     else
-      (project.start - first_visible_day) * 8
+      (project.start - first_visible_day).to_i * 8
     end
   end
 
