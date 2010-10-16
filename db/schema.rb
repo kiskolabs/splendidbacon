@@ -35,7 +35,19 @@ ActiveRecord::Schema.define(:version => 20101016062711) do
     t.date    "end"
     t.boolean "active"
     t.string  "name"
-    t.string  "token"
+    t.string  "guest_token"
+    t.integer "organization_id"
+    t.string  "api_token"
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.text     "text"
+    t.string   "link"
+    t.string   "source"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
