@@ -20,6 +20,15 @@ class Project < ActiveRecord::Base
     self.save
   end
   
+  def toggle_guest_access
+    self.guest_token = if self.guest_token.present?
+      nil
+    else
+      SecureRandom.hex 16
+    end
+    self.save
+  end
+  
   protected
   
   def generate_api_token
