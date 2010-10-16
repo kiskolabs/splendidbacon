@@ -8,6 +8,7 @@ gem "simple_form"
 gem "RedCloth"
 
 group :development do
+  gem "awesome_print", :require => "ap"
   gem "sqlite3-ruby", :require => "sqlite3"
 end
 

@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016042950) do
+ActiveRecord::Schema.define(:version => 20101016050131) do
+
+  create_table "participations", :force => true do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.date    "start"
+    t.date    "end"
+    t.boolean "active"
+    t.string  "name"
+    t.string  "token"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
