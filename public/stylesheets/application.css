@@ -1,5 +1,21 @@
 html {
-  background: url("/images/bg.jpg") repeat; }
+  background: url("/images/bg.jpg") repeat;
+  color: #fff; }
+
+h2, h3, h4, h5, h6 {
+  text-transform: uppercase; }
+
+textarea {
+  border: 1px solid #303030;
+  background-color: #1c1c1f;
+  padding: 5px;
+  color: #fff;
+  -moz-box-shadow: inset 0, 0, 5px, red;
+  -webkit-box-shadow: inset 0, 0, 5px, red;
+  box-shadow: inset 0, 0, 5px, red;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px; }
 
 #header {
   height: 80px;
@@ -20,6 +36,47 @@ html {
 
 #header #buttons a {
   margin-right: 10px; }
+
+#content {
+  background: url("/images/dark-bg.jpg") repeat;
+  border: 1px solid #303030;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0px 1px 7px #222222;
+  -moz-box-shadow: 0px 1px 7px #222222;
+  -webkit-box-shadow: 0px 1px 7px #222222; }
+
+#top, #middle {
+  padding-top: 20px; }
+
+#top {
+  border-bottom: 1px solid #48494b;
+  padding-bottom: 17px;
+  box-shadow: 0px 1px 0px #222222;
+  -moz-box-shadow: 0px 1px 0px #222222;
+  -webkit-box-shadow: 0px 1px 0px #222222; }
+
+#top h1 {
+  margin: 0;
+  font-size: 29px;
+  line-height: 29px; }
+
+#middle #new_status label {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold; }
+
+#middle #new_status input,
+#middle #new_status label {
+  display: block; }
+
+.project_label {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #999;
+  vertical-align: bottom;
+  display: block; }
 
 #timeline {
   position: relative;
