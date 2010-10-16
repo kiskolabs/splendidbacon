@@ -2,6 +2,14 @@ SplendidBacon::Application.routes.draw do
 
   devise_for :users
   root :to => "pages#home"
+  
+  resources :organizations do 
+    resources :memberships
+  end
+  
+  resources :projects do
+    resources :participants
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
