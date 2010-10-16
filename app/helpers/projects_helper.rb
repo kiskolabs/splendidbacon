@@ -24,4 +24,28 @@ module ProjectsHelper
     (Date.today - first_visible_day).to_i * 8
   end
 
+  def months(projects)
+    final_date    = projects.map(&:end).max
+    content       = "".html_safe
+    current_date  = first_visible_day.next_month
+    first_month   = true
+
+    while current_date < final_date
+      days  = current_date.end_of_month.day
+      width = days * 8 - 1 - 10
+      style = "width: #{width}px;"
+
+      if first_month
+        left = (current_date.beginning_of_month - first_visible_day).to_i * 8
+        style << "margin-left: #{left}px;"
+        first_month = false
+      end
+
+      content << content_tag(:div, current_date.strftime("%B"), :style => style, :class => "month")
+      current_date = current_date.next_month
+    end
+
+    content
+  end
+
 end
