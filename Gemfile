@@ -6,6 +6,7 @@ gem "haml"
 gem "devise"
 gem "simple_form"
 gem "RedCloth"
+gem "validates_timeliness", "3.0.0.beta.5"
 
 group :development do
   gem "awesome_print", :require => "ap"
