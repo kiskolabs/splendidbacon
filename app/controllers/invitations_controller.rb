@@ -10,7 +10,7 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(params[:invitation])
     organization = @invitation.organization
-    @invitation.token = ActiveSupport::SecureRandom.base64(8).gsub("/","_").gsub(/=+$/,"")
+    @invitation.token = SecureRandom.hex(8)
     unless current_user.organizations.include?(organization)
       @invitation = nil
     else

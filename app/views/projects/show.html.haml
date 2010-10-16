@@ -28,6 +28,7 @@
   %ol
     - @project.statuses.each do |status|
       %li
+        %span= image_tag(status.user.gravatar_url)
         %span= status.user.name if status.user
         %span= status.created_at
         %span= status.text
