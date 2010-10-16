@@ -5,9 +5,9 @@
 }
 
 @mixin inset-shadow($h, $v, $r, $c) {
-  -moz-box-shadow: inset $h, $v, $r, $c;
-  -webkit-box-shadow: inset $h, $v, $r, $c;
-  box-shadow: inset $h, $v, $r, $c;
+  -moz-box-shadow: inset $h $v $r $c;
+  -webkit-box-shadow: inset $h $v $r $c;
+  box-shadow: inset $h $v $r $c;
 }
 
 @mixin border-radius($radius) {
@@ -150,4 +150,26 @@ textarea {
   width: 8px;
   height: 100%;
   background: url("/images/today-bar.png") repeat-y;
+}
+
+.flip {
+  background:#181819;
+  @include border-radius(4px);
+  height: 35px;
+  padding:5px 15px;
+  font-size:24px;
+  text-transform:uppercase;
+  border:1px solid #0d0e0e;
+  @include inset-shadow(0, 3px, 5px, #000);
+  border-bottom:1px solid #333436;
+}
+
+.green {
+  color:#87ea23;
+}
+
+#sidebar p {
+  font-size:12px;
+  margin:20px 0 0 0;
+  text-transform:uppercase;
 }
