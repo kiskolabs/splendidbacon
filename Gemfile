@@ -16,8 +16,11 @@ group :production do
   gem "mysql2"
 end
 
-group :test do
+group :test, :development do
   gem "rspec-rails"
+end
+
+group :test do
   gem "cucumber-rails"
   gem "factory_girl_rails"
   gem "capybara"
