@@ -44,7 +44,7 @@ class OrganizationsController < ApplicationController
 
   def current_organization
     @organization = current_user.organizations.readonly(false).find(params[:id])
-    cookies[:organization] = @organization ? @organization.id : nil
+    cookies[:organization] = @organization.id
   end
   
 end
