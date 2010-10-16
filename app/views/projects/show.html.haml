@@ -1,14 +1,28 @@
 #top
   %span.push_1.project_label Project
-  %h1.push_1.grid_22= @project.name
-  %a.button= "Edit"
+  %h1.push_1.grid_20= @project.name
+  %a.button.push_2= "Edit"
   .clear
-#update.push_1.grid_15
-  = simple_form_for [@project, @comment] do |f|
-    = f.input :text, :label => "Post an update", :input_html => {  :rows => 5, :cols => 40, :class => "grid_14"}
-    .clear
-    %span.hint How is the project going?
-    = f.button :submit, "Create", :class => "button"
+#leftcolumn.push_1.grid_15
+  #update
+    = simple_form_for [@project, @comment] do |f|
+      = f.input :text, :label => "Post an update", :input_html => {  :rows => 5, :cols => 40, :class => "grid_14"}
+      .clear
+      %span.hint How is the project going?
+      = f.button :submit, "Create", :class => "button push"
+
+  %h2 Activity
+  #activity
+    %ol
+      - @project.statuses.each do |status|
+        %li.clearfix
+          %span.avatar= image_tag(status.user.gravatar_url 48)
+          %div.activity
+            %span.text= status.text
+            %span= status.user.name if status.user
+            %span= status.created_at
+            %span= link_to status.source, status.link
+
 #sidebar.grid_7.push_2
   %p Status
   %div.flip 
@@ -23,14 +37,4 @@
   - @project.users.each do |user|
     = image_tag user.gravatar_url
     %span= user.name
-.clear
-#activity.push_1.grid_15
-  %ol
-    - @project.statuses.each do |status|
-      %li
-        %span= image_tag(status.user.gravatar_url)
-        %span= status.user.name if status.user
-        %span= status.created_at
-        %span= status.text
-        %span= link_to status.source, status.link
 .clear
