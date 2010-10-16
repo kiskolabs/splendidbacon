@@ -37,6 +37,10 @@ h2 {
   font-size:18px;
 }
 
+a {
+  text-decoration:none;
+}
+
 textarea {
   border: 1px solid #303030;
   background-color: #1c1c1f;
@@ -153,6 +157,10 @@ textarea {
   @include border-radius(5px);
 }
 
+#timeline .project:hover {
+  @include box-shadow(0, 0px, 10px, #0e84a2)
+}
+
 #timeline #today_bar {
   position: absolute;
   width: 8px;
@@ -238,6 +246,17 @@ textarea {
   @include border-radius(4px);
 }
 
+#title {
+  margin-top:26px;
+}
+
+#title a {
+  font-size:30px;
+  color:#fff;
+  text-decoration:none;
+}
+
+#title li { list-style:none; margin:0;}
 
 .clearfix:after, .container_24:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container_24 {display:block;}
