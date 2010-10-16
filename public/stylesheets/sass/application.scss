@@ -15,6 +15,10 @@
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
 }
+@mixin d-border () {
+  border-bottom:1px solid #111;
+  @include box-shadow(0px, 1px, 0px, #444);
+}
 
 html {
   background: url("/images/bg.jpg") repeat;
@@ -47,6 +51,17 @@ a {
 a:hover {
   color:#328acf;
 }
+
+label {
+  text-transform:uppercase;
+  display:block;
+}
+
+div.input {
+  margin-top:20px;
+}
+
+input.flip {text-transform:none;}
 
 textarea {
   border: 1px solid #303030;
@@ -94,9 +109,8 @@ textarea {
 }
 
 #top {
-  border-bottom: 1px solid #3c3c3e;
   padding-bottom: 17px;
-  @include box-shadow(0px, 1px, 0px, #1b1c1f);
+  @include d-border;
 }
 
 #top h1 {
@@ -162,6 +176,7 @@ textarea {
   margin: 20px 0;
   border: 1px solid #0d7f94;
   @include border-radius(5px);
+  @include box-shadow(0, 2px, 6px, #000);
   -webkit-transition: -webkit-box-shadow 0.25s linear;
 }
 

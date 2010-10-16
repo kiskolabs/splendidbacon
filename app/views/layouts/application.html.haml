@@ -14,12 +14,11 @@
             #organization_nav
               %ul
                 - if @organization && @organization.id
-                  %li
+                  %li 
                     %h1= link_to @organization.name, @organization
-                  - current_user.organizations && current_user.organizations.each do |organization|
-                    - unless @organization == organization
-                      %li= link_to organization.name, organization
-
+                - current_user.organizations && current_user.organizations.each do |organization|
+                  - unless @organization == organization
+                    %li= link_to organization.name, organization
         #buttons.grid_14
           - if @organization && @organization.id
             - if user_signed_in?
@@ -35,5 +34,5 @@
     - unless flash.empty?
       - flash.each do |key, value|
         %div{:class => "#{key} flash"}= value
-    .container_24= yield
+    #content.container_24= yield
   

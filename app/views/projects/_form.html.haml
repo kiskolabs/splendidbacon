@@ -1,6 +1,6 @@
 = simple_form_for @project do |f|
-  = f.input :name
+  = f.input :name, :input_html => {:class => "flip"}
   = f.input :start
   = f.input :end
   = f.association :users, :as => :check_boxes
-  = f.button :submit
+  = f.button :submit, :class => "button"
