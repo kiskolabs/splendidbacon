@@ -14,11 +14,7 @@
             %span= countdown(project.end)
         .grid_4
           %p Status
-          %div.flip
-            - if project.active?
-              %span.green Working
-            - else
-              %span.red On Hold
+          %div.flip= status_for_project(project)
     .hr
     .grid_12.lineup
       %ul.team

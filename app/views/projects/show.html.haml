@@ -29,7 +29,7 @@
 #sidebar.grid_7.push_2
   %p Status
   %div.flip 
-    %span.green Working
+    = status_for_project(@project)
   %p Last Activity
   %div.flip 
     %span= date_to_words(@project.last_activity)
