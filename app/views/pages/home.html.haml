@@ -7,9 +7,7 @@
         or
         = link_to "Signup now!", new_user_registration_path
       #demo
-        %a 
-          Try the Demo<br />
-          %span No registeration required
+        = link_to "Try the Demo<br /><span>No registeration required</span>".html_safe, demo_path
     %span.logo Splendid Bacon
     %h1 Project Management* for hackers
     %span{:class => "tagline"} * Now with bacon sprinkles!
@@ -33,9 +31,9 @@
   .container_24#footer
     %h2 Built by Kisko Labs, Kiskonians dancing in lab coats:
     %p 
-      %a Antti Akonniemi
-      %a Joao Cardoso
-      %a Matias Korhonen
-      %a Karri Saarinen
-    = image_tag "kisko-logo.png", :alt => "Kisko Labs"
+      %a{:href => "http://twitter.com/anttiakonniemi"} Antti Akonniemi
+      %a{:href => "http://twitter.com/jcxplorer"} Joao Cardoso
+      %a{:href => "http://twitter.com/k33l0r"} Matias Korhonen
+      %a{:href => "http://twitter.com/karrisaarinen"} Karri Saarinen
+    = link_to image_tag("kisko-logo.png", :alt => "Kisko Labs"), "http://kiskolabs.com/"
 
