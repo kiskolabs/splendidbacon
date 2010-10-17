@@ -26,8 +26,11 @@ module ApplicationHelper
   end
 
   def current_organization
-    @organization ||= if cookies[:organization]
-      Organization.find(cookies[:organization])
+    return @current_organization if @current_organization
+    return @organization if @organization && @organization.id
+
+    if cookies[:organization]
+      @current_organization = Organization.find(cookies[:organization])
     else
       nil
     end

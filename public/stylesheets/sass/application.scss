@@ -75,7 +75,7 @@ textarea {
   padding: 10px 15px;
   color: #fff;
   font-size:18px;
-  @include inset-shadow(0, 0, 5px, #ff0000);
+  @include inset-shadow(0, 0, 5px, #111);
   @include border-radius(5px);
 }
 
@@ -89,16 +89,22 @@ textarea {
 
 #header #logo img {
   position: relative;
-  top: 23px;
-  margin-left: 21px;
+  top: 30px;
+  right:0;
+  width:80px;
 }
 
 #header #buttons {
   margin-top: 30px;
 }
 
-#header #buttons a {
+#header a {
   margin-right: 10px;
+}
+
+#header .logout {
+  font-weight:bold;
+  text-shadow:0 0 1px #111;
 }
 
 #content {
@@ -110,9 +116,17 @@ textarea {
   margin-bottom: 20px;
 }
 
-#top, #update, #sidebar {
+#top {
   padding-top: 20px;
   margin:0;
+}
+
+#update {
+  padding:0;
+}
+
+#sidebar {
+  padding-top:10px;
 }
 
 #top {
@@ -151,7 +165,7 @@ textarea {
 
 #outer_timeline {
   padding: 40px 0;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
 }
 
 #outer_timeline #months {
@@ -491,15 +505,17 @@ label[for=project_active].toggle:hover {
   padding:5px 10px;
   border:4px solid #1f1f21;
   position:absolute;
-  width:200px;
+  width:190px;
   z-index: 100;
 }
 
 #organization_nav h1 {
-  margin:0 0 0 0;
-  width:180px;
+  margin:2px 0 0 0;
+  width:160px;
+  height:34px;
   overflow:hidden;
   padding:0;
+  font-size:20px;
 }
 
 #organization_nav #control {
@@ -549,6 +565,10 @@ label[for=project_active].toggle:hover {
   
 }
 
+#leftcolumn h2 {
+  margin-top:60px;
+}
+
 /* PICTOS */
 
 .pictos.time:before {
@@ -573,6 +593,10 @@ label[for=project_active].toggle:hover {
 
 .pictos.down:before {
   content: "}";
+}
+
+.pictos.new:before {
+  content: "+";
 }
 
 .pictos:before {
