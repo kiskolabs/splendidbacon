@@ -15,7 +15,7 @@
           - if user_signed_in?
             #organization_nav
               %ul
-                - if @organization && @organization.id
+                - if current_organization && current_organization.id
                   %li 
                     %h1= link_to @organization.name, @organization
                 - current_user.organizations && current_user.organizations.each do |organization|

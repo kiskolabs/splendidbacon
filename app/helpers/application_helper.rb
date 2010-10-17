@@ -19,4 +19,15 @@ module ApplicationHelper
   def background?
     !@no_background
   end
+
+  def current_organization
+    @organization ||= if cookies[:organization]
+      Organization.find(cookies[:organization])
+    else
+      nil
+    end
+  rescue ActiveRecord::RecordNotFound
+    cookies.delete(:organization)
+    nil
+  end
 end

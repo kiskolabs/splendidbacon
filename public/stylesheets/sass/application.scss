@@ -343,6 +343,7 @@ textarea {
   background: url("/images/dark-bg.jpg") repeat;
   border: 1px solid #303030;
   margin-bottom:20px;
+  margin-top:10px;
   @include border-radius(5px);
   @include box-shadow(0px, 1px, 7px, #111);
   -webkit-transition:-webkit-box-shadow 0.25s linear;
@@ -462,6 +463,20 @@ z-index:200;
   display:inline;
 }
 
+.tagline {
+  font-size:20px;
+  font-style:italic;
+  margin-top:20px;
+}
+
+.hint {
+  display:block;
+  font-size:12px;
+  font-style:italic;
+}
+
+/* PICTOS */
+
 .pictos.time:before {
   content: "t";
 }
@@ -477,7 +492,6 @@ z-index:200;
 .pictos.dashboard:before {
   content: ",";
 }
-
 
 .pictos:before {
   font-family: "Pictos", sans-serifx;
