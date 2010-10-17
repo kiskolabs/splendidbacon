@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = @organization.projects.find(params[:id])
-    @comment = @project.statuses.new
+    @comment ||= @project.statuses.new
   end
 
   def new
