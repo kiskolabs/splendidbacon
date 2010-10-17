@@ -15,6 +15,7 @@
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
 }
+
 @mixin d-border () {
   border-bottom:1px solid #111;
   @include box-shadow(0px, 1px, 0px, #444);
@@ -109,8 +110,13 @@ textarea {
 }
 
 #top {
-  padding-bottom: 45px;
+  padding-bottom: 20px;
+  height:40px;
   @include d-border;
+}
+
+#top .button {
+  margin-top:-8px;
 }
 
 #top h1 {
@@ -138,20 +144,24 @@ textarea {
 }
 
 #outer_timeline {
-  padding: 80px 0;
+  padding: 40px 0;
   margin-bottom: 60px;
-  background: url("/images/dark-bg.jpg") repeat;
 }
 
 #outer_timeline #months {
   height: 32px;
-  border-bottom: 2px solid #515254;
+  border-bottom: 1px solid #515254;
   background:#111;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#222));
+  @include border-radius(5px);
+  @include inset-shadow(0, 3px, 10px, #000)
 }
 
 #outer_months {
   overflow: hidden;
+}
+
+#inner_timeline {
 }
 
 #months .month {
@@ -170,6 +180,10 @@ textarea {
   background: url("/images/timeline-bg.jpg") repeat;
   width: 100%;
   overflow: hidden;
+  min-height:400px;
+  @include border-radius(5px);
+  border-bottom:1px solid #444;
+  @include inset-shadow(0, 10px, 100px, #000)
 }
 
 
@@ -177,7 +191,7 @@ textarea {
   position: relative;
   background: url("/images/project-bg.png") repeat-x;
   height: 62px;
-  margin: 20px 0;
+  margin: 30px 0;
   border: 1px solid #0d7f94;
   @include border-radius(5px);
   @include box-shadow(0, 2px, 6px, #000);
@@ -475,6 +489,16 @@ z-index:200;
   font-style:italic;
 }
 
+.notice {
+  width:920px;
+  margin:10px auto;
+  color:#fff;
+  @include border-radius(5px);  
+  text-align:center;
+  font-size:18px;
+  
+}
+
 /* PICTOS */
 
 .pictos.time:before {
@@ -493,8 +517,13 @@ z-index:200;
   content: ",";
 }
 
+.pictos.notice:before {
+  content: "3";
+}
+
 .pictos:before {
   font-family: "Pictos", sans-serifx;
   padding-right:3px;
   font-size:18px;
+  line-height:1px;
 }

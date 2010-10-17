@@ -3,9 +3,9 @@
 #dashboard
   .clearfix
   - if @organization.projects.empty?
-    %p
+    %p{:style => "margin-left:20px"}
       No projects.
-      = link_to "Do you want to add one?", new_project_path
+      = link_to "Click here to add a new project!", new_project_path
   - @organization.projects && @organization.projects.each_with_index do |project, index|
     = render project
     - if (index + 1) % 2 == 0

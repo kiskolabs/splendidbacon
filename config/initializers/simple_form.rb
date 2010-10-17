@@ -30,7 +30,7 @@ SimpleForm.setup do |config|
   # config.label_text = lambda { |label, required| "#{required} #{label}" }
 
   # Whether attributes are required by default (or not). Default is true.
-  # config.required_by_default = true
+  config.required_by_default = false
 
   # Series of attemps to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]

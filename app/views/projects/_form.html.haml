@@ -1,7 +1,7 @@
 = simple_form_for @project do |f|
   = f.input :name, :input_html => { :class => "flip" }
-  = f.input :human_start, :label => "Start date", :input_html => { :class => "datepicker flip" }, :required => true
-  = f.input :human_end, :label => "End date", :input_html => { :class => "datepicker flip" }, :required => true
+  = f.input :human_start, :label => "Start date", :input_html => { :class => "datepicker flip" }
+  = f.input :human_end, :label => "End date", :input_html => { :class => "datepicker flip" }
   .input.optional
     = f.label :status, "Status"
     = f.check_box :active

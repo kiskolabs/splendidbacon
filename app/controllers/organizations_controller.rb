@@ -13,7 +13,9 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    no_background!
+    if @organization.projects.any?
+      no_background!
+    end
   end
   
   def new

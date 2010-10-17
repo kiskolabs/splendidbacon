@@ -1,10 +1,14 @@
-= link_to "Add an organization", new_organization_path
-- if @organizations.empty?
-  %p
-    You have no organizations.
-    = link_to "Would you like to create one?", new_organization_path
-- else
-  %ul
-    - @organizations.each do |organization|
-      %li
-        = link_to organization.name, organization
+#top
+  %span.push_1.project_label Splendid Bacon
+  %h1.push_1.grid_20 Organizations
+#leftcolumn.push_1.grid_15
+
+  - if @organizations.empty?
+    %p{:style => "margin-top:20px"}
+      You have no organizations.
+      = link_to "Create Organization?", new_organization_path, :class => "button"
+  - else
+    %ul
+      - @organizations.each do |organization|
+        %li
+          = link_to organization.name, organization
