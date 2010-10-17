@@ -15,7 +15,7 @@ Feature: Invites
     And have received invite to "invited-by-user@example.com" with token "secrettoken" to organization "Company X"
     When I go to the accept invitation page
     And I press "Accept invitation"
-    Then I should see "You are now part of Company X"
+    Then I should see "You are now a part of Company X"
     And I should be part of "Company X" organization
     
   Scenario: Accepting an invite as a visitor
