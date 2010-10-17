@@ -2,29 +2,24 @@
   %span.push_1.project_label Timeline
   %h1.push_1.grid_20= @organization.name
 
-- if @projects.any?
-  #outer_timeline
-    .grid_1
-      %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
-    #inner_timeline.grid_22
-      #outer_months
-        #months{ :style => "width: #{timeline_width(@projects)+870}px;" }
-          = months(@projects)
-      .clear
-      #timeline
-        #today_bar{ :style => "left: #{today_left_margin}px;" }
-        - @projects.each do |project|
-          .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project) }
-            .inner
-              .name= link_to project.name, project_path(project)
-              %ul.team
-                - project.users.each do |user|
-                  %li= user.name
-    .grid_1.omega
-      %a.nav{ :href => "#next" }= image_tag "timeline-arrow-right.png"
+#outer_timeline
+  .grid_1
+    %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
+  #inner_timeline.grid_22
+    #outer_months
+      #months{ :style => "width: #{timeline_width(@projects)+870}px;" }
+        = months(@projects)
     .clear
-    %p{:class => "right pull_1", :style => "font-style:italic"} You can also use left and right arrow keys to move the timeline
-- else
-  %p.push_1
-    You don't have any projects yet. No timeline for you!
-    = link_to "Create a project", new_project_path
+    #timeline
+      #today_bar{ :style => "left: #{today_left_margin}px;" }
+      - @projects.each do |project|
+        .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project) }
+          .inner
+            .name= link_to project.name, project_path(project)
+            %ul.team
+              - project.users.each do |user|
+                %li= user.name
+  .grid_1.omega
+    %a.nav{ :href => "#next" }= image_tag "timeline-arrow-right.png"
+  .clear
+  %p{:class => "right pull_1", :style => "font-style:italic"} You can also use left and right arrow keys to move the timeline.

@@ -1,6 +1,6 @@
 SplendidBacon::Application.routes.draw do
   
-  match "/demo/new" => "demo#new"
+  match "/demo/new" => "demo#new", :as => "demo"
   devise_for :users
 
   root :to => "pages#home"

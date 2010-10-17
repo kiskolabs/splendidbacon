@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016073008) do
+ActiveRecord::Schema.define(:version => 20101017184343) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "organization_id"
@@ -20,12 +20,17 @@ ActiveRecord::Schema.define(:version => 20101016073008) do
     t.datetime "updated_at"
   end
 
+  add_index "invitations", ["organization_id"], :name => "index_invitations_on_organization_id"
+  add_index "invitations", ["token"], :name => "index_invitations_on_token"
+
   create_table "memberships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "memberships", ["user_id", "organization_id"], :name => "index_memberships_on_user_id_and_organization_id"
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
@@ -38,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20101016073008) do
     t.integer "project_id"
   end
 
+  add_index "participations", ["user_id", "project_id"], :name => "index_participations_on_user_id_and_project_id"
+
   create_table "projects", :force => true do |t|
     t.date    "start"
     t.date    "end"
@@ -48,6 +55,10 @@ ActiveRecord::Schema.define(:version => 20101016073008) do
     t.string  "api_token"
   end
 
+  add_index "projects", ["api_token"], :name => "index_projects_on_api_token"
+  add_index "projects", ["guest_token"], :name => "index_projects_on_guest_token"
+  add_index "projects", ["organization_id"], :name => "index_projects_on_organization_id"
+
   create_table "statuses", :force => true do |t|
     t.text     "text"
     t.string   "link"
@@ -57,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20101016073008) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "statuses", ["project_id"], :name => "index_statuses_on_project_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
