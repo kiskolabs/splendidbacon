@@ -491,6 +491,7 @@ label[for=project_active].toggle:hover {
   padding:5px 10px;
   border:4px solid #1f1f21;
   position:absolute;
+  z-index: 100;
 }
 
 #organization_nav h1 {
