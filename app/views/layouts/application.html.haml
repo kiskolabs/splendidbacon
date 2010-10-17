@@ -27,7 +27,7 @@
             = link_to "Organizations", organizations_path, :class => "button"
             = link_to "Logout", destroy_user_session_path, :class => "button"
           - else
-            = link_to "Login", new_user_session_path, :class => "button"
+            = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"
         #logo.grid_4.omega
           = link_to image_tag("header-logo.png"), root_path
     #parked_links
