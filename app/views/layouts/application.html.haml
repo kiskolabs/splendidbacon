@@ -33,10 +33,9 @@
             = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"
         #logo.grid_4.omega
           = link_to image_tag("header-logo.png"), root_path
-    #parked_links
     - unless flash.empty?
       - flash.each do |key, value|
-        %div{:class => "#{key} flash"}= value
+        %div{:class => "#{key} pictos flash"}= value
     .container_24{ :id => background? ? "content" : nil }
       = yield
   

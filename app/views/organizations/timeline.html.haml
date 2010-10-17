@@ -6,7 +6,7 @@
   #outer_timeline
     .grid_1
       %a{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
-    .grid_22
+    .grid_22#inner_timeline
       #outer_months
         #months{ :style => "width: #{timeline_width(@projects)}px;" }
           = months(@projects)
