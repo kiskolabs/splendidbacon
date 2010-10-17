@@ -1,0 +1,27 @@
+.projectdash.grid_12
+  .projectcontent
+    .clearfix
+      %h2= link_to project.name, project
+      .hr
+      .stats
+        .grid_4
+          %p Last Activity
+          %div.flip
+            %span.relatize= project.last_activity.httpdate
+            %span Days ago
+        .grid_4
+          %p Countdown
+          %div.flip
+            %span= "#{(project.end-Time.now.to_date).to_i} Days"
+        .grid_4
+          %p Status
+          %div.flip
+            - if project.active?
+              %span.green Working
+            - else
+              %span.red On Hold
+    .hr
+    .grid_12.lineup
+      %ul.team
+        - project.users && project.users.each do |user|
+          %li= user.name
