@@ -12,8 +12,8 @@
 
 @font-face {
 	font-family: 'Pictos';
-	src: url('pictos-web.eot');
-	src: local('☺'), url('pictos-web.woff') format('woff'), url('pictos-web.ttf') format('truetype'), url('pictos-web.svg#webfontphKv1xv9') format('svg');
+	src: url('/stylesheets/pictos-web.eot');
+	src: local('☺'), url('/stylesheets/pictos-web.woff') format('woff'), url('/stylesheets/pictos-web.ttf') format('truetype'), url('/stylesheets/pictos-web.svg#webfontphKv1xv9') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
