@@ -7,11 +7,16 @@ class OrganizationsController < ApplicationController
   def timeline
     navigation :timeline
     @projects = @organization.projects
+    if @projects.empty?
+      no_background!
+      render :template => "projects/ghost"
+    end
   end
 
   def show
     navigation :dashboard
     no_background!
+    render :template => "projects/ghost" if @organization.projects.empty?
   end
   
   def new

@@ -1,7 +1,5 @@
 #dashboard
   .clearfix
-  - if @organization.projects.empty?
-    = image_tag("project-blank.png")
   - @organization.projects && @organization.projects.sort_by{|p| p.name.downcase}.each_with_index do |project, index|
     = render project
     - if (index + 1) % 2 == 0
