@@ -13,7 +13,12 @@ module ApplicationHelper
   end
   
   def countdown(date_or_time)
-    pluralize((date_or_time.to_date - Date.today).to_i, "day")
+    days = (date_or_time.to_date - Date.today).to_i
+    text = if days < 0
+      pluralize(-days, "day") + " late"
+    else
+      pluralize(days, "day")
+    end
   end
 
   def background?
