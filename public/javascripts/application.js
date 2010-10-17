@@ -83,18 +83,25 @@ jQuery(function() {
   });
   
 
- $("#onav").hide(); 
+  $("#onav").hide(); 
 
- $("#organization_nav #control").click(function () {
-   $(this).next("#onav").slideToggle("fast");
- });
- 
- $("body").click(function () {
-      $("#onav").hide();
+  $("#organization_nav #control").click(function () {
+    $(this).next("#onav").slideToggle("fast");
   });
-  $("#organization_nav #control").click(function (e) {
-      e.stopPropagation();
+ 
+  $("body").click(function () {
+    $("#onav").hide();
+  });
+
+  $("#organization_nav #control").click(function(e) {
+    e.stopPropagation();
+  });
+
+
+  $("#timeline .project").hover(function() {
+    $(this).css({ overflow: "visible" });
+  }, function() {
+    $(this).css({ overflow: "hidden" });
   });
   
-
 });
