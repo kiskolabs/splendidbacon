@@ -1,4 +1,4 @@
-worker_processes 2
+worker_processes 4
 
 timeout 30
 
@@ -23,4 +23,8 @@ before_fork do |server, worker|
     rescue Errno::ENOENT, Errno::ESRCH
     end
   end
+end
+
+after_fork do |server, worker|
+  ActiveRecord::Base.establish_connection
 end
