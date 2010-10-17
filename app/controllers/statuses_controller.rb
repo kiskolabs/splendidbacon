@@ -1,5 +1,6 @@
 class StatusesController < ApplicationController
   before_filter :current_project
+  before_filter :authenticate_user!
   
   respond_to :html
   

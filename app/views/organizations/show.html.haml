@@ -2,6 +2,10 @@
 = link_to "New Project", new_project_path, :class => "button right"
 #dashboard
   .clearfix
+  - if @organization.projects.empty?
+    %p
+      No projects.
+      = link_to "Do you want to add one?", new_project_path
   - @organization.projects && @organization.projects.each do |project|
     = render project
 .clearfix
