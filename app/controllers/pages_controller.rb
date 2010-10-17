@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout "homepage"
 
   def home
     if user_signed_in?

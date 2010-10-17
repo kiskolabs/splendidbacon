@@ -636,3 +636,143 @@ label[for=project_active].toggle:hover {
   text-transform: none;
   font-size: 16px;
 }
+
+/* FRONTPAGE */
+
+body#frontpage {
+}
+
+#frontpage h1 {
+  text-align:center;
+  font-size:48px;
+  margin:0;
+  height:100px;
+  @include top-d-border();
+  padding-top:10px;
+}
+
+#frontpage #frontheader {
+  text-align:center;
+  padding-top:40px;
+  height:558px;
+  position:relative;
+  background:url("/images/top-bg.png") repeat-x;
+  width:100%;
+  @include inset-shadow(0, -10px, 15px, #222)
+}
+
+#frontpage .logo {
+  width:300px;
+  height:80px;
+  display:block;
+  background:url("/images/logo.png") no-repeat;
+  text-indent:-9999cm;
+  margin:0 auto;
+}
+
+#frontpage #frontheader .tagline {
+  right:100px;
+  top:130px;
+  position:absolute;
+  font-size:16px;
+  color:#999;
+  font-weight:normal;
+}
+
+#frontpage #fbottom {
+  margin-top:2px;
+  border-top:1px solid #666;
+  padding-top:40px;
+}
+
+.pictos {
+  width:72px;
+  height:72px;
+  float:left;
+}
+
+.benefit p {
+  font-size:16px;
+  margin-left:80px;
+  text-shadow:0 0 1px #333;
+  line-height:1.2;
+}
+
+#frontpage .pictos.project:before {
+  content: "%";
+}
+
+#frontpage .pictos.simple:before {
+  content: "2";
+}
+
+#frontpage #footer {
+  padding:10px;
+  text-align:center;
+  text-shadow:none;
+}
+
+#frontpage #benefits {
+  padding:0 0 20px;
+  @include d-border();
+}
+
+#frontpage #frontbuttons {
+  position:absolute;
+  background:url("/images/frontpage-buttons.png") no-repeat;
+  height:80px;
+  top:496px;
+  right:-3px;
+  width:489px;
+}
+
+#frontpage #fbuttons_outer {
+  width:960px;
+  position:relative;
+}
+
+#frontpage #frontbuttons #sign {
+  position:absolute;
+  top:30px;
+  left:20px;
+  font-size:16px;
+  font-weight:normal;
+}
+
+#frontpage #frontbuttons #demo {
+  position:absolute;
+  width:300px;
+  left:230px;
+  top:5px;
+  height:110px;
+  font-size:24px;
+  text-align:left;
+  line-height:0.8;
+}
+
+#frontpage #frontbuttons a {
+  color:#fff;
+  text-shadow:0 0px 2px #333;
+  font-weight:bold;
+}
+
+#frontpage #frontbuttons #demo a {
+  display:block;
+  padding:10px;
+}
+
+
+#frontpage #frontbuttons #demo span {
+  font-size:14px;
+  font-weight:normal;
+}
+
+#frontpage #footer img {
+  padding:20px;
+}
+
+#frontpage .pictos:before {
+  font-size:72px;
+  color:#111;
+  text-shadow: 0 1px 1px #555;
+}

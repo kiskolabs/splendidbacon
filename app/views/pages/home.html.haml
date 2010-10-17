@@ -1,30 +1,41 @@
-#top
-  %span.push_1.project_label Project Management for Hackers
-  %h1.push_1.grid_20 Splendid Bacon
-#leftcolumn.push_1.grid_15
-  %p{:class => "tagline"}
-    Project Management for hackers with sprinkle of bacon!
+ 
+#frontheader.clearfix
+  #fbuttons_outer.container_24
+    #frontbuttons
+      #sign
+        = link_to "Sign in", new_user_session_path
+        or
+        = link_to "Signup now!", new_user_registration_path
+      #demo
+        %a 
+          Try the Demo<br />
+          %span No registeration required
+    %span.logo Splendid Bacon
+    %h1 Project Management* for hackers
+    %span{:class => "tagline"} * Now with bacon sprinkles!
+    = image_tag "screenshots.png", :alt => "Screenshot"
 
-  %p
-    = link_to "Login", new_user_session_path, :class => "button"
-    or
-    = link_to "Signup now!", new_user_registration_path, :class => "button"
-
-  %p
-    Project management software is often overkill. We wanted to make something that was useful, but not painful to use. Splendid Bacon is very simple project management tool.
-
-  %p
-    See what is happening in your organization and projects at a glance. Splendid Bacon makes resource management simple and fast.
   
-  %h2
-    Features
-  
-  :textile
-    * Organization and project dashboards
-    * Timelines for resources and projects
-    * Guest access for clients / status screens
-    * News feed with:
-    ** Github integration
-    ** Status updates from project members
+#fbottom
+  .container_24#benefits.clearfix
+    .p.grid_8.benefit
+      %span.pictos.project
+      %p Project management software is often overkill. Splendid Bacon only kills pigs. Sorry.
+      
+    .grid_8.benefit
+      %span.pictos.dashboard
+      %p See what is happening in your organization and projects at a glance.
+      
+    .grid_8.benefit
+      %span.pictos.simple
+      %p It’s as easy as eating bacon. And it uses dark colors.
+   
+  .container_24#footer
+    %h2 Built by Kisko Labs, Kiskonians dancing in lab coats:
+    %p 
+      %a Antti Akonniemi
+      %a Joao Cardoso
+      %a Matias Korhonen
+      %a Karri Saarinen
+    = image_tag "kisko-logo.png", :alt => "Kisko Labs"
 
-  = link_to "Signup now!", new_user_registration_path, :class => "button"
