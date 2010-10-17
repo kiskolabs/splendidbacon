@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   end
   
   def human_start
-    self.start.strftime("%d %B %Y")
+    self.start.present? ? self.start.strftime("%d %B %Y") : Date.today.strftime("%d %B %Y")
   end
   
   def human_start=(string)
@@ -43,7 +43,7 @@ class Project < ActiveRecord::Base
   end
   
   def human_end
-    self.end.strftime("%d %B %Y")
+    self.end.present? ? self.end.strftime("%d %B %Y") : Date.today.strftime("%d %B %Y")
   end
   
   def human_end=(string)
