@@ -18,12 +18,13 @@
   %h2= "People"
     
   #people
-    - @organization.memberships && @organization.memberships.each do |member|
-      .membercell{:id => "member_#{member.id}"}
-        %span.avatar= image_tag(member.user.gravatar_url 48)
-        %span.user
-          = member.user.name
-          %br/
-          = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
+    %ul
+      - @organization.memberships && @organization.memberships.each do |member|
+        %li.membercell{:id => "member_#{member.id}"}
+          %span.avatar= image_tag(member.user.gravatar_url 48)
+          %span.user
+            = member.user.name
+            %br/
+            = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
     .clearfix
   = button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button"
