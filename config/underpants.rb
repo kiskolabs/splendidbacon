@@ -3,7 +3,7 @@ app_name    "splendidbacon"
 rvm_ruby    "1.9.2"
 
 environment :production do
-  server    "splendidbacon.com"
+  server    "splendidbacon.r10.railsrumble.com"
   app_url   "splendidbacon.com"
 end
 
