@@ -3,9 +3,9 @@
   %h1.push_1.grid_20 Sign up
 #leftcolumn.push_1.grid_15
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    = f.input :email, :input_html => {:class => "flip", :style => "width:370px"}
-    = f.input :name, :input_html => {:class => "flip", :style => "width:370px"}
-    = f.input :password, :input_html => {:class => "flip", :style => "width:370px"}
-    = f.input :password_confirmation, :input_html => {:class => "flip", :style => "width:370px"}
+    = f.input :email, :input_html => {:class => "flip", :style => "width:370px"}, :required => false
+    = f.input :name, :input_html => {:class => "flip", :style => "width:370px"}, :required => false
+    = f.input :password, :input_html => {:class => "flip", :style => "width:370px"}, :required => false
+    = f.input :password_confirmation, :input_html => {:class => "flip", :style => "width:370px"}, :required => false
     = f.button :submit, "Sign up", :class => "button"
   = render :partial => "devise/shared/links"
