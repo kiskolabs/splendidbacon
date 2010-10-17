@@ -25,18 +25,17 @@
         #buttons.grid_14
           - if user_signed_in?
             - if @organization && @organization.id
-              = link_to "Dashboard", organization_path(@organization), :class => "button pictos dashboard"
-              = link_to "Timeline", timeline_organization_path(@organization), :class => "button pictos time"
-            = link_to "Account", edit_user_registration_path, :class => "button pictos account"
+              = navigate_to :dashboard, "Dashboard", organization_path(@organization), :class => "button pictos dashboard"
+              = navigate_to :timeline, "Timeline", timeline_organization_path(@organization), :class => "button pictos time"
+            = navigate_to :account, "Account", edit_user_registration_path, :class => "button pictos account"
             = link_to "Logout", destroy_user_session_path, :class => "button"
           - else
             = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"
         #logo.grid_4.omega
           = link_to image_tag("header-logo.png"), root_path
-    #parked_links
     - unless flash.empty?
       - flash.each do |key, value|
-        %div{:class => "#{key} flash"}= value
+        %div{:class => "#{key} pictos flash"}= value
     .container_24{ :id => background? ? "content" : nil }
       = yield
   

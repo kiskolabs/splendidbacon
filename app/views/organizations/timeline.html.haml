@@ -1,12 +1,12 @@
 #top
-  %span.push_1.project_label= @organization.name
-  %h1.push_1.grid_20 Timeline
+  %span.push_1.project_label Timeline
+  %h1.push_1.grid_20= @organization.name
 
 - if @projects.any?
   #outer_timeline
     .grid_1
       %a{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
-    .grid_22
+    .grid_22#inner_timeline
       #outer_months
         #months{ :style => "width: #{timeline_width(@projects)}px;" }
           = months(@projects)
