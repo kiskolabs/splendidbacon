@@ -1,6 +1,6 @@
 #top
-  %h1.push_1.grid_20= "Edit Organization #{@organization.name}"
-  = link_to "Edit Project", edit_project_path(@project), :class => "button right"
+  %span.push_1.project_label Organization
+  %h1.push_1.grid_20= @organization.name
 #leftcolumn.push_1.grid_15
   = simple_form_for(@organization) do |f|
     = f.input :name, :input_html => {:class => "flip"}
