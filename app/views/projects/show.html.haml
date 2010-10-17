@@ -37,7 +37,7 @@
   %div.flip
     %span= countdown(@project.end)
   %h2 Team
-  %ul.team
+  %ul.sidebar_team
     - @project.users.each do |user|
       %li
         .avatar{:style => "background: url(#{user.gravatar_url(48)});"}
