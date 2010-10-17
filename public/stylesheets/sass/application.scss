@@ -393,3 +393,8 @@ textarea {
 
 .clearfix:after, .container_24:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container_24 {display:block;}
+
+.right {
+  float:right;
+  margin-right:10px;
+}

@@ -74,6 +74,7 @@ GEM
     i18n (0.4.1)
     json (1.4.6)
     json_pure (1.4.6)
+    kronic (0.4)
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
@@ -150,6 +151,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   haml
+  kronic
   launchy
   mysql2
   rails (= 3.0.1)
