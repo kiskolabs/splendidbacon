@@ -15,7 +15,7 @@
     %ol
       - @project.statuses.each do |status|
         %li.clearfix
-          %span.avatar= image_tag(status.user.gravatar_url 48) if status.user
+          .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
           %div.activity
             %span.text= status.text
             %span= status.user.name if status.user
