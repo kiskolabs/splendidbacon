@@ -10,7 +10,6 @@ gem "validates_timeliness", "3.0.0.beta.5"
 gem "kronic"
 
 group :development do
-  gem "awesome_print", :require => "ap"
   gem "sqlite3-ruby", :require => "sqlite3"
 end
 
