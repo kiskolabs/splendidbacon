@@ -63,9 +63,18 @@ label {
   display:block;
 }
 
+label.boolean {display:inline;}
+
 div.input {
   margin-top:20px;
 }
+
+#footerlinks {margin-top:20px;}
+#footerlinks a {margin:20px 20px 0 0; color:#999;}
+
+#user_new div.boolean {width:50%;float:left;}
+
+#user_new .button {margin-top:15px;}
 
 input.flip {text-transform:none;}
 
@@ -806,6 +815,10 @@ body#frontpage {
 
 #frontpage #footer img {
   padding:20px;
+}
+
+#frontpage #footer p a {
+  margin-right:15px;
 }
 
 #frontpage .pictos:before {
