@@ -35,7 +35,7 @@
     %span= date_to_words(@project.last_activity)
   %p Countdown
   %div.flip
-    %span 19 Days
+    %span= countdown(@project.end)
   %h2 Team
   - @project.users.each do |user|
     %span.avatar= image_tag user.gravatar_url 48
