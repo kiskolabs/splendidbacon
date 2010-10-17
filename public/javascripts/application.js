@@ -73,8 +73,8 @@ jQuery(function() {
     }
   });
 
-  $(".projectcontent").click(function() {
-    window.location = $(this).find("h2 a").attr("href");
+  $(".projectcontent, #timeline .project").click(function() {
+    window.location = $(this).find("a").attr("href");
     return false;
   });
   
