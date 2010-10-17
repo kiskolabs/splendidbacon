@@ -1,21 +1,24 @@
-#outer_timeline
-  .grid_1
-    %a{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
-  .grid_22
-    #outer_months
-      #months= months(@projects)
+- if @projects.any?
+  #outer_timeline
+    .grid_1
+      %a{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
+    .grid_22
+      #outer_months
+        #months= months(@projects)
+      .clear
+      #timeline
+        #today_bar{ :style => "left: #{today_left_margin}px;" }
+        - @projects.each do |project|
+          .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;" }
+            .name= project.name
+            %ul.team
+              - project.users.each do |user|
+                %li= user.name
+    .grid_1.omega
+      %a{ :href => "#next" }= image_tag "timeline-arrow-right.png"
     .clear
-    #timeline
-      #today_bar{ :style => "left: #{today_left_margin}px;" }
-      - @projects.each do |project|
-        .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;" }
-          .name= project.name
-          %ul.team
-            - project.users.each do |user|
-              %li= user.name
-  .grid_1.omega
-    %a{ :href => "#next" }= image_tag "timeline-arrow-right.png"
-  .clear
+- else
+  %p You don't have any projects yet. No timeline for you!
 
 :css
   #months {
