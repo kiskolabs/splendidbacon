@@ -109,7 +109,7 @@ textarea {
 }
 
 #top {
-  padding-bottom: 17px;
+  padding-bottom: 45px;
   @include d-border;
 }
 
@@ -449,4 +449,15 @@ position:absolute;
 left:0px;
 top:0px;
 z-index:200;
+}
+
+.membercell {
+  display:inline;
+  width: 200px;
+  float:left;
+  margin-bottom:20px;
+}
+
+#new_invitation .input {
+  display:inline;
 }
