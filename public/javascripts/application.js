@@ -15,4 +15,6 @@ jQuery(function() {
     $("#timeline .project, .month, #today_bar").animate({ left: "+=" + scroll + "px" });
     return false;
   });
+  
+  $(".relatize").relatizeDate();
 });

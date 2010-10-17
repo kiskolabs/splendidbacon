@@ -19,8 +19,12 @@
           %div.activity
             %span.text= status.text
             %span= status.user.name if status.user
-            %span= status.created_at
-            %span= link_to status.source, status.link
+            %span.relatize= status.created_at.httpdate
+            %span.white
+              - if status.link.present?
+                = link_to status.source, status.link
+              - else
+                = status.source
 
 #sidebar.grid_7.push_2
   %p Status
