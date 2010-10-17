@@ -13,7 +13,7 @@ jQuery(function() {
 
 
   var scroll = 448;
-  var maxScroll = $("#months").width() - $("#timeline").width();
+  var maxScroll = $("#months").width() - $("#timeline").width() - 870;
   var currentScroll = 0;
 
   $("a[href='#next']").click(function() {
