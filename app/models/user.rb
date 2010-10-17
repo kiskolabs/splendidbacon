@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
     Status.create!(:text => "Too bad I'm not at the office", :link => nil, :source => "Comment", :user_id => u[3].id, :project_id => p.id)
     p=Project.create!(:name => "Portal Project", :start => "2010-09-01", :end => "2011-01-01", :active => true, :organization_id => o2.id)
     Participation.create!(:user_id => self.id, :project_id => p.id)
+    Status.create!(:text => "Remember to use jQuery this time", :link => nil, :source => "Comment", :user_id => self.id, :project_id => p.id)
     p=Project.create!(:name => "Personal Homepage", :start => "2010-10-01", :end => "2010-12-15", :active => true, :organization_id => o2.id)
     Status.create!(:text => "Add task foo:install (where foo is plugin) as a shortcutinstall:migrations and foo:install:assets", :link => "http://github.com/rails/rails/commit/43215de208a6feabdbc5f4ec29551beef4f89885", :source => "Github", :user_id => self.id, :project_id => p.id)
     Status.create!(:text => "Comment internal railties tasks.", :link => "http://github.com/rails/rails/commit/c7aea81a39e130bfddd26537dea5f3626e2a009e", :source => "Github", :user_id => self.id, :project_id => p.id)
@@ -65,6 +66,6 @@ class User < ActiveRecord::Base
     Participation.create!(:user_id => self.id, :project_id => p.id)
     p=Project.create!(:name => "Garage Project", :start => "2010-10-15", :end => "2010-11-30", :active => true, :organization_id => o2.id)
     Participation.create!(:user_id => self.id, :project_id => p.id)
-    Status.create!(:text => "Remember to use jQuery this time", :link => nil, :source => "Comment", :user_id => self.id, :project_id => p.id)
+    Status.create!(:text => "Get the tires out of garage", :link => nil, :source => "Comment", :user_id => self.id, :project_id => p.id)
   end
 end
