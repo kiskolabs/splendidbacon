@@ -5,7 +5,7 @@
 - if @projects.any?
   #outer_timeline
     .grid_1
-      %a.nav{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
+      %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
     #inner_timeline.grid_22
       #outer_months
         #months{ :style => "width: #{timeline_width(@projects)}px;" }
