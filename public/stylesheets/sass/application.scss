@@ -259,40 +259,43 @@ textarea {
   font-weight:bold;
 }
 
-.team {
+.team,
+.sidebar_team {
   margin:0;
   list-style:none;
   padding:0 15px;
   opacity:0.8;
 }
 
-.team li {
+.team li,
+.sidebar_team {
   background:url("/images/user-icon.png") no-repeat 0 2px;
   margin:0;
   padding-left:16px;
   display:inline;
 }
 
-ul.team {
+ul.sidebar_team {
   padding: 0;
   margin: 0;
+  opacity: 1.0 !important;
 }
 
-ul.team li {
+ul.sidebar_team li {
   background: none;
   margin-bottom: 10px;
   padding-left: 0;
   display: block;
 }
 
-ul.team li .avatar {
+ul.sidebar_team li .avatar {
   height: 48px;
   width: 48px;
   float: left;
   margin-right: 10px;
 }
 
-ul.team li span.user {
+ul.sidebar_team li span.user {
   line-height: 48px;
   vertical-align: middle;
 }
@@ -372,7 +375,7 @@ ul.team li span.user {
 }
 
 .avatar img,
-ul.team li .avatar {
+ul.sidebar_team li .avatar {
   @include border-radius(4px);
   @include box-shadow(0, 2px, 6px, #000);
 }
