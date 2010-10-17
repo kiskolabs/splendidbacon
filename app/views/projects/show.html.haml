@@ -1,7 +1,7 @@
 #top
   %span.push_1.project_label Project
   %h1.push_1.grid_20= @project.name
-  %a.button.push_2= "Edit"
+  = link_to "Edit", edit_project_path(@project), :class => "button push_2"
 #leftcolumn.push_1.grid_15
   #update
     = simple_form_for [@project, @comment] do |f|
