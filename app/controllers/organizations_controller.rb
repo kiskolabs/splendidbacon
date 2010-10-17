@@ -9,10 +9,12 @@ class OrganizationsController < ApplicationController
   end
 
   def timeline
+    navigation :timeline
     @projects = @organization.projects
   end
 
   def show
+    navigation :dashboard
     if @organization.projects.any?
       no_background!
     end

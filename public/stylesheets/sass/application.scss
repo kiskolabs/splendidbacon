@@ -287,7 +287,8 @@ textarea {
 
 }
 
-.button:hover {
+.button:hover,
+.button.active {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
   @include inset-shadow(0, 1px, 6px, #111);
   color:#fff;
