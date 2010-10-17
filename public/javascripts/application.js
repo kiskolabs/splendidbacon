@@ -17,4 +17,6 @@ jQuery(function() {
   });
   
   $(".relatize").relatizeDate();
+  
+  $(".datepicker").datepicker({ dateFormat: 'd MM yy' });
 });

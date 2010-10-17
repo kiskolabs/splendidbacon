@@ -34,6 +34,22 @@ class Project < ActiveRecord::Base
     self.save
   end
   
+  def human_start
+    self.start.strftime("%d %B %Y")
+  end
+  
+  def human_start=(string)
+    self.start = Kronic.parse(string)
+  end
+  
+  def human_end
+    self.end.strftime("%d %B %Y")
+  end
+  
+  def human_end=(string)
+    self.end = Kronic.parse(string)
+  end
+  
   protected
   
   def generate_api_token
