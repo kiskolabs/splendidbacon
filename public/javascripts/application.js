@@ -1,8 +1,9 @@
-jQuery(function() {
+function ClearForm() {
+  document.new_invitation.invitation_email.value= "";
+}
 
-  function ClearForm() {
-    document.new_invitation.invitation_email.value= "";
-  }
+
+jQuery(function() {
 
 	var organization = $("#organization_nav h1 a").text();
 	$("#organization_nav").hover(function() {

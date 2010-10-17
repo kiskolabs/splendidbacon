@@ -21,7 +21,7 @@
     %ul
       - @organization.memberships && @organization.memberships.each do |member|
         %li.membercell{:id => "member_#{member.id}"}
-          %span.avatar= image_tag(member.user.gravatar_url 48)
+          %span.avatar= image_tag(member.user.gravatar_url(48), :width => 48, :height => 48)
           %span.user
             = member.user.name
             %br/

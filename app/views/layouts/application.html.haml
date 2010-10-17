@@ -2,12 +2,13 @@
 %html
   %head
     %title Splendid Bacon
-    = stylesheet_link_tag "reset", "text", "960_24_col", "jquery-ui", "application", "pictos", :cache => true
+    = stylesheet_link_tag "reset", "text", "960_24_col", "pictos", "jquery-ui", "application", :cache => true
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"
     = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
-    %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }/
+    %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
+    %link{ :rel => "apple-touch-icon-precomposed", :href => "/app-icon.png" } 
   %body
     #header
       .container_24

@@ -1,9 +1,10 @@
 #top
   %span.push_1.project_label Splendid Bacon
   %h1.push_1.grid_20 Accept invitation
-#leftcolumn.push_1.grid_15
+#leftcolumn.push_1.grid_22
 
   = simple_form_for(@invitation) do |f|
-    %p
-      = "You have been invited to the organization: #{@invitation.organization.name}"
-      = f.submit "Accept invitation"
+    %div{:style => "text-align:center;"}
+      %h2{:style => "margin-top:40px;margin-bottom:40px;"}
+        = "You have been invited to the organization: #{@invitation.organization.name}"
+      = f.submit "Accept invitation", :class => "button"
