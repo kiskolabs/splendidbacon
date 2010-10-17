@@ -36,5 +36,6 @@
     - unless flash.empty?
       - flash.each do |key, value|
         %div{:class => "#{key} flash"}= value
-    #content.container_24= yield
+    .container_24{ :id => background? ? "content" : nil }
+      = yield
   

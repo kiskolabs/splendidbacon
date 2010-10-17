@@ -15,4 +15,8 @@ module ApplicationHelper
   def countdown(date_or_time)
     pluralize((date_or_time.to_date - Date.today).to_i, "day")
   end
+
+  def background?
+    !@no_background
+  end
 end
