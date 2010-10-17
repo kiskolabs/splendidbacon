@@ -1,6 +1,9 @@
-%h2= "Accept invitation "
+#top
+  %span.push_1.project_label Splendid Bacon
+  %h1.push_1.grid_20 Accept invitation
+#leftcolumn.push_1.grid_15
 
-= simple_form_for(@invitation) do |f|
-  %p
-    = "You have been invited to the organization: #{@invitation.organization.name}"
-    = f.submit "Accept invitation"
+  = simple_form_for(@invitation) do |f|
+    %p
+      = "You have been invited to the organization: #{@invitation.organization.name}"
+      = f.submit "Accept invitation"
