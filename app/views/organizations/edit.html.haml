@@ -1,27 +1,29 @@
-%h1= "Edit Organization #{@organization.name}"
+#top
+  %h1.push_1.grid_20= "Edit Organization #{@organization.name}"
+  = link_to "Edit Project", edit_project_path(@project), :class => "button right"
+#leftcolumn.push_1.grid_15
+  = simple_form_for(@organization) do |f|
+    = f.input :name, :input_html => {:class => "flip"}
+    = f.submit :class => "button"
 
-= simple_form_for(@organization) do |f|
-  = f.input :name, :input_html => {:class => "flip"}
-  = f.submit :class => "button"
+  %br/
 
-%br/
+  = simple_form_for(@invitation, :html => {:name => "new_invitation"}, :remote => true) do |f|
+    = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden, :class => "flip"
+    = f.input :email, :label => "Invite new member", :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();", :class => "flip", :style => "width:420px;display:inline;" }
+    = f.submit "Send", :class => "button", :style => "display:inline;"
 
-= simple_form_for(@invitation, :html => {:name => "new_invitation"}, :remote => true) do |f|
-  = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden, :class => "flip"
-  = f.input :email, :label => "Invite new member", :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();", :class => "flip", :style => "width:420px;display:inline;" }
-  = f.submit "Send", :class => "button", :style => "display:inline;"
-
-#sent_invitations
+  #sent_invitations
   
-%h2= "People"
+  %h2= "People"
     
-#people
-  - @organization.memberships && @organization.memberships.each do |member|
-    .membercell{:id => "member_#{member.id}"}
-      %span.avatar= image_tag(member.user.gravatar_url 48)
-      %span.user
-        = member.user.name
-        %br/
-        = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
-  .clearfix
-= button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button"
+  #people
+    - @organization.memberships && @organization.memberships.each do |member|
+      .membercell{:id => "member_#{member.id}"}
+        %span.avatar= image_tag(member.user.gravatar_url 48)
+        %span.user
+          = member.user.name
+          %br/
+          = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
+    .clearfix
+  = button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button"

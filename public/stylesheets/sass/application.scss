@@ -184,6 +184,15 @@ textarea {
   -webkit-transition: -webkit-box-shadow 0.25s linear;
 }
 
+#timeline .project.older {
+  border-left: none !important;
+  -webkit-border-top-left-radius: 0 !important;
+  -webkit-border-bottom-left-radius: 0 !important;
+  -moz-border-radius-bottomleft: 0 !important;
+  -moz-border-radius-topleft: 0 !important;
+}
+
+
 #timeline .project:hover {
   @include box-shadow(0, 0px, 10px, #0e84a2);
   -webkit-transition: -webkit-box-shadow 0.25s linear;

@@ -65,4 +65,10 @@ module ProjectsHelper
     end
   end
 
+  def older_class(project)
+    if project.start < first_visible_day
+      "older"
+    end
+  end
+
 end
