@@ -1,0 +1,7 @@
+Hi!
+
+<%= "You have new invitation to organization #{@invitation.organization.name} in Splendid Bacon web service. You can join the organization by clicking the link below:" %>
+<%= invitation_url(@invitation.token) %>
+
+--
+Splendid Bacon is a project management tool for hackers.
