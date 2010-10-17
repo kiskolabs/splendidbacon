@@ -3,14 +3,14 @@
   %h1.push_1.grid_20= @organization.name
 #leftcolumn.push_1.grid_15
   = simple_form_for(@organization) do |f|
-    = f.input :name, :input_html => {:class => "flip"}
+    = f.input :name, :input_html => {:class => "flip"}, :required => false
     = f.submit :class => "button"
 
   %br/
 
   = simple_form_for(@invitation, :html => {:name => "new_invitation"}, :remote => true) do |f|
     = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden, :class => "flip"
-    = f.input :email, :label => "Invite new member", :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();", :class => "flip", :style => "width:420px;display:inline;" }
+    = f.input :email, :label => "Invite new member", :input_html => {:value=>"email@example.com", :onfocus => "ClearForm();", :class => "flip", :style => "width:420px;display:inline;" }, :required => false
     = f.submit "Send", :class => "button", :style => "display:inline;"
 
   #sent_invitations
