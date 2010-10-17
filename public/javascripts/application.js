@@ -117,4 +117,8 @@ jQuery(function() {
     $(this).css({ overflow: "hidden" });
   });
   
+  if ($.browser.webkit) {
+      $('input').attr('autocomplete', 'off');
+  }
+  
 });
