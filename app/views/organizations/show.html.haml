@@ -6,6 +6,8 @@
     %p
       No projects.
       = link_to "Do you want to add one?", new_project_path
-  - @organization.projects && @organization.projects.each do |project|
+  - @organization.projects && @organization.projects.each_with_index do |project, index|
     = render project
+    - if (index + 1) % 2 == 0
+      .clear
 .clearfix
