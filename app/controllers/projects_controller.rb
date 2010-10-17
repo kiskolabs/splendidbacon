@@ -2,16 +2,15 @@ class ProjectsController < ApplicationController
   respond_to :html
 
   before_filter :authenticate_user!
-  before_filter :current_organization
   before_filter :current_project, :only => [:show, :edit, :update, :destroy]
 
   def show
-    @project = @organization.projects.find(params[:id])
     @comment ||= @project.statuses.new
   end
 
   def new
     @project = Project.new(:active => true)
+    @organization = current_organization
   end
 
   def create
@@ -43,15 +42,20 @@ class ProjectsController < ApplicationController
   private
   
   def current_project
-    @project = @organization.projects.find(params[:id])
+    @project = Project.find(params[:id])
+    unless @project.organization.user_ids.include?(current_user.id)
+      raise ActiveRecord::RecordNotFound
+    end
+    @organization = @project.organization
+    cookies[:organization] = @organization.id
   end
 
   def current_organization
-    @organization ||= begin
-      organization = current_user.organizations.find(cookies[:organization])
-      cookies[:organization] = organization.id
-      organization
-    end
+    current_user.organizations.find(cookies[:organization])
+  rescue ActiveRecord::RecordNotFound
+    cookies.delete(:organization)
+    flash[:alert] = "You must choose an organization first!"
+    redirect_to organizations_path
   end
 
 end

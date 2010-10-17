@@ -19,10 +19,10 @@
             %ul.team
               - project.users.each do |user|
                 %li= user.name
-        %p{:class => "right", :style => "font-style:italic"} You can also use left and right arrow keys to move the timeline
     .grid_1.omega
       %a{ :href => "#next" }= image_tag "timeline-arrow-right.png"
     .clear
+    %p{:class => "right pull_1", :style => "font-style:italic"} You can also use left and right arrow keys to move the timeline
 - else
   %p.push_1
     You don't have any projects yet. No timeline for you!

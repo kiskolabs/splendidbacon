@@ -13,7 +13,7 @@ class StatusesController < ApplicationController
     if @comment.save
       flash[:notice] = "Comment saved"
     else
-      flash[:error] = "Comment not saved"
+      flash[:alert] = "Comment not saved"
     end
     
     redirect_to project_path(@project)

@@ -19,15 +19,14 @@
                 #control.pictos.down.button
                 %ul#onav
                   - current_user.organizations && current_user.organizations.sort_by{|p| p.name.downcase}.each do |organization|
-                    - unless @organization == organization
+                    - unless current_organization == organization
                       %li= link_to organization.name, organization
                   %li= link_to "Add Organization", new_organization_path
         #buttons.grid_16
           - if user_signed_in?
-            - if @organization && @organization.id
-              = navigate_to :dashboard, "Dashboard", organization_path(@organization), :class => "button pictos dashboard"
-              = navigate_to :timeline, "Timeline", timeline_organization_path(@organization), :class => "button pictos time"
-             
+            - if current_organization
+              = navigate_to :dashboard, "Dashboard", organization_path(current_organization), :class => "button pictos dashboard"
+              = navigate_to :timeline, "Timeline", timeline_organization_path(current_organization), :class => "button pictos time"
             = navigate_to :account, "Account", edit_user_registration_path, :class => "button pictos account"
             = link_to "New Project", new_project_path, :class => "button pictos new"
             = link_to "Logout", destroy_user_session_path, :class => "logout"
