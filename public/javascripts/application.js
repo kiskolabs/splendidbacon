@@ -49,30 +49,26 @@ jQuery(function() {
   $("input.person").hide();
   
   $(".person label.collection_check_boxes").click(function() {
-    if ($("#" + $(this).attr("for")).attr("checked"))
+    if ($("#" + $(this).attr("for")).attr("checked") == true)
     {
       $(this).removeClass("selected");
-      $("#" + $(this).attr("for")).attr('checked', false);
     }
     else
     {
       $(this).addClass("selected");
-      $("#" + $(this).attr("for")).attr('checked', true);
     }
   });
   
   $("#project_active").hide();
   
   $("label[for=project_active].toggle").click(function() {
-    if ($("#project_active[type=checkbox]").attr("checked"))
+    if ($("#project_active[type=checkbox]").attr("checked") == true)
     {
-      $("#project_active[type=checkbox]").attr('checked', false);
       $(this).removeClass("green").addClass("red");
       $(this).text("On hold");
     }
     else
     {
-      $("#project_active[type=checkbox]").attr('checked', true);
       $(this).addClass("green").removeClass("red");
       $(this).text("Working");
     }
