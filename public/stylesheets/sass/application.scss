@@ -129,6 +129,11 @@ textarea {
   padding-top:10px;
 }
 
+#sidebar h2 {
+  padding:8px 0;
+  @include top-d-border();
+}
+
 #top {
   padding-bottom: 20px;
   height:40px;
@@ -329,7 +334,7 @@ textarea {
 .avatar {
   float:left;
   width:60px;
-  margin-bottom:10px;
+  height:50px;
 }
 
 .avatar img {
@@ -555,14 +560,20 @@ label[for=project_active].toggle:hover {
   font-style:italic;
 }
 
-.notice {
+.notice, .alert {
   width:920px;
-  margin:10px auto;
-  color:#fff;
-  @include border-radius(5px);  
+  margin:-35px auto 0 auto;
+  color:#fff; 
   text-align:center;
   font-size:18px;
-  
+  height:35px;
+  font-weight:normal;
+  text-shadow:0 0px 6px #198ce5;
+  -webkit-transition: text-shadow 0.20s linear;
+}
+
+.alert {
+  text-shadow:0 0px 6px #d61502;
 }
 
 #leftcolumn h2 {
@@ -597,6 +608,10 @@ label[for=project_active].toggle:hover {
 
 .pictos.new:before {
   content: "+";
+}
+
+.pictos.alert:before {
+  content:"!";
 }
 
 .pictos:before {
