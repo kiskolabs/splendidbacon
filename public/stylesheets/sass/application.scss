@@ -21,6 +21,11 @@
   @include box-shadow(0px, 1px, 0px, #444);
 }
 
+@mixin top-d-border () {
+  border-top:1px solid #111;
+  @include box-shadow(0px, -1px, 0px, #444);
+}
+
 html {
   background: url("/images/bg.jpg") repeat;
   color: #fff;
@@ -341,11 +346,10 @@ textarea {
 }
 
 #title {
-  margin-top:20px;
+  margin-top:15px;
 }
 
 #title a {
-  font-size:30px;
   color:#fff;
   text-decoration:none;
 }
@@ -459,12 +463,55 @@ label[for=project_active].toggle:hover {
   background: #181819;
 }
 
-#organization_nav {
-position:absolute;
-left:0px;
-top:0px;
-z-index:200;
+
+#organization_nav li {
+  margin:4px 0;
+  font-size:16px;
+  @include top-d-border();
 }
+
+#organization_nav li a {
+  display:block;
+  padding:4px 2px;
+ text-shadow:0 0px 1px #222;
+ font-weight:bold;
+}
+
+#organization_nav a:hover {
+  color:#fff;
+  text-shadow:0 0px 6px #198ce5;
+  -webkit-transition: text-shadow 0.20s linear;
+
+}
+
+#organization_nav {
+  background:#242426;
+  @include border-radius(5px);
+  padding:5px 10px;
+  border:4px solid #1f1f21;
+  position:relative;
+}
+
+#organization_nav h1 {
+  margin:0 0 0 0;
+  width:180px;
+  overflow:hidden;
+  padding:0;
+}
+
+#organization_nav #control {
+  width:12px;
+  height:18px;
+  right:5px;
+  top:5px;
+  position:absolute;
+}
+
+#organization_nav #control.button {
+  padding:2px 8px 8px 6px;
+}
+
+
 
 .membercell {
   display:inline;
@@ -519,6 +566,10 @@ z-index:200;
 
 .pictos.notice:before {
   content: "3";
+}
+
+.pictos.down:before {
+  content: "}";
 }
 
 .pictos:before {

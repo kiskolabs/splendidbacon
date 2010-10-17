@@ -82,4 +82,20 @@ jQuery(function() {
     window.location = $(this).find("h2 a").attr("href");
     return false;
   });
+  
+
+ $("#onav").hide(); 
+
+ $("#organization_nav #control").click(function () {
+   $(this).next("#onav").slideToggle("fast");
+ });
+ 
+ $("body").click(function () {
+      $("#onav").hide();
+  });
+  $("#organization_nav #control").click(function (e) {
+      e.stopPropagation();
+  });
+  
+
 });
