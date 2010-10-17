@@ -13,7 +13,7 @@
   %h2 Activity
   #activity
     %ol
-      - @project.statuses.each do |status|
+      - @project.statuses.limit(20).each do |status|
         %li.clearfix
           .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
           %div.activity
