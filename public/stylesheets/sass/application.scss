@@ -107,6 +107,7 @@ textarea {
   padding:0 0 40px 0;
   @include border-radius(5px);
   @include box-shadow(0px, 1px, 7px, #111);
+  margin-bottom: 20px;
 }
 
 #top, #update, #sidebar {
