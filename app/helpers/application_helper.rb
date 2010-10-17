@@ -5,6 +5,8 @@ module ApplicationHelper
       "Today"
     elsif date == Date.yesterday
       "Yesterday"
+    elsif date > Date.tomorrow
+      "-"
     else
       "#{(Date.today - date).to_i} days ago"
     end
