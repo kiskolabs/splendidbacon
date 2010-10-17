@@ -59,7 +59,7 @@ module ProjectsHelper
   
   def status_for_project(project)
     if project.active?
-      content_tag :span, "Working", :class => "green"
+      content_tag :span, "Ongoing", :class => "green"
     else
       content_tag :span, "On hold", :class => "red"
     end

@@ -83,7 +83,7 @@ jQuery(function() {
     else
     {
       $(this).addClass("green").removeClass("red");
-      $(this).text("Working");
+      $(this).text("Ongoing");
     }
   });
   
