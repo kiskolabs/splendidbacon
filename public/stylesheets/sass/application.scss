@@ -474,3 +474,27 @@ z-index:200;
   font-size:12px;
   font-style:italic;
 }
+
+/* PICTOS */
+
+.pictos.time:before {
+  content: "t";
+}
+
+.pictos.edit:before {
+  content: "W";
+}
+
+.pictos.account:before {
+  content: "U";
+}
+
+.pictos.dashboard:before {
+  content: ",";
+}
+
+.pictos:before {
+  font-family: "Pictos", sans-serifx;
+  padding-right:3px;
+  font-size:18px;
+}

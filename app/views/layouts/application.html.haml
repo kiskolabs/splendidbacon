@@ -2,11 +2,12 @@
 %html
   %head
     %title Splendid Bacon
-    = stylesheet_link_tag "reset", "text", "960_24_col", "jquery-ui", "application", :cache => true
+    = stylesheet_link_tag "reset", "text", "960_24_col", "jquery-ui", "application", "pictos", :cache => true
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"
     = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
+    
   %body
     #header
       .container_24
@@ -24,9 +25,9 @@
         #buttons.grid_14
           - if user_signed_in?
             - if @organization && @organization.id
-              = link_to "Dashboard", organization_path(@organization), :class => "button"
-              = link_to "Timeline", timeline_organization_path(@organization), :class => "button"
-            = link_to "Account", edit_user_registration_path, :class => "button"
+              = link_to "Dashboard", organization_path(@organization), :class => "button pictos dashboard"
+              = link_to "Timeline", timeline_organization_path(@organization), :class => "button pictos time"
+            = link_to "Account", edit_user_registration_path, :class => "button pictos account"
             = link_to "Logout", destroy_user_session_path, :class => "button"
           - else
             = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"
