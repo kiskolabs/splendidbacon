@@ -325,6 +325,7 @@ textarea {
   background:#222;
   background: url("/images/dark-bg.jpg") repeat;
   border: 1px solid #303030;
+  margin-bottom:20px;
   @include border-radius(5px);
   @include box-shadow(0px, 1px, 7px, #111);
   -webkit-transition:-webkit-box-shadow 0.25s linear;

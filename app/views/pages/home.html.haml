@@ -3,7 +3,10 @@
 %p{:class => "tagline"}
   Project Management for hackers with sprinkle of bacon!
 
-%p= link_to "Signup", new_user_registration_path
+%p
+  = link_to "Login", new_user_session_path, :class => "button"
+  or
+  = link_to "Signup now!", new_user_registration_path, :class => "button"
 
 %p
   Project management software is often overkill. We wanted to make something that was useful, but not painful to use. Splendid Bacon is very simple project management tool.
@@ -21,4 +24,5 @@
   * News feed with:
   ** Github integration
   ** Status updates from project members
-  
+
+= link_to "Signup now!", new_user_registration_path, :class => "button"
