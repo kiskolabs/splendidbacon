@@ -2,6 +2,8 @@
   = f.input :name, :input_html => { :class => "flip" }
   = f.input :human_start, :label => "Start date", :input_html => { :class => "datepicker flip" }, :required => true
   = f.input :human_end, :label => "End date", :input_html => { :class => "datepicker flip" }, :required => true
-  = f.input :active
+  = f.label :active, "Status"
+  = f.check_box :active
+  = f.label :active, (@project.active? ? "Working" : "On hold" ), :class => (@project.active? ? "green" : "red" ) + " toggle"
   = f.association :users, :as => :check_boxes, :label => "People", :input_html => { :class => "person" }, :wrapper_html => { :class => "person" }
   = f.button :submit, :class => "button"

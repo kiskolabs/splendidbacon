@@ -230,7 +230,11 @@ textarea {
 }
 
 .green {
-  color:#87ea23;
+  color:#87ea23 !important;
+}
+
+.red {
+  color:red !important;
 }
 
 .white {
@@ -403,7 +407,8 @@ textarea {
   margin-right:10px;
 }
 
-.person label.collection_check_boxes {
+.person label.collection_check_boxes,
+label[for=project_active].toggle {
   background:#181819;
   @include border-radius(4px);
   padding: 5px 15px;
@@ -416,7 +421,8 @@ textarea {
   display: inline-block;
 }
 
-.person label.collection_check_boxes:hover {
+.person label.collection_check_boxes:hover,
+label[for=project_active].toggle:hover {
   @include box-shadow(0, 0, 5px, #198ce5);
 }
 
