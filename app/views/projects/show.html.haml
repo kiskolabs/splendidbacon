@@ -1,6 +1,6 @@
 #top
   %h1.push_1.grid_20= @project.name
-  = link_to "Edit Project", edit_project_path(@project), :class => "button right"
+  = link_to "Edit Project", edit_project_path(@project), :class => "button pictos edit right"
 #leftcolumn.push_1.grid_15
   #update
     = simple_form_for [@project, @comment] do |f|
