@@ -13,7 +13,6 @@ jQuery(function() {
     if (currentScroll < maxScroll) {
       $("#timeline .project, .month, #today_bar").animate({ left: "-=" + scroll + "px" });
       currentScroll += scroll;
-      console.log(currentScroll);
     }
     return false;
   });
