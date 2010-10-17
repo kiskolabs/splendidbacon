@@ -32,7 +32,7 @@
     %span.green Working
   %p Last Activity
   %div.flip 
-    %span 2 Days ago
+    %span= date_to_words(@project.last_activity)
   %p Countdown
   %div.flip
     %span 19 Days
