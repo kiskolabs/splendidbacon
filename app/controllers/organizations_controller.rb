@@ -15,9 +15,7 @@ class OrganizationsController < ApplicationController
 
   def show
     navigation :dashboard
-    if @organization.projects.any?
-      no_background!
-    end
+    no_background!
   end
   
   def new
