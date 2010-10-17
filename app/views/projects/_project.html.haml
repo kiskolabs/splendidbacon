@@ -18,5 +18,7 @@
     .hr
     .grid_12.lineup
       %ul.team
+        - if project.users.empty?
+          %li -
         - project.users && project.users.each do |user|
           %li= user.name
