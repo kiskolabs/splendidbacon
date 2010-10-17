@@ -398,3 +398,8 @@ textarea {
   float:right;
   margin-right:10px;
 }
+
+/* Override the Datepicker backround */
+.ui-widget-content {
+  background: #181819;
+}
