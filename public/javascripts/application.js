@@ -35,6 +35,12 @@ jQuery(function() {
       return false;
     }
   });
+
+
+  if ($("#inner_timeline").length == 1) {
+    var top = $("#inner_timeline").height() / 2 - $("#outer_timeline a.nav img").height() / 2
+    $("#outer_timeline a.nav").css({ top: top + "px" });
+  }
   
 
   $(".relatize").relatizeDate();

@@ -173,6 +173,10 @@ textarea {
   margin-bottom: 0px;
 }
 
+#outer_timeline .nav {
+  position: relative;
+}
+
 #outer_timeline #months {
   height: 32px;
   border-bottom: 1px solid #515254;
@@ -206,7 +210,6 @@ textarea {
   @include border-radius(5px);
   border-bottom:1px solid #444;
 }
-
 
 #timeline .project {
   position: relative;
