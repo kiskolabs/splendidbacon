@@ -3,7 +3,7 @@
   = f.input :human_start, :label => "Start date", :input_html => { :class => "datepicker flip" }
   = f.input :human_end, :label => "End date", :input_html => { :class => "datepicker flip" }
   .input.optional
-    = f.label :status, "Status"
+    %label Status
     = f.check_box :active
     = f.label :active, (@project.active? ? "Working" : "On hold" ), :class => (@project.active? ? "green" : "red" ) + " toggle"
   = f.association :users, :collection => @organization.users, :as => :check_boxes, :label => "People", :input_html => { :class => "person" }, :wrapper_html => { :class => "person" }

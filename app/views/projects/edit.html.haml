@@ -4,3 +4,15 @@
   
 #leftcolumn.push_1.prepend-1.grid_15
   = render "form"
+
+.push_1.prepend-1.grid_15
+  %h2 GitHub Post-Receive Hook
+  %p You can use this to automatically post Git commit messages to the project page.
+  %ol
+    %li Copy the post-receive hook URL from below
+    %li Go to your project's repository administration page on GitHub
+    %li Choose "Service hooks"
+    %li Add a new post-receive URL
+  :textile
+    More information can be found in GitHub's "Post-Receive Guide":http://help.github.com/post-receive-hooks/
+  %input.flip.grid_15{:type => :text, :style => "text-transform: none;", :value => github_api_v1_project_url(@project)}
