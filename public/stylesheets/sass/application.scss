@@ -173,6 +173,14 @@ textarea {
   margin-bottom: 0px;
 }
 
+#outer_timeline .nav {
+  position: relative;
+}
+
+#outer_timeline .nav.left {
+  left: 12px;
+}
+
 #outer_timeline #months {
   height: 32px;
   border-bottom: 1px solid #515254;
@@ -206,7 +214,6 @@ textarea {
   @include border-radius(5px);
   border-bottom:1px solid #444;
 }
-
 
 #timeline .project {
   position: relative;
@@ -252,18 +259,45 @@ textarea {
   font-weight:bold;
 }
 
-.team {
+.team,
+.sidebar_team {
   margin:0;
   list-style:none;
   padding:0 15px;
   opacity:0.8;
 }
 
-.team li {
+.team li,
+.sidebar_team {
   background:url("/images/user-icon.png") no-repeat 0 2px;
   margin:0;
   padding-left:16px;
   display:inline;
+}
+
+ul.sidebar_team {
+  padding: 0;
+  margin: 0;
+  opacity: 1.0 !important;
+}
+
+ul.sidebar_team li {
+  background: none;
+  margin-bottom: 10px;
+  padding-left: 0;
+  display: block;
+}
+
+ul.sidebar_team li .avatar {
+  height: 48px;
+  width: 48px;
+  float: left;
+  margin-right: 10px;
+}
+
+ul.sidebar_team li span.user {
+  line-height: 48px;
+  vertical-align: middle;
 }
 
 .flip {
@@ -340,7 +374,8 @@ textarea {
   height:50px;
 }
 
-.avatar img {
+.avatar img,
+ul.sidebar_team li .avatar {
   @include border-radius(4px);
   @include box-shadow(0, 2px, 6px, #000);
 }

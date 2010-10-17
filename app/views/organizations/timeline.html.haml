@@ -5,8 +5,8 @@
 - if @projects.any?
   #outer_timeline
     .grid_1
-      %a{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
-    .grid_22#inner_timeline
+      %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
+    #inner_timeline.grid_22
       #outer_months
         #months{ :style => "width: #{timeline_width(@projects)}px;" }
           = months(@projects)
@@ -21,7 +21,7 @@
                 - project.users.each do |user|
                   %li= user.name
     .grid_1.omega
-      %a{ :href => "#next" }= image_tag "timeline-arrow-right.png"
+      %a.nav{ :href => "#next" }= image_tag "timeline-arrow-right.png"
     .clear
     %p{:class => "right pull_1", :style => "font-style:italic"} You can also use left and right arrow keys to move the timeline
 - else
