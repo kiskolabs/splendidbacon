@@ -24,6 +24,14 @@ module ApplicationHelper
   def background?
     !@no_background
   end
+  
+  def gravatar_url_for_user(user, size = 48)
+    if user.present?
+      user.gravatar_url(size)
+    else
+      "/images/default.png"
+    end
+  end
 
   def current_organization
     return @current_organization if @current_organization

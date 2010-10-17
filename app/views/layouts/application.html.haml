@@ -15,7 +15,7 @@
           - if user_signed_in?
             - if current_organization && current_organization.id
               #organization_nav
-                %h1= link_to current_organization.name, edit_organization_path(current_organization), :title => "Click to edit"
+                %h1= link_to current_organization.name, edit_organization_path(current_organization), :style => "display:block;"
                 #control.pictos.down.button
                 %ul#onav
                   - current_user.organizations && current_user.organizations.sort_by{|p| p.name.downcase}.each do |organization|
@@ -49,4 +49,9 @@
         pageTracker._setDomainName("none");
         pageTracker._setAllowLinker(true);
         pageTracker._trackPageview();
+        } catch(err) {}
+      %script{ :type => "text/javascript", :src => "http://include.reinvigorate.net/re_.js" }
+      :javascript
+        try {
+        reinvigorate.track("70m85-chv7dyyg60");
         } catch(err) {}

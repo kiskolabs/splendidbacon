@@ -4,9 +4,16 @@ jQuery(function() {
     document.new_invitation.invitation_email.value= "";
   }
 
+	var organization = $("#organization_nav h1 a").text();
+	$("#organization_nav").hover(function() {
+		$(this).find("a:first").text("Edit");
+	}, function() {
+		$(this).find("a:first").text(organization);
+	});
+
 
   var scroll = 448;
-  var maxScroll = $("#months").width() - $("#timeline").width();
+  var maxScroll = $("#months").width() - $("#timeline").width() - 870;
   var currentScroll = 0;
 
   $("a[href='#next']").click(function() {
@@ -35,6 +42,12 @@ jQuery(function() {
       return false;
     }
   });
+
+
+  if ($("#inner_timeline").length == 1) {
+    var top = $("#inner_timeline").height() / 2 - $("#outer_timeline a.nav img").height() / 2
+    $("#outer_timeline a.nav").css({ top: top + "px" });
+  }
   
 
   $(".relatize").relatizeDate();

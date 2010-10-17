@@ -1,26 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
-
-<body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-    <p>We've been notified about this issue and we'll take a look at it shortly.</p>
-  </div>
-</body>
+<!DOCTYPE html> 
+<html lang='en'> 
+  <head> 
+    <meta content='text/html; charset=utf-8' http-equiv='content-type' /> 
+    <title>500 something went wrong</title> 
+    <style type="text/css" media="screen"> 
+      /* Reset */
+      html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+ 
+      /* Actual styles */
+      body, html {
+        background: #1f1f1f;
+        font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+        color: #fff;
+        height: 100%;
+        width: 100%;
+        font-size: 16px;
+      }
+      
+      h1 {
+        font-size: 41px;
+      }
+      
+      a, a:hover, a:visited, a:active {
+        color: #fff;
+        border-bottom: 1px dotted #fff;
+        text-decoration: none;
+      }
+      
+      #meantime {
+        font-style: italic;
+        font-weight: normal;
+      }
+      
+      #container {
+        width: 690px;
+        margin: 0 auto 0 auto;
+        position: relative;
+        top: 33%;
+      }
+      
+      img {
+        float: left;
+      }
+      
+      h1, p {
+        float: left;
+        margin-left: 50px;
+      }
+      
+      p {
+        margin-top: 23px;
+      }
+    </style> 
+  </head> 
+  <body> 
+    <div id="container"> 
+      <a href="http://kiskolabs.com/"> 
+        <img id="logo" src="/images/kisko_labs.png" alt="Kisko Labs" /> 
+      </a> 
+      <h1> 
+        500 <em>We're sorry, but something went wrong</em>
+      </h1> 
+      <p id="meantime">We have been notified about this problem. Try again navigating from <a href="/">the frontpage</a></p> 
+    </div> 
+  </body> 
 </html>
