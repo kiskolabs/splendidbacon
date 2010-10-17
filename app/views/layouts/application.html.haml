@@ -25,6 +25,7 @@
               = link_to "Dashboard", organization_path(@organization), :class => "button"
               = link_to "Timeline", timeline_organization_path(@organization), :class => "button"
             = link_to "Organizations", organizations_path, :class => "button"
+            = link_to "Account", edit_user_registration_path, :class => "button"
             = link_to "Logout", destroy_user_session_path, :class => "button"
           - else
             = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"

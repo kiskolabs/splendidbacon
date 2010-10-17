@@ -1,8 +1,6 @@
+= link_to "Edit this organization", edit_organization_path(@organization), :class => "button right"
 #dashboard
   .clearfix
   - @organization.projects && @organization.projects.each do |project|
     = render project
-        
-%p
-  =  @organization.name
-  = link_to "Edit", edit_organization_path(@organization)
+.clearfix
