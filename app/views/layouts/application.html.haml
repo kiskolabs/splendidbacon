@@ -20,6 +20,7 @@
                 - current_user.organizations && current_user.organizations.each do |organization|
                   - unless @organization == organization
                     %li= link_to organization.name, organization
+                %li= link_to "Add Organization", new_organization_path
         #buttons.grid_14
           - if user_signed_in?
             - if @organization && @organization.id
