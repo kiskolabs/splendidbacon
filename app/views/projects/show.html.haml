@@ -21,10 +21,7 @@
             %span= status.user.name if status.user
             %span.relatize= status.created_at.httpdate
             %span.white
-              - if status.link.present?
-                = link_to status.source, status.link
-              - else
-                = status.source
+              = link_to "via #{status.source}", status.link if status.link.present?
 
 #sidebar.grid_7.push_2
   %p Status
