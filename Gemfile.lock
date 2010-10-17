@@ -43,7 +43,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
-    childprocess (0.0.9)
+    childprocess (0.1.0)
       ffi (~> 0.6.3)
     configuration (1.1.0)
     cucumber (0.9.2)

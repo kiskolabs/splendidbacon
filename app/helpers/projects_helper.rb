@@ -29,8 +29,10 @@ module ProjectsHelper
     content       = "".html_safe
     current_date  = first_visible_day.next_month
     first_month   = true
+    pixels        = 0
+    total_pixels  = timeline_width(projects)
 
-    while current_date < final_date
+    while pixels < total_pixels
       days  = current_date.end_of_month.day
       width = days * 8 - 1 - 10
       style = "width: #{width}px;"
@@ -40,12 +42,19 @@ module ProjectsHelper
         style << "margin-left: #{left}px;"
         first_month = false
       end
-
-      content << content_tag(:div, current_date.strftime("%B"), :style => style, :class => "month")
+      
+      if (pixels + width) < total_pixels
+        content << content_tag(:div, current_date.strftime("%B %Y"), :style => style, :class => "month")
+      end
       current_date = current_date.next_month
+      pixels += width
     end
 
     content
+  end
+
+  def timeline_width(projects)
+    (projects.map(&:end).max - first_visible_day).to_i * 8 / 870 * 870 + 870
   end
   
   def status_for_project(project)

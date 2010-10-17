@@ -4,7 +4,8 @@
       %a{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
     .grid_22
       #outer_months
-        #months= months(@projects)
+        #months{ :style => "width: #{timeline_width(@projects)}px;" }
+          = months(@projects)
       .clear
       #timeline
         #today_bar{ :style => "left: #{today_left_margin}px;" }
@@ -19,12 +20,3 @@
     .clear
 - else
   %p You don't have any projects yet. No timeline for you!
-
-:css
-  #months {
-    width: 9999px;
-  }
-
-  #outer_months {
-    overflow: hidden;
-  }
