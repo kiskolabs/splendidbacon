@@ -8,8 +8,14 @@ class StatusesController < ApplicationController
     @comment.source = "Comment"
     @comment.user = current_user
     @comment.link = nil
-    flash[:notice] = "Comment saved" if @comment.save
-    respond_with @comment, :location => project_path(@project)
+    
+    if @comment.save
+      flash[:notice] = "Comment saved"
+    else
+      flash[:error] = "Comment not saved"
+    end
+    
+    redirect_to project_path(@project)
   end
   
   private
