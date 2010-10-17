@@ -3,8 +3,8 @@ app_name    "splendidbacon"
 rvm_ruby    "1.9.2"
 
 environment :production do
-  server    "splendidbacon.r10.railsrumble.com"
-  app_url   "splendidbacon.r10.railsrumble.com"
+  server    "splendidbacon.com"
+  app_url   "splendidbacon.com"
 end
 
 on_deploy do
