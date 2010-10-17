@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   validates_date :end, :on_or_after => :start, :on_or_after_message => "cannot be before the start date."
   
   def last_activity
-    status=self.statuses.order(:created_at).select(:created_at).last
+    status=self.statuses.select(:created_at).last
     if status.nil?
       return self.start
     else
