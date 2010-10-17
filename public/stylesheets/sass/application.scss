@@ -69,6 +69,11 @@ div.input {
   margin-top:20px;
 }
 
+
+.field_with_errors input {
+  @include inset-shadow(0, 0, 5px, #ff0000);
+}
+
 #footerlinks {margin-top:20px;}
 #footerlinks a {margin:20px 20px 0 0; color:#999;}
 
