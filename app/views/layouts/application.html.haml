@@ -15,7 +15,7 @@
           - if user_signed_in?
             - if current_organization && current_organization.id
               #organization_nav
-                %h1= link_to @organization.name, edit_organization_path(@organization)
+                %h1= link_to current_organization.name, edit_organization_path(current_organization)
                 #control.pictos.down.button
                 %ul#onav
                   - current_user.organizations && current_user.organizations.sort_by{|p| p.name.downcase}.each do |organization|
