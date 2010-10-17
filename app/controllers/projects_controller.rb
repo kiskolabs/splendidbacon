@@ -17,6 +17,8 @@ class ProjectsController < ApplicationController
   def create
     @project = current_organization.projects.new(params[:project])
     if @project.save
+      status = @project.statuses.new(:user_id => current_user.id, :text => "Project created", :source => "Comment")
+      status.save
       flash[:notice] = "Project was successfully created."
     end
     respond_with @project

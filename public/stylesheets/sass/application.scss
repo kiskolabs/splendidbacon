@@ -150,6 +150,10 @@ textarea {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#111), to(#222));
 }
 
+#outer_months {
+  overflow: hidden;
+}
+
 #months .month {
   position: relative;
   color: #fff;
@@ -397,4 +401,16 @@ textarea {
 .right {
   float:right;
   margin-right:10px;
+}
+
+/* Override the Datepicker backround */
+.ui-widget-content {
+  background: #181819;
+}
+
+#organization_nav {
+position:absolute;
+left:0px;
+top:0px;
+z-index:200;
 }

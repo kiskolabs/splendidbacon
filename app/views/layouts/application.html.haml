@@ -20,12 +20,12 @@
                 - current_user.organizations && current_user.organizations.each do |organization|
                   - unless @organization == organization
                     %li= link_to organization.name, organization
+                %li= link_to "Add Organization", new_organization_path
         #buttons.grid_14
           - if user_signed_in?
             - if @organization && @organization.id
               = link_to "Dashboard", organization_path(@organization), :class => "button"
               = link_to "Timeline", timeline_organization_path(@organization), :class => "button"
-            = link_to "Organizations", organizations_path, :class => "button"
             = link_to "Account", edit_user_registration_path, :class => "button"
             = link_to "Logout", destroy_user_session_path, :class => "button"
           - else
