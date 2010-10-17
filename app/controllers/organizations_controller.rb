@@ -13,6 +13,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    no_background!
   end
   
   def new
