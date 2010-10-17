@@ -4,6 +4,13 @@ jQuery(function() {
     document.new_invitation.invitation_email.value= "";
   }
 
+	var organization = $("#organization_nav h1 a").text();
+	$("#organization_nav").hover(function() {
+		$(this).find("a:first").text("Edit");
+	}, function() {
+		$(this).find("a:first").text(organization);
+	});
+
 
   var scroll = 448;
   var maxScroll = $("#months").width() - $("#timeline").width();
