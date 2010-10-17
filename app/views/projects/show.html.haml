@@ -37,8 +37,11 @@
   %div.flip
     %span= countdown(@project.end)
   %h2 Team
-  - @project.users.each do |user|
-    %span.avatar= image_tag user.gravatar_url 48
-    %span.user= user.name
-    .clearfix
+  %ul.team
+    - @project.users.each do |user|
+      %li
+        .avatar{:style => "background: url(#{user.gravatar_url(48)});"}
+        %span.user.white= user.name
+        .clear
+  .clearfix
 .clear
