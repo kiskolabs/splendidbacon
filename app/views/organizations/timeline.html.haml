@@ -15,10 +15,11 @@
         #today_bar{ :style => "left: #{today_left_margin}px;" }
         - @projects.each do |project|
           .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project) }
-            .name= link_to project.name, project_path(project)
-            %ul.team
-              - project.users.each do |user|
-                %li= user.name
+            .inner
+              .name= link_to project.name, project_path(project)
+              %ul.team
+                - project.users.each do |user|
+                  %li= user.name
     .grid_1.omega
       %a{ :href => "#next" }= image_tag "timeline-arrow-right.png"
     .clear
