@@ -403,6 +403,27 @@ textarea {
   margin-right:10px;
 }
 
+.person label.collection_check_boxes {
+  background:#181819;
+  @include border-radius(4px);
+  padding: 5px 15px;
+  margin: 5px;
+  font-size: 17px;
+  text-transform:none;
+  border:1px solid #0d0e0e;
+  border-bottom:1px solid #333436;
+  color:#fff;
+  display: inline-block;
+}
+
+.person label.collection_check_boxes:hover {
+  @include box-shadow(0, 0, 5px, #198ce5);
+}
+
+.person label.collection_check_boxes.selected {
+  @include box-shadow(0, 0, 8px, #198ce5);
+}
+
 /* Override the Datepicker backround */
 .ui-widget-content {
   background: #181819;
