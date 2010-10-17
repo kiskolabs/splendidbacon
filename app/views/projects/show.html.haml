@@ -36,8 +36,9 @@
   %p Countdown
   %div.flip
     %span= countdown(@project.end)
-  %h2 Team
+  %h2{:class => "team"} Team
   - @project.users.each do |user|
     %span.avatar= image_tag user.gravatar_url 48
     %span.user= user.name
+    .clearfix
 .clear

@@ -30,4 +30,18 @@ module ApplicationHelper
     cookies.delete(:organization)
     nil
   end
+
+  def navigate_to(identifier, *args)
+    if @navigation_id == identifier
+      args[2] ||= {}  
+
+      if classes = args[2][:class]
+        classes << " active"
+      else
+        args[2].merge!({ :class => "active" })
+      end
+    end
+    
+    link_to(*args)
+  end
 end

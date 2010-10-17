@@ -49,14 +49,12 @@ jQuery(function() {
   $("input.person").hide();
   
   $(".person label.collection_check_boxes").click(function() {
-    if ($(this).hasClass("selected"))
+    if ($("#" + $(this).attr("for")).attr("checked") == true)
     {
-      $("#" + $(this).attr("for")).attr("value", "0");
       $(this).removeClass("selected");
     }
     else
     {
-      $("#" + $(this).attr("for")).attr("value", "1");
       $(this).addClass("selected");
     }
   });
@@ -64,15 +62,13 @@ jQuery(function() {
   $("#project_active").hide();
   
   $("label[for=project_active].toggle").click(function() {
-    if ($(this).hasClass("green"))
+    if ($("#project_active[type=checkbox]").attr("checked") == true)
     {
-      $("#" + $(this).attr("for")).attr("value", "0");
       $(this).removeClass("green").addClass("red");
       $(this).text("On hold");
     }
     else
     {
-      $("#" + $(this).attr("for")).attr("value", "1");
       $(this).addClass("green").removeClass("red");
       $(this).text("Working");
     }

@@ -292,7 +292,8 @@ textarea {
 
 }
 
-.button:hover {
+.button:hover,
+.button.active {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#222));
   @include inset-shadow(0, 1px, 6px, #111);
   color:#fff;
@@ -314,6 +315,7 @@ textarea {
 .avatar {
   float:left;
   width:60px;
+  margin-bottom:10px;
 }
 
 .avatar img {
@@ -577,4 +579,8 @@ label[for=project_active].toggle:hover {
   padding-right:3px;
   font-size:18px;
   line-height:1px;
+}
+
+.team {
+  margin-bottom:10px;
 }
