@@ -1,3 +1,7 @@
+#top
+  %span.push_1.project_label= @organization.name
+  %h1.push_1.grid_20 Timeline
+
 - if @projects.any?
   #outer_timeline
     .grid_1
@@ -19,4 +23,7 @@
       %a{ :href => "#next" }= image_tag "timeline-arrow-right.png"
     .clear
 - else
-  %p You don't have any projects yet. No timeline for you!
+  %p
+    You don't have any projects yet. No timeline for you!
+    = link_to "Create a project", new_project_path
+  
