@@ -33,7 +33,6 @@ GEM
       activesupport (~> 3.0.0)
     autotest (4.4.1)
     autotest-growl (0.2.6)
-    awesome_print (0.2.1)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     capybara (0.3.9)
@@ -145,7 +144,6 @@ DEPENDENCIES
   RedCloth
   autotest
   autotest-growl
-  awesome_print
   capybara
   cucumber-rails
   devise
