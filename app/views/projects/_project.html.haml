@@ -7,8 +7,7 @@
         .grid_4
           %p Last Activity
           %div.flip
-            %span.relatize= project.last_activity.httpdate
-            %span Days ago
+            %span= "#{date_to_words(project.last_activity)}"
         .grid_4
           %p Countdown
           %div.flip
