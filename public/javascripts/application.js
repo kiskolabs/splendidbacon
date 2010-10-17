@@ -72,9 +72,13 @@ jQuery(function() {
       $(this).text("Working");
     }
   });
+  
+  $("#post-receive").click(function() {
+    $(this).focus().select();
+  });
 
-  $(".projectcontent").click(function() {
-    window.location = $(this).find("h2 a").attr("href");
+  $(".projectcontent, #timeline .project").click(function() {
+    window.location = $(this).find("a").attr("href");
     return false;
   });
   

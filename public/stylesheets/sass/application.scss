@@ -220,6 +220,7 @@ textarea {
   @include border-radius(5px);
   @include box-shadow(0, 2px, 6px, #000);
   -webkit-transition: -webkit-box-shadow 0.25s linear;
+  cursor: pointer;
 }
 
 #timeline .project.older {
@@ -623,4 +624,13 @@ label[for=project_active].toggle:hover {
 
 .team {
   margin-bottom:10px;
+}
+
+#timeline a:hover {
+  color: #fff;
+}
+
+#post-receive {
+  text-transform: none;
+  font-size: 16px;
 }
