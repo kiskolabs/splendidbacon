@@ -6,5 +6,5 @@
     = f.label :status, "Status"
     = f.check_box :active
     = f.label :active, (@project.active? ? "Working" : "On hold" ), :class => (@project.active? ? "green" : "red" ) + " toggle"
-  = f.association :users, :as => :check_boxes, :label => "People", :input_html => { :class => "person" }, :wrapper_html => { :class => "person" }
+  = f.association :users, :collection => @organization.users, :as => :check_boxes, :label => "People", :input_html => { :class => "person" }, :wrapper_html => { :class => "person" }
   = f.button :submit, :class => "button"
