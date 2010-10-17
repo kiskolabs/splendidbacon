@@ -14,8 +14,6 @@
         #title.grid_6
           - if user_signed_in?
             #organization_nav
-              = simple_form_for :link do |f|
-                = f.collection_select :jump, current_user.organizations.map { |org| [organization_path(org), org.name] }, :first, :last
               %ul
                 - if current_organization && current_organization.id
                   %li 
