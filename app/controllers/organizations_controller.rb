@@ -23,8 +23,11 @@ class OrganizationsController < ApplicationController
     if @organization.save
       Membership.create!(:user_id => current_user.id, :organization_id => @organization.id)
       flash[:notice] = "Organization was successfully created."
+      redirect_to edit_organization_path(@organization)
+    else
+      respond_with(@organization)
     end
-    respond_with @organization
+    
   end
   
   def edit
@@ -41,7 +44,8 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     flash[:notice] = "Organization was successfully deleted."
-    respond_with @organization
+    cookies.delete(:organization)
+    redirect_to root_path
   end
   
   private

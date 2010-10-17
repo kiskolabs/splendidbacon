@@ -4,9 +4,8 @@ Feature: Invites
   Scenario: Creating a new invite
     Given I am authenticated as "userx@example.com"
     And I am part of "Company X" organization
-    When I go to organizations page
+    When I go to "Company X" organization page
     And I follow "Company X"
-    And I follow "Edit"
     And I fill in "invitation_email" with "user2@example.com"
     And I press "Send"
     Then I should see "Invitation sent to user2@example.com"
@@ -29,9 +28,8 @@ Feature: Invites
     Given I am authenticated as "userx@example.com"
     And I am part of "Company X" organization
     And user "dedede@dede.de" exists with access to organization "Company X" and project "Project Y"
-    When I go to organizations page
+    When I go to "Company X" organization page
     And I follow "Company X"
-    And I follow "Edit"
     And I click the last remove button
     Then I should see "User removed"
     And user "dedede@dede.de" should not have access to organization "Company X"

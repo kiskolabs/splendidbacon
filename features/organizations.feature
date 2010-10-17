@@ -11,9 +11,8 @@ Feature: Users can do bunch of stuff with organizations
   Scenario: Member can edit an organization
     Given I am authenticated as "userx@example.com"
     And I am part of "Company X" organization
-    When I go to organizations page
+    When I go to "Company X" organization page
     And follow "Company X"
-    And follow "Edit"
     And fill in "Name" with "Company Z"
     And press "Update Organization"
     Then I should see "Organization was successfully updated"
@@ -22,9 +21,8 @@ Feature: Users can do bunch of stuff with organizations
   Scenario: Member can destroy an organization
     Given I am authenticated as "userx@example.com"
     And I am part of "Company X" organization
-    When I go to organizations page
+    When I go to "Company X" organization page
     And follow "Company X"
-    And follow "Edit"
     And I press "Delete"
     Then I should see "Organization was successfully deleted"
     And I should not see "Company X"
