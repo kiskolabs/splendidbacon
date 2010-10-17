@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :participations
   
   def gravatar_url(size = 64)
-    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=#{size.to_i}&d=identicon"
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=#{size.to_i}&d=#{CGI::escape("http://splendidbacon.r10.railsrumble.com/images/default.png")}"
   end
 
   def create_demo_data

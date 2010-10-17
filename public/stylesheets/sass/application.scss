@@ -284,7 +284,8 @@ ul.sidebar_team li {
   display: block;
 }
 
-ul.sidebar_team li .avatar {
+ul.sidebar_team li .avatar,
+#activity li .avatar {
   height: 48px;
   width: 48px;
   float: left;
@@ -371,7 +372,8 @@ ul.sidebar_team li span.user {
 }
 
 .avatar img,
-ul.sidebar_team li .avatar {
+ul.sidebar_team li .avatar,
+#activity li .avatar {
   @include border-radius(4px);
   @include box-shadow(0, 2px, 6px, #000);
 }
