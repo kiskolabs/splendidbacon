@@ -60,6 +60,23 @@ jQuery(function() {
       $(this).addClass("selected");
     }
   });
+  
+  $("#project_active").hide();
+  
+  $("label[for=project_active].toggle").click(function() {
+    if ($(this).hasClass("green"))
+    {
+      $("#" + $(this).attr("for")).attr("value", "0");
+      $(this).removeClass("green").addClass("red");
+      $(this).text("On hold");
+    }
+    else
+    {
+      $("#" + $(this).attr("for")).attr("value", "1");
+      $(this).addClass("green").removeClass("red");
+      $(this).text("Working");
+    }
+  });
 
   $(".projectcontent").click(function() {
     window.location = $(this).find("h2 a").attr("href");
