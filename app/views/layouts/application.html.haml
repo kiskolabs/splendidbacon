@@ -13,15 +13,15 @@
       .container_24
         #title.grid_6
           - if user_signed_in?
-            #organization_nav
-              - if current_organization && current_organization.id
-              %h1= link_to @organization.name, @organization
-              #control.pictos.down.button
-              %ul#onav
-                - current_user.organizations && current_user.organizations.each do |organization|
-                  - unless @organization == organization
-                    %li= link_to organization.name, organization
-                %li= link_to "Add Organization", new_organization_path
+            - if current_organization && current_organization.id
+              #organization_nav
+                %h1= link_to @organization.name, @organization
+                #control.pictos.down.button
+                %ul#onav
+                  - current_user.organizations && current_user.organizations.each do |organization|
+                    - unless @organization == organization
+                      %li= link_to organization.name, organization
+                  %li= link_to "Add Organization", new_organization_path
         #buttons.grid_14
           - if user_signed_in?
             - if @organization && @organization.id

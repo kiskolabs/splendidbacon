@@ -2,7 +2,7 @@ Feature: Users can do bunch of stuff with organizations
 
   Scenario: User can add an organization
     Given I am authenticated as "userx@example.com"
-    When I follow "Add Organization"
+    When I go to new organization page
     And fill in "Name" with "My Company"
     And press "Create Organization"
     Then I should see "Organization was successfully created"
