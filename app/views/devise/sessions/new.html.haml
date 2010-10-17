@@ -1,8 +1,11 @@
-%h1 Sign in
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  = f.input :email, :input_html => {:class => "flip", :style => "width:370px"}
-  = f.input :password, :input_html => {:class => "flip"}
-  - if devise_mapping.rememberable?
-    = f.input :remember_me, :as => :boolean, :input_html => {:class => "flip"}
-  = f.button :submit, "Sign in", :class => "button"
-= render :partial => "devise/shared/links"
+#top
+  %span.push_1.project_label Splendid Bacon
+  %h1.push_1.grid_20 Sign in
+#leftcolumn.push_1.grid_15
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = f.input :email, :input_html => {:class => "flip", :style => "width:370px"}
+    = f.input :password, :input_html => {:class => "flip"}
+    - if devise_mapping.rememberable?
+      = f.input :remember_me, :as => :boolean, :input_html => {:class => "flip"}
+    = f.button :submit, "Sign in", :class => "button"
+  = render :partial => "devise/shared/links"

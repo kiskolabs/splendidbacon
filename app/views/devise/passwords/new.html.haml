@@ -1,5 +1,8 @@
-%h1 Forgot your password?
-= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-  = f.input :email, :input_html => {:class => "flip"}
-  = f.button :submit, "Send me password reset instructions", :class => "button"
-= render :partial => "devise/shared/links"
+#top
+  %span.push_1.project_label Password
+  %h1.push_1.grid_20 Forgot your password
+#leftcolumn.push_1.grid_15
+  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+    = f.input :email, :input_html => {:class => "flip"}
+    = f.button :submit, "Send me password reset instructions", :class => "button"
+  = render :partial => "devise/shared/links"
