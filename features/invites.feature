@@ -8,7 +8,7 @@ Feature: Invites
     And I follow "Company X"
     And I follow "Edit"
     And I fill in "invitation_email" with "user2@example.com"
-    And I press "Invite"
+    And I press "Send"
     Then I should see "Invitation sent to user2@example.com"
 
   Scenario: Accepting an invite as an user
