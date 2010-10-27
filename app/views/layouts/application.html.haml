@@ -33,7 +33,10 @@
             = link_to "New Project", new_project_path, :class => "button pictos new"
             = link_to "Logout", destroy_user_session_path, :class => "logout"
           - else
-            = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"
+            - if controller.controller_name == "sessions" && controller.action_name == "new"
+              = link_to "Sign up", new_user_registration_path, :class => "button", :style => "float:right"
+            - else
+              = link_to "Login", new_user_session_path, :class => "button", :style => "float:right"
         #logo.grid_2.omega
           = link_to image_tag("header-logo.png"), root_path
     - unless flash.empty?
