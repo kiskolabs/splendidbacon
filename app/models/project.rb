@@ -12,12 +12,8 @@ class Project < ActiveRecord::Base
   validates_date :end, :on_or_after => :start, :on_or_after_message => "cannot be before the start date."
   
   def last_activity
-    status=self.statuses.select(:created_at).last
-    if status.nil?
-      return self.start
-    else
-      return status.created_at
-    end
+    status = self.statuses.select(:created_at).first
+    status.nil? ? self.start.to_time_in_current_zone : status.created_at
   end
   
   def regenerate_api_token
