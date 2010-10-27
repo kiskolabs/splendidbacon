@@ -16,3 +16,8 @@
   :textile
     More information can be found in GitHub's "Post-Receive Guide":http://help.github.com/post-receive-hooks/
   %input#post-receive.flip.grid_15{:type => :text, :value => github_api_v1_project_url(@project, :token => @project.api_token), :readonly => "readonly"}
+  
+.push_1.prepend-1.grid_15
+  %h2 Destroy this project
+  %p If you are absolutely sure (there is no undo), you can destroy this project by clicking the button below.
+  = button_to "Destroy this project!", { :action => :destroy, :id => @project.id }, :class => "button", :confirm => "Are you sure you want to destroy this project?", :method => :delete

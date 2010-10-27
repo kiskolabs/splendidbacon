@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
-  has_many :participations
+  has_many :participations, :dependent => :destroy
   has_many :users, :through => :participations
   belongs_to :organization
-  has_many :statuses
+  has_many :statuses, :dependent => :destroy
   
   before_create :generate_api_token
   
