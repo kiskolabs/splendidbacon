@@ -1,7 +1,17 @@
 class Api::V1::ProjectsController < Api::BaseController
-  respond_to :json
+  respond_to :json, :xml
   
   before_filter :current_project, :only => [:github]
+  
+  def index
+    organization = current_user.organizations.find(params[:organization_id])
+    respond_with(@projects = organization.projects)
+  end
+  
+  def show
+    organization = current_user.organizations.find(params[:organization_id])
+    respond_with(@project = organization.projects.find(params[:id]))
+  end
   
   def github
     payload = JSON.parse params["payload"]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017184343) do
+ActiveRecord::Schema.define(:version => 20101103190453) do
 
   create_table "invitations", :force => true do |t|
     t.integer  "organization_id"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20101017184343) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

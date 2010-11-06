@@ -22,6 +22,12 @@ SplendidBacon::Application.routes.draw do
       resources :projects, :only => [] do
         post :github, :on => :member
       end
+      
+      authenticate :user do
+        resources :organizations, :only => [:index, :show] do
+          resources :projects, :only => [:index, :show]
+        end
+      end
     end
   end
 
