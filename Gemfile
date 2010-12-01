@@ -18,13 +18,13 @@ group :production do
 end
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0.1"
+  gem "rspec-rails", "~> 2.2.0"
 end
 
 group :test do
-  gem "cucumber-rails"
-  gem "factory_girl_rails"
-  gem "capybara"
+  gem "cucumber-rails", :git => "git://github.com/aslakhellesoy/cucumber-rails.git", :ref => "ad3a1f4ffdab02fe6871"
+  gem "factory_girl_rails", "~> 1.0.0"
+  gem "capybara", "~> 0.4.0"
   gem "launchy"
   gem "autotest"
   gem "autotest-growl"

@@ -33,7 +33,7 @@ Given /^user "([^"]*)" exists with access to organization "([^"]*)" and project 
 end
 
 When /^I click the last remove button$/ do
-  with_scope("ul li:last") do
+  with_scope("#people ul li:last") do
     click_link("Remove")
   end
 end
