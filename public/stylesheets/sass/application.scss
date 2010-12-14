@@ -669,6 +669,10 @@ label[for='project_active'].toggle:hover {
   content:"!";
 }
 
+.pictos.refresh:before {
+  content: "r";
+}
+
 .pictos:before {
   font-family: "Pictos", sans-serifx;
   padding-right:3px;

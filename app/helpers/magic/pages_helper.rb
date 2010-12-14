@@ -1,0 +1,2 @@
+module Magic::PagesHelper
+end

@@ -1,0 +1,37 @@
+#top
+  %span.push_1.project_label Admin
+  %h1.push_1.grid_20 Dashboard
+  = link_to "Refresh", magic_update_stats_path, :class => "button pictos refresh right", :remote => :true
+#leftcolumn.push_1.grid_14
+  %h2 Activity
+  #activity
+    %ol
+      %li.clearfix
+        %div.activity
+          %span.text Text
+          %span User
+          %span.relatize Time
+          %span.white White
+
+#sidebar.grid_7.push_2
+  %p Users
+  #user_count.flip.highlight
+    = @user_count
+  %p Organizations
+  #organization_count.flip.highlight
+    = @organization_count
+  %p Projects
+  #project_count.flip.highlight
+    = @project_count
+  %p Demo Users
+  #demo_user_count.flip.highlight
+    = @demo_user_count
+  %h2 Admins
+  %ul.sidebar_team
+    - @admins.each do |admin|
+      %li
+        .avatar{:style => "background: url(#{admin.gravatar_url(48)});"}
+        %span.user.white= admin.email
+        .clear
+  .clearfix
+.clear

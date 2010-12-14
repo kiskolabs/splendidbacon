@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_navigation_for_devise_controllers
-
+  
   protected
 
   def no_background!
