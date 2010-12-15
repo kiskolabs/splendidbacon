@@ -60,4 +60,10 @@ module ApplicationHelper
     
     link_to(*args)
   end
+  
+  def format_broadcast(broadcast)
+    html = content_tag(:strong, broadcast.title)
+    html << ": #{broadcast.text}"
+    html.html_safe
+  end
 end

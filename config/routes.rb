@@ -30,6 +30,7 @@ SplendidBacon::Application.routes.draw do
   namespace :magic do
     root :to => "pages#dashboard"
     match "update_stats" => "pages#update_stats"
+    resources :broadcasts
   end
 
 end

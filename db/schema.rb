@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101212151227) do
+ActiveRecord::Schema.define(:version => 20101215162711) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -30,6 +30,23 @@ ActiveRecord::Schema.define(:version => 20101212151227) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "broadcast_reads", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "broadcast_id"
+  end
+
+  add_index "broadcast_reads", ["user_id", "broadcast_id"], :name => "index_broadcast_reads_on_user_id_and_broadcast_id", :unique => true
+
+  create_table "broadcasts", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "expiry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "broadcasts", ["expiry"], :name => "index_broadcasts_on_expiry"
 
   create_table "invitations", :force => true do |t|
     t.integer  "organization_id"

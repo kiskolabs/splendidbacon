@@ -5,6 +5,8 @@ class Magic::PagesController < Magic::BaseController
     navigation :dashboard
     
     @admins = Admin.all
+    @broadcast = Broadcast.new
+    @broadcasts = Broadcast.all
   end
   
   def update_stats
