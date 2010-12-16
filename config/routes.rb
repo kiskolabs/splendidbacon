@@ -19,6 +19,12 @@ SplendidBacon::Application.routes.draw do
     resources :statuses
   end
   
+  resources :users, :only => [] do
+    resources :broadcasts, :only => [] do
+      resources :broadcast_reads, :only => [ :create ]
+    end
+  end
+  
   namespace :api do
     namespace :v1 do
       resources :projects, :only => [] do

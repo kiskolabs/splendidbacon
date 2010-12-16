@@ -1,4 +1,7 @@
 class Broadcast < ActiveRecord::Base
+  has_many :broadcast_reads
+  has_many :users, :through => :broadcast_reads
+  
   default_scope where("expiry >= ?", Time.now).order("expiry DESC")
   
   validates_datetime :expiry, :after => lambda { Time.now }, :on => :create, :after_message => "must be in the future"

@@ -836,3 +836,12 @@ body#frontpage {
   color:#111;
   text-shadow: 0 1px 1px #555;
 }
+
+div.jGrowl-notification,
+.jGrowl-closer {
+  background-color: #000 !important;
+}
+
+#broadcast {
+  display: none;
+}

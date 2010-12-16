@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_navigation_for_devise_controllers
+  before_filter :get_broadcasts
   
   protected
 
@@ -17,5 +18,9 @@ class ApplicationController < ActionController::Base
     if controller_name == "registrations" && action_name == "edit"
       navigation :account
     end
+  end
+  
+  def get_broadcasts
+    @broadcast = (Broadcast.all - Broadcast.joins(:users).where("users.id = ?", current_user.id )).first
   end
 end

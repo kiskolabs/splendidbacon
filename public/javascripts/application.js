@@ -122,4 +122,16 @@ jQuery(function() {
       $('input').attr('autocomplete', 'off');
   }
   
+  if ( $('#broadcast').length ) {
+    $.jGrowl($("#broadcast").attr("data-text"), {
+      sticky: true, 
+      header: $("#broadcast").attr("data-title"),
+      close: function() {
+        $.ajax({
+          url: $("#broadcast").attr("data-url"),
+          type: 'POST'
+        });
+      }
+    })
+  }
 });
