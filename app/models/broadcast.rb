@@ -1,5 +1,5 @@
 class Broadcast < ActiveRecord::Base
-  has_many :broadcast_reads
+  has_many :broadcast_reads, :dependent => :delete_all
   has_many :users, :through => :broadcast_reads
   
   default_scope where("expiry >= ?", Time.now).order("expiry DESC")

@@ -9,13 +9,13 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
   
-  has_many :memberships
+  has_many :memberships, :dependent => :destroy
   has_many :organizations, :through => :memberships
 
-  has_many :participations
+  has_many :participations, :dependent => :destroy
   has_many :projects, :through => :participations
   
-  has_many :broadcast_reads
+  has_many :broadcast_reads, :dependent => :delete_all
   has_many :broadcasts, :through => :broadcast_reads
   
   def gravatar_url(size = 64)
