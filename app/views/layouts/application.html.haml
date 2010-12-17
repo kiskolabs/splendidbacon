@@ -8,11 +8,13 @@
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"
     = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
+    - if @broadcast
+      %meta{:name => "broadcast-title", :content => @broadcast.title }
+      %meta{:name => "broadcast-text", :content => @broadcast.text }
+      %meta{:name => "broadcast-url", :content => user_broadcast_broadcast_reads_path(current_user, @broadcast) }
     %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
     %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" } 
   %body
-    - if @broadcast.present?
-      #broadcast{:'data-title' => @broadcast.title, :'data-text' => @broadcast.text, :'data-url' => user_broadcast_broadcast_reads_path(current_user, @broadcast) }
     #header
       .container_24
         #title.grid_6

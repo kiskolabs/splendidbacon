@@ -122,13 +122,13 @@ jQuery(function() {
       $('input').attr('autocomplete', 'off');
   }
   
-  if ( $('#broadcast').length ) {
-    $.jGrowl($("#broadcast").attr("data-text"), {
+  if ( $('meta[name="broadcast-title"]').length ) {
+    $.jGrowl($('meta[name="broadcast-text"]').attr("content"), {
       sticky: true, 
-      header: $("#broadcast").attr("data-title"),
+      header: $('meta[name="broadcast-title"]').attr("content"),
       close: function() {
         $.ajax({
-          url: $("#broadcast").attr("data-url"),
+          url: $('meta[name="broadcast-url"]').attr("content"),
           type: 'POST'
         });
       }
