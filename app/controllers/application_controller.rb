@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_navigation_for_devise_controllers
   before_filter :get_broadcasts
   
+  helper_method :in_demo?
+  
   protected
 
   def no_background!
@@ -24,5 +26,9 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @broadcast = (Broadcast.all - Broadcast.joins(:users).where("users.id" => current_user.id)).first
     end
+  end
+  
+  def in_demo?
+    user_signed_in? && current_user.email =~ /@demoaccount.com/
   end
 end

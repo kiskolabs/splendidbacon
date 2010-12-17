@@ -840,3 +840,27 @@ body#frontpage {
 #broadcast {
   display: none;
 }
+
+#demo_banner {
+  background: #C52F24;
+  height: 3em;
+  font-size: 110%;
+  text-align: center;
+}
+
+#demo_banner p {
+  margin: 0;
+  line-height: 3em;
+  vertical-align: middle;
+}
+
+#demo_banner a {
+  text-shadow:0 0px 5px #000;
+  font-weight: bold;
+  color: #fff;
+}
+
+#demo_banner a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}

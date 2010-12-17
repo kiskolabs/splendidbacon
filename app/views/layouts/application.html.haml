@@ -15,6 +15,12 @@
     %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
     %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" } 
   %body
+    - if in_demo?
+      #demo_banner
+        %p
+          You are currently using the <strong>demo</strong> mode.
+          Any changes you make <strong>will be lost</strong> after you log out or close your browser.
+          = link_to "Sign up here."
     #header
       .container_24
         #title.grid_6
