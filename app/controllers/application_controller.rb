@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   end
   
   def get_broadcasts
-    @broadcast = (Broadcast.all - Broadcast.joins(:users).where("users.id = ?", current_user.id )).first
+    if user_signed_in?
+      @broadcast = (Broadcast.all - Broadcast.joins(:users).where("users.id" => current_user.id)).first
+    end
   end
 end
