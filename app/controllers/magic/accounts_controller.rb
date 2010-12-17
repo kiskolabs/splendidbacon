@@ -19,7 +19,10 @@ class Magic::AccountsController < Magic::BaseController
   
   def update
     @admin = current_admin
-    @admin.update_attributes(params[:admin])
-    redirect_to magic_root_path, :notice => "Updated your account details."
+    if @admin.update_attributes(params[:admin])
+      redirect_to magic_root_path, :notice => "Updated your account details."
+    else
+      render :action => :edit
+    end
   end
 end
