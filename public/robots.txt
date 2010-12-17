@@ -6,3 +6,5 @@
 
 User-Agent: *
 Disallow: /demo/new
+Disallow: /magic
+Disaalow: /admins
