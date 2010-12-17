@@ -7,4 +7,13 @@ class Magic::AccountsController < Magic::BaseController
     navigation :create_admin
     @admin = Admin.new
   end
+  
+  def create
+    @admin = Admin.new(params[:admin])
+    if @admin.save
+      redirect_to magic_root_path, :notice => "Admin '#{@admin.email}' created."
+    else
+      render :action => :new
+    end
+  end
 end
