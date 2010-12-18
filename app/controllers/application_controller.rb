@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :in_demo?
   
+  layout :layout_by_resource
+  
   protected
 
   def no_background!
@@ -30,5 +32,13 @@ class ApplicationController < ActionController::Base
   
   def in_demo?
     user_signed_in? && current_user.email =~ /@demoaccount.com/
+  end
+  
+  def layout_by_resource
+    if devise_controller? && resource_name == :admin
+      "magic"
+    else
+      "application"
+    end
   end
 end
