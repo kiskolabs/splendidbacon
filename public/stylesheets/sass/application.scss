@@ -182,8 +182,17 @@ textarea {
   display: block;
 }
 
+#project_filters {
+  padding: 0 40px;
+  margin-top: 20px;
+}
+
+.project_filter {
+  margin-right: 20px;
+}
+
 #outer_timeline {
-  padding: 40px 0;
+  padding: 20px 0 40px 0;
   margin-bottom: 0px;
 }
 

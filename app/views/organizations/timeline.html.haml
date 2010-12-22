@@ -2,6 +2,22 @@
   %span.push_1.project_label Timeline
   %h1.push_1.grid_20= @organization.name
 
+#project_filters
+  %strong FILTER BY
+  %br/
+  %span Team Member
+  %select.project_filter{"data-type" => "user"}
+    %option{"value" => "all"} All
+    - @organization.users.each do |user|
+      %option{"value" => user.id}= user.name
+
+  %span Project Status
+  %select.project_filter{"data-type" => "project_status"}
+    %option{"value" => "all"} All
+    %option{"value" => "ongoing"} Ongoing
+    %option{"value" => "on_hold"} On Hold
+    %option{"value" => "completed"} Completed
+
 #outer_timeline
   .grid_1
     %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
@@ -13,7 +29,7 @@
     #timeline
       #today_bar{ :style => "left: #{today_left_margin}px;" }
       - @projects.each do |project|
-        .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project) }
+        .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project), :"data-users" => project.user_ids, :"data-state" => project.state }
           .inner
             .name= link_to project.name, project_path(project)
             %ul.team

@@ -12,7 +12,7 @@ jQuery(function() {
 		$(this).find("a:first").text(organization);
 	});
 
-
+  // Timeline
   var scroll = 448;
   var maxScroll = $("#months").width() - $("#timeline").width() - 870;
   var currentScroll = 0;
@@ -44,10 +44,44 @@ jQuery(function() {
     }
   });
 
-
   if ($("#inner_timeline").length == 1) {
     var top = $("#inner_timeline").height() / 2 - $("#outer_timeline a.nav img").height() / 2
     $("#outer_timeline a.nav").css({ top: top + "px" });
+  }
+
+  // Filters
+  var projectFilters = $("select.project_filter");
+  projectFilters.change(function() {
+    applyProjectFilters();
+  }).change();
+
+  function applyProjectFilters() {
+    var values = [];
+    projectFilters.each(function() {
+      var self = $(this);
+      values.push([self.data("type"), self.val()]);
+    });
+
+    var timelineProjects = $("#timeline .project").removeClass("dimmed");
+
+    values = _.reject(values, function(val) { return val[1] == "all"; });
+    if(_.isEmpty(values)) {
+      timelineProjects.fadeTo("fast", 1.0);
+    } else {
+      _.each(values, function(val) {
+        var type = val[0];
+        var value = val[1];
+
+        if(type == "user") {
+          timelineProjects.filter(function() {
+            return !_.include($(this).data("users"), parseInt(value));
+          }).fadeTo("fast", 0.1).addClass("dimmed");
+        } else if(type == "project_status") {
+          $("#timeline .project[data-state!=" + value + "]").fadeTo("fast", 0.1).addClass("dimmed");
+        }
+      });
+      timelineProjects.filter(function() { return !$(this).hasClass("dimmed")}).fadeTo("fast", 1.0);
+    }
   }
   
   // Project form
