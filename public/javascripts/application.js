@@ -50,15 +50,23 @@ jQuery(function() {
     $("#outer_timeline a.nav").css({ top: top + "px" });
   }
   
-
+  // Project form
   $(".relatize").relatizeDate();
   
   $(".datepicker").datepicker({ dateFormat: 'd MM yy' });
   
+  $(".project_state label.collection_radio").click(function() {
+    $(this).addClass("selected").siblings().removeClass("selected");
+  });
+
+  $(".project_state input.radio").hide().filter(":checked").each(function() {
+    $("label[for=" + this.id + "]").click();
+  });
+  
   $("input.person:checked").each(function(){
     $("label[for=" + $(this).attr("id") + "]").addClass("selected");
   });
-  
+
   $("input.person").hide();
   
   $(".person label.collection_check_boxes").click(function() {
@@ -69,21 +77,6 @@ jQuery(function() {
     else
     {
       $(this).addClass("selected");
-    }
-  });
-  
-  $("#project_active").hide();
-  
-  $("label[for=project_active].toggle").click(function() {
-    if ($("#project_active[type=checkbox]").attr("checked") == true)
-    {
-      $(this).removeClass("green").addClass("red");
-      $(this).text("On hold");
-    }
-    else
-    {
-      $(this).addClass("green").removeClass("red");
-      $(this).text("Ongoing");
     }
   });
   

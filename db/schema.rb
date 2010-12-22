@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101215162711) do
+ActiveRecord::Schema.define(:version => 20101222124102) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20101215162711) do
     t.string  "guest_token"
     t.integer "organization_id"
     t.string  "api_token"
+    t.string  "state"
   end
 
   add_index "projects", ["api_token"], :name => "index_projects_on_api_token"

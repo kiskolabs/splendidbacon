@@ -1,4 +1,8 @@
 class Project < ActiveRecord::Base
+  STATES = {:ongoing => "Ongoing", 
+            :on_hold => "On Hold", 
+            :completed => "Completed"}
+
   has_many :participations, :dependent => :destroy
   has_many :users, :through => :participations
   belongs_to :organization
@@ -10,7 +14,9 @@ class Project < ActiveRecord::Base
   validates_presence_of :end
   validates_presence_of :name
   validates_date :end, :on_or_after => :start, :on_or_after_message => "cannot be before the start date."
-  
+  validates_presence_of :state
+  validates_inclusion_of :state, :in => STATES.keys, :allow_blank => true
+
   def last_activity
     status = self.statuses.select(:created_at).first
     status.nil? ? self.start.to_time_in_current_zone : status.created_at
@@ -44,6 +50,22 @@ class Project < ActiveRecord::Base
   
   def human_end=(string)
     self.end = Kronic.parse(string)
+  end
+
+  def state
+    super.try(:to_sym)
+  end
+
+  def state_name
+    STATES[state]
+  end
+
+  def active?
+    state == :ongoing
+  end
+
+  def completed?
+    state == :completed
   end
   
   protected

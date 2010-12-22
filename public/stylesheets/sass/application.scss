@@ -511,7 +511,8 @@ ul.sidebar_team li .avatar,
 }
 
 .person label.collection_check_boxes,
-label[for='project_active'].toggle {
+label[for='project_active'].toggle,
+.project_state label.collection_radio {
   background:#181819;
   @include border-radius(4px);
   padding: 5px 15px;
@@ -526,11 +527,13 @@ label[for='project_active'].toggle {
 }
 
 .person label.collection_check_boxes:hover,
-label[for='project_active'].toggle:hover {
+label[for='project_active'].toggle:hover,
+.project_state label.collection_radio:hover {
   @include box-shadow(0, 0, 5px, #198ce5);
 }
 
-.person label.collection_check_boxes.selected {
+.person label.collection_check_boxes.selected,
+.project_state label.collection_radio.selected {
   @include box-shadow(0, 0, 8px, #198ce5);
 }
 

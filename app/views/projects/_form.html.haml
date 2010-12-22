@@ -2,9 +2,12 @@
   = f.input :name, :input_html => { :class => "flip" }, :required => false
   = f.input :human_start, :label => "Start date", :input_html => { :class => "datepicker flip" }
   = f.input :human_end, :label => "End date", :input_html => { :class => "datepicker flip" }
-  .input.optional
-    %label Status
-    = f.check_box :active
-    = f.label :active, (@project.active? ? "Ongoing" : "On hold" ), :class => (@project.active? ? "green" : "red" ) + " toggle"
+  = f.input :state, 
+            :as => :radio, 
+            :collection => Project::STATES, 
+            :wrapper_html => { :class => "project_state" }, 
+            :label_method => :last,
+            :value_method => :first,
+            :required => false
   = f.association :users, :collection => @organization.users, :as => :check_boxes, :label => "People", :input_html => { :class => "person" }, :wrapper_html => { :class => "person" }
   = f.button :submit, :class => "button"
