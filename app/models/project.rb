@@ -17,6 +17,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :state
   validates_inclusion_of :state, :in => STATES.keys, :allow_blank => true
   
+  scope :current, where(:state => [:ongoing, :on_hold])
   scope :completed, where(:state => :completed)
 
   def last_activity

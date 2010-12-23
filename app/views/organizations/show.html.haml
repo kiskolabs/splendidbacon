@@ -2,7 +2,7 @@
   = render "project_filters"
 
   .clearfix
-  - @organization.projects && @organization.projects.sort_by{|p| p.name.downcase}.each_with_index do |project, index|
+  - @organization.projects.current && @organization.projects.current.sort_by{|p| p.name.downcase}.each_with_index do |project, index|
     = render project
     - if (index + 1) % 2 == 0
       .clear
