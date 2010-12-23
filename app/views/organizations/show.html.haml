@@ -6,5 +6,6 @@
     = render project
     - if (index + 1) % 2 == 0
       .clear
-  = link_to "Completed Projects", completed_organization_path(@organization)
+
 .clearfix
+= link_to "Completed Projects", completed_organization_path(@organization), :class => "button"

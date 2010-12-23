@@ -1,9 +1,8 @@
 #dashboard
-  = link_to "Back to current projects", organization_path(@organization)
-
-  = render "project_filters"
-
+  %p
+    = link_to "Back to Current Projects", organization_path(@organization), :class => "button"
   .clearfix
+
   - @organization.projects.completed && @organization.projects.completed.sort_by{|p| p.name.downcase}.each_with_index do |project, index|
     = render project
     - if (index + 1) % 2 == 0
