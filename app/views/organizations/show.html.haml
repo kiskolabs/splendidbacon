@@ -1,7 +1,10 @@
 #dashboard
+  = render "project_filters"
+
   .clearfix
   - @organization.projects && @organization.projects.sort_by{|p| p.name.downcase}.each_with_index do |project, index|
     = render project
     - if (index + 1) % 2 == 0
       .clear
+  = link_to "Completed Projects", completed_organization_path(@organization)
 .clearfix

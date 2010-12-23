@@ -29,7 +29,7 @@
     #timeline
       #today_bar{ :style => "left: #{today_left_margin}px;" }
       - @projects.each do |project|
-        .project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project), :"data-users" => project.user_ids, :"data-state" => project.state }
+        .project.filterable_project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project), :"data-users" => project.user_ids, :"data-state" => project.state }
           .inner
             .name= link_to project.name, project_path(project)
             %ul.team

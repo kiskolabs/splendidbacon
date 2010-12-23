@@ -11,6 +11,7 @@ SplendidBacon::Application.routes.draw do
   
   resources :organizations do 
     get :timeline, :on => :member
+    get :completed, :on => :member
     resources :memberships
   end
   

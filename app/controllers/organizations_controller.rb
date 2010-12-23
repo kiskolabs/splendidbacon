@@ -2,7 +2,7 @@ class OrganizationsController < ApplicationController
   respond_to :html
 
   before_filter :authenticate_user!
-  before_filter :current_organization, :only => [:timeline, :show, :edit, :update, :destroy]
+  before_filter :current_organization, :only => [:timeline, :show, :completed, :edit, :update, :destroy]
   
   def timeline
     navigation :timeline
@@ -17,6 +17,11 @@ class OrganizationsController < ApplicationController
     navigation :dashboard
     no_background!
     render :template => "projects/ghost" if @organization.projects.empty?
+  end
+
+  def completed
+    navigation :dashboard
+    no_background!
   end
   
   def new

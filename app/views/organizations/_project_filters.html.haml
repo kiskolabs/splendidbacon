@@ -1,0 +1,14 @@
+#project_filters
+  %strong FILTER BY
+  %br/
+  %span Team Member
+  %select.project_filter{"data-type" => "user"}
+    %option{"value" => "all"} All
+    - @organization.users.each do |user|
+      %option{"value" => user.id}= user.name
+
+  %span Project Status
+  %select.project_filter{"data-type" => "project_status"}
+    %option{"value" => "all"} All
+    %option{"value" => "ongoing"} Ongoing
+    %option{"value" => "on_hold"} On Hold

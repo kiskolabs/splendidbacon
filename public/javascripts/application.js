@@ -62,7 +62,7 @@ jQuery(function() {
       values.push([self.data("type"), self.val()]);
     });
 
-    var timelineProjects = $("#timeline .project").removeClass("dimmed");
+    var timelineProjects = $(".filterable_project").removeClass("dimmed");
 
     values = _.reject(values, function(val) { return val[1] == "all"; });
     if(_.isEmpty(values)) {
@@ -77,7 +77,7 @@ jQuery(function() {
             return !_.include($(this).data("users"), parseInt(value));
           }).fadeTo("fast", 0.1).addClass("dimmed");
         } else if(type == "project_status") {
-          $("#timeline .project[data-state!=" + value + "]").fadeTo("fast", 0.1).addClass("dimmed");
+          $(".filterable_project[data-state!=" + value + "]").fadeTo("fast", 0.1).addClass("dimmed");
         }
       });
       timelineProjects.filter(function() { return !$(this).hasClass("dimmed")}).fadeTo("fast", 1.0);
