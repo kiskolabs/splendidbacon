@@ -1,4 +1,5 @@
 #dashboard
+  = link_to "Completed Projects", completed_organization_path(@organization), :class => "button right"
   = render "project_filters"
 
   .clearfix
@@ -8,4 +9,3 @@
       .clear
 
 .clearfix
-= link_to "Completed Projects", completed_organization_path(@organization), :class => "button"
