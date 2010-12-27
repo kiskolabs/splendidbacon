@@ -3,42 +3,25 @@
   %h1.push_1.grid_20= @project.name
   = link_to "Edit Project", edit_project_path(@project), :class => "button pictos edit right"
 #leftcolumn.push_1.grid_14
-  #update
-    = simple_form_for [@project, @comment] do |f|
-      = f.input :text, :label => "Post an update", :input_html => {  :rows => 2, :cols => 40, :class => "grid_13"}, :required => false
-      .clear
-      %span.hint.grid_11 How is the project going?
-      = f.button :submit, "Post", :class => "button right"
+  = render "update_form"
 
   %h2 Activity
   #activity
     %ol
-      - @project.statuses.limit(20).each do |status|
-        %li.clearfix
-          .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
-          %div.activity
-            %span.text= status.text
-            %span= status.user.name if status.user
-            %span.relatize= status.created_at.httpdate
-            %span.white
-              = link_to "via #{status.source}", status.link if status.link.present?
+      = render @project.statuses.limit(20)
 
 #sidebar.grid_7.push_2
-  %p Status
-  %div.flip 
-    = status_for_project(@project)
-  %p Last Activity
-  %div.flip 
-    %span= date_to_words(@project.last_activity)
-  %p Countdown
-  %div.flip
-    %span= countdown(@project.end)
-  %h2 Team
-  %ul.sidebar_team
-    - @project.users.each do |user|
-      %li
-        .avatar{:style => "background: url(#{user.gravatar_url(48)});"}
-        %span.user.white= user.name
-        .clear
-  .clearfix
+  = render "sidebar"
+
+  %h2 Guest Access
+  - if @project.guest_access?
+    = button_to "Disable guest access", disable_guest_access_project_path(@project), :method => :put
+
+    %input#guest_access.copy_url.grid_7.flip{:value => guest_project_url(@project, :token => @project.guest_token), :readonly => "readonly"}
+    %p Copy and give this url to people you want to give access to this page. Editing is not allowed for guests.
+  - else
+    = button_to "Enable guest access", enable_guest_access_project_path(@project), :method => :put
+    %p Enable guest access to give guests ability to view this project.
+
+  
 .clear

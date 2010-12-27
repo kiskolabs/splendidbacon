@@ -13,13 +13,56 @@ describe Project do
     @project.api_token.should_not == old_token
   end
   
-  it "toggles the guest access" do
-    @project = Project.create(:start => Date.today, :end => Date.today, :name => "Foo", :state => "ongoing")
-    @project.guest_token.should be_nil
-    @project.toggle_guest_access
-    @project.guest_token.length.should >= 0
-    @project.toggle_guest_access
-    @project.guest_token.should be_nil
+  describe "#guest_access?" do
+    subject { Project.new(:start => Date.today, :end => Date.today, :name => "Foo", :state => "ongoing") }
+
+    it "returns true if guest token is set" do
+      subject.enable_guest_access
+      subject.guest_access?.should be_true
+    end
+
+    it "returns false if guest token is not set" do
+      subject.guest_access?.should be_false
+    end
+  end
+
+  describe "#authenticate_guest_access" do
+    subject { Project.new(:start => Date.today, :end => Date.today, :name => "Foo", :state => "ongoing") }
+
+    it "returns false if guest access is not on" do
+      subject.authenticate_guest_access("abc").should be_false
+    end
+
+    it "returns false if guest token is incorrect" do
+      subject.enable_guest_access
+      subject.authenticate_guest_access("abc").should be_false
+    end
+
+    it "returns true if token is correct" do
+      subject.enable_guest_access
+      subject.authenticate_guest_access(subject.guest_token).should be_true
+    end
+  end
+
+  describe "#enable_guest_access" do
+    subject { Project.new(:start => Date.today, :end => Date.today, :name => "Foo", :state => "ongoing") }
+
+    it "sets guest token" do
+      subject.guest_token.should be_blank
+      subject.enable_guest_access
+      subject.guest_token.should_not be_blank
+    end
+  end
+
+  describe "#disable_guest_access" do
+    subject { Project.new(:start => Date.today, :end => Date.today, :name => "Foo", :state => "ongoing") }
+
+    it "unsets guest token" do
+      subject.enable_guest_access
+      subject.guest_token.should_not be_blank
+      subject.disable_guest_access
+      subject.guest_token.should be_blank
+    end
   end
 
   describe "#state" do

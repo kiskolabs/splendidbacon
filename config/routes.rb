@@ -15,7 +15,12 @@ SplendidBacon::Application.routes.draw do
     resources :memberships
   end
   
+  match "projects/:id/guest/:token" => "projects#guest", :as => :guest_project
+    
   resources :projects do
+    member do
+      put :enable_guest_access, :disable_guest_access
+    end
     resources :participants
     resources :statuses
   end

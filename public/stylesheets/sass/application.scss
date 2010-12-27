@@ -335,6 +335,11 @@ ul.sidebar_team li span.user {
   vertical-align: middle;
 }
 
+#guest_access {
+  text-transform: none;
+  font-size: 16px;
+}
+
 .flip {
   background:#181819;
   @include border-radius(4px);
@@ -655,6 +660,10 @@ label[for='project_active'].toggle:hover,
 
 #leftcolumn h2 {
   margin-top:60px;
+}
+
+.guest h2 {
+  margin-top: 30px !important;
 }
 
 /* PICTOS */

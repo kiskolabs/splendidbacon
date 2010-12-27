@@ -15,7 +15,7 @@
     %li Add a new post-receive URL
   :textile
     More information can be found in GitHub's "Post-Receive Guide":http://help.github.com/post-receive-hooks/
-  %input#post-receive.flip.grid_15{:type => :text, :value => github_api_v1_project_url(@project, :token => @project.api_token), :readonly => "readonly"}
+  %input#post-receive.copy_url.flip.grid_15{:type => :text, :value => github_api_v1_project_url(@project, :token => @project.api_token), :readonly => "readonly"}
   
 .push_1.prepend-1.grid_15
   %h2 Destroy this project

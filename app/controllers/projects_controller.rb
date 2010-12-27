@@ -1,11 +1,19 @@
 class ProjectsController < ApplicationController
   respond_to :html
 
-  before_filter :authenticate_user!
-  before_filter :current_project, :only => [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:guest]
+  before_filter :current_project, :only => [:show, :edit, :update, :destroy, :enable_guest_access, :disable_guest_access]
 
   def show
     @comment ||= @project.statuses.new
+  end
+
+  def guest
+    @project = Project.find(params[:id])
+    unless @project.authenticate_guest_access(params[:token])
+      redirect_to root_path, :notice => "You're not allowed to view that project. Please check the link."
+    end
+    render :layout => "guest"
   end
 
   def new
@@ -38,6 +46,18 @@ class ProjectsController < ApplicationController
     @project.destroy
     flash[:notice] = "Project was successfully deleted."
     redirect_to organization_path(@project.organization)
+  end
+
+  def enable_guest_access
+    @project.enable_guest_access
+    flash[:notice] = "Guest access was enabled. Link to the guest view is in the sidebar."
+    respond_with @project
+  end
+
+  def disable_guest_access
+    @project.disable_guest_access
+    flash[:notice] = "Guest access was disabled. Guest view can't be viewed anymore."
+    respond_with @project
   end
 
   private
