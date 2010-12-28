@@ -30,6 +30,7 @@ SplendidBacon::Application.routes.draw do
     namespace :v1 do
       resources :projects, :only => [] do
         post :github, :on => :member
+        post :pivotal_tracker, :on => :member
       end
     end
   end

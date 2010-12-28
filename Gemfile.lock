@@ -172,6 +172,7 @@ DEPENDENCIES
   kronic (~> 1.1.1)
   launchy
   mysql2
+  nokogiri (~> 1.4.4)
   rails (= 3.0.3)
   rspec-rails (~> 2.2.0)
   simple_form (~> 1.2.2)
