@@ -36,11 +36,9 @@ jQuery(function() {
   $(document).keydown(function(e) {
     if (e.keyCode == 37) {
       $("a[href='#prev']").click();
-      return false;
     }
     if (e.keyCode == 39) {
       $("a[href='#next']").click();
-      return false;
     }
   });
 
