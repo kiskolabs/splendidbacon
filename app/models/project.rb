@@ -19,6 +19,7 @@ class Project < ActiveRecord::Base
   
   scope :current, where(:state => [:ongoing, :on_hold])
   scope :completed, where(:state => :completed)
+  scope :for_users, lambda { |users| includes(:participations).where("participations.user_id" => users) }
 
   def last_activity
     status = self.statuses.select(:created_at).first

@@ -5,7 +5,10 @@ class Api::V1::ProjectsController < Api::BaseController
   
   def index
     organization = current_user.organizations.find(params[:organization_id])
-    respond_with(@projects = organization.projects)
+    @projects = organization.projects  
+    @projects = @projects.for_users(params[:users].split(",").map { |id| id.to_i }) if params[:users]
+      
+    respond_with(@projects)
   end
   
   def show
