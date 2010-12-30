@@ -25,7 +25,7 @@ Given /^user "([^"]*)" exists with access to organization "([^"]*)" and project 
   if Project.exists?(:name => project_name)
     project = Project.where(:name => project_name).first
   else
-    project = Project.create!(:name => project_name, :start => Time.now-1.days, :end => Time.now+2.months, :organization_id => organization.id)
+    project = Project.create!(:name => project_name, :start => Time.now-1.days, :end => Time.now+2.months, :organization_id => organization.id, :state => "ongoing")
   end
   
   Participation.create!(:user_id => user.id, :project_id => project.id)
@@ -33,7 +33,7 @@ Given /^user "([^"]*)" exists with access to organization "([^"]*)" and project 
 end
 
 When /^I click the last remove button$/ do
-  with_scope("ul li:last") do
+  with_scope("#people ul li:last") do
     click_link("Remove")
   end
 end

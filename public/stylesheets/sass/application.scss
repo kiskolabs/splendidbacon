@@ -182,8 +182,27 @@ textarea {
   display: block;
 }
 
+#dashboard #project_filters {
+  padding-left: 0;
+}
+
+#project_filters {
+  padding: 10px 40px;
+  margin-top: 10px;
+}
+
+.project_filter {
+  margin-right: 20px;
+  font-size: 12px;
+  background: #222;
+  border: 1px solid #333;
+  color: #FFF;
+  padding: 2px;
+  outline: none;
+}
+
 #outer_timeline {
-  padding: 40px 0;
+  padding: 20px 0 40px 0;
   margin-bottom: 0px;
 }
 
@@ -511,7 +530,8 @@ ul.sidebar_team li .avatar,
 }
 
 .person label.collection_check_boxes,
-label[for='project_active'].toggle {
+label[for='project_active'].toggle,
+.project_state label.collection_radio {
   background:#181819;
   @include border-radius(4px);
   padding: 5px 15px;
@@ -526,11 +546,13 @@ label[for='project_active'].toggle {
 }
 
 .person label.collection_check_boxes:hover,
-label[for='project_active'].toggle:hover {
+label[for='project_active'].toggle:hover,
+.project_state label.collection_radio:hover {
   @include box-shadow(0, 0, 5px, #198ce5);
 }
 
-.person label.collection_check_boxes.selected {
+.person label.collection_check_boxes.selected,
+.project_state label.collection_radio.selected {
   @include box-shadow(0, 0, 8px, #198ce5);
 }
 
@@ -667,6 +689,10 @@ label[for='project_active'].toggle:hover {
 
 .pictos.alert:before {
   content:"!";
+}
+
+.pictos.refresh:before {
+  content: "r";
 }
 
 .pictos:before {
@@ -831,4 +857,32 @@ body#frontpage {
   font-size:72px;
   color:#111;
   text-shadow: 0 1px 1px #555;
+}
+
+#broadcast {
+  display: none;
+}
+
+#demo_banner {
+  background: #C52F24;
+  height: 3em;
+  font-size: 110%;
+  text-align: center;
+}
+
+#demo_banner p {
+  margin: 0;
+  line-height: 3em;
+  vertical-align: middle;
+}
+
+#demo_banner a {
+  text-shadow:0 0px 5px #000;
+  font-weight: bold;
+  color: #fff;
+}
+
+#demo_banner a:hover {
+  font-weight: bold;
+  text-decoration: underline;
 }

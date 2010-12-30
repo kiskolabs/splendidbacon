@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new(:active => true)
+    @project = Project.new(:state => :ongoing)
     @organization = current_organization
   end
 

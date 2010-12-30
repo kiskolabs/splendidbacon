@@ -1,0 +1,2 @@
+module Magic::BroadcastsHelper
+end

@@ -1,0 +1,9 @@
+#top
+  %span.push_1.project_label Admin
+  %h1.push_1.grid_20= current_admin.email
+#leftcolumn.push_1.grid_15
+  = simple_form_for(current_admin, :as => :admin, :url => registration_path(:admin), :html => { :method => :put }) do |f|
+    = f.input :email, :input_html => {:class => "flip"}, :required => false
+    = f.input :password, :input_html => {:class => "flip"}, :required => false
+    = f.input :password_confirmation, :input_html => {:class => "flip"}
+    = f.button :submit, "Update", :class => "button", :style => "margin-top:10px"

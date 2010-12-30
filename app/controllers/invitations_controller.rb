@@ -8,15 +8,17 @@ class InvitationsController < ApplicationController
   end
   
   def create
-    @invitation = Invitation.new(params[:invitation])
-    organization = @invitation.organization
-    @invitation.token = SecureRandom.hex(8)
-    unless current_user.organizations.include?(organization)
-      @invitation = nil
-    else
-      @invitation.save
+    unless in_demo?
+      @invitation = Invitation.new(params[:invitation])
+      organization = @invitation.organization
+      @invitation.token = SecureRandom.hex(8)
+      unless current_user.organizations.include?(organization)
+        @invitation = nil
+      else
+        @invitation.save
+      end
+      respond_with(@invitation)
     end
-    respond_with(@invitation)
   end
   
   def update

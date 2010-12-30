@@ -1,0 +1,55 @@
+#top
+  %span.push_1.project_label Admin
+  %h1.push_1.grid_20 Dashboard
+  = link_to "Refresh", magic_update_stats_path, :class => "button pictos refresh right", :remote => :true
+#leftcolumn.push_1.grid_14
+  #update
+    %h2{:style => "margin-top:20px;"} Post a broadcast
+    = simple_form_for [:magic, @broadcast] do |f|
+      = f.input :title, :required => false, :input_html => { :class => "grid_13 flip" }
+      = f.input :text, :label => "Text", :input_html => {  :rows => 2, :cols => 40, :class => "grid_13"}, :required => false
+      = f.input :expiry, :required => false
+      .clear
+      = f.button :submit, "Post", :class => "button right"
+
+  %h2 Broadcasts
+  #activity
+    - if @broadcasts.any?
+      %ol
+      - @broadcasts.each do |broadcast|
+        %li.clearfix{:id => "broadcast_#{broadcast.id}"}
+          %div.activity{:style => "margin-left: 0px;" }
+            %span.text
+              = format_broadcast(broadcast)
+            %span Expires:
+            %span.white
+              = broadcast.expiry.httpdate
+            %br
+            %span Created:
+            %span.white
+              = broadcast.created_at.httpdate
+            %br
+            = link_to "Delete this broadcast", magic_broadcast_path(broadcast), :method => :delete, :remote => true, :class => :right, :confirm => "Are you sure?"
+
+#sidebar.grid_7.push_2
+  %p Users
+  #user_count.flip.highlight
+    = @user_count
+  %p Organizations
+  #organization_count.flip.highlight
+    = @organization_count
+  %p Projects
+  #project_count.flip.highlight
+    = @project_count
+  %p Demo Users
+  #demo_user_count.flip.highlight
+    = @demo_user_count
+  %h2 Admins
+  %ul.sidebar_team
+    - @admins.each do |admin|
+      %li
+        .avatar{:style => "background: url(#{admin.gravatar_url(48)});"}
+        %span.user.white= admin.email
+        .clear
+  .clearfix
+.clear

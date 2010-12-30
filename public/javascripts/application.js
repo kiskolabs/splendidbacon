@@ -12,7 +12,7 @@ jQuery(function() {
 		$(this).find("a:first").text(organization);
 	});
 
-
+  // Timeline
   var scroll = 448;
   var maxScroll = $("#months").width() - $("#timeline").width() - 870;
   var currentScroll = 0;
@@ -36,29 +36,69 @@ jQuery(function() {
   $(document).keydown(function(e) {
     if (e.keyCode == 37) {
       $("a[href='#prev']").click();
-      return false;
     }
     if (e.keyCode == 39) {
       $("a[href='#next']").click();
-      return false;
     }
   });
-
 
   if ($("#inner_timeline").length == 1) {
     var top = $("#inner_timeline").height() / 2 - $("#outer_timeline a.nav img").height() / 2
     $("#outer_timeline a.nav").css({ top: top + "px" });
   }
-  
 
+  // Filters
+  var projectFilters = $("select.project_filter");
+  projectFilters.change(function() {
+    applyProjectFilters();
+  }).change();
+
+  function applyProjectFilters() {
+    var values = [];
+    projectFilters.each(function() {
+      var self = $(this);
+      values.push([self.data("type"), self.val()]);
+    });
+
+    var timelineProjects = $(".filterable_project").removeClass("dimmed");
+
+    values = _.reject(values, function(val) { return val[1] == "all"; });
+    if(_.isEmpty(values)) {
+      timelineProjects.fadeTo("fast", 1.0);
+    } else {
+      _.each(values, function(val) {
+        var type = val[0];
+        var value = val[1];
+
+        if(type == "user") {
+          timelineProjects.filter(function() {
+            return !_.include($(this).data("users"), parseInt(value));
+          }).fadeTo("fast", 0.1).addClass("dimmed");
+        } else if(type == "project_status") {
+          $(".filterable_project[data-state!=" + value + "]").fadeTo("fast", 0.1).addClass("dimmed");
+        }
+      });
+      timelineProjects.filter(function() { return !$(this).hasClass("dimmed")}).fadeTo("fast", 1.0);
+    }
+  }
+  
+  // Project form
   $(".relatize").relatizeDate();
   
   $(".datepicker").datepicker({ dateFormat: 'd MM yy' });
   
+  $(".project_state label.collection_radio").click(function() {
+    $(this).addClass("selected").siblings().removeClass("selected");
+  });
+
+  $(".project_state input.radio").hide().filter(":checked").each(function() {
+    $("label[for=" + this.id + "]").click();
+  });
+  
   $("input.person:checked").each(function(){
     $("label[for=" + $(this).attr("id") + "]").addClass("selected");
   });
-  
+
   $("input.person").hide();
   
   $(".person label.collection_check_boxes").click(function() {
@@ -69,21 +109,6 @@ jQuery(function() {
     else
     {
       $(this).addClass("selected");
-    }
-  });
-  
-  $("#project_active").hide();
-  
-  $("label[for=project_active].toggle").click(function() {
-    if ($("#project_active[type=checkbox]").attr("checked") == true)
-    {
-      $(this).removeClass("green").addClass("red");
-      $(this).text("On hold");
-    }
-    else
-    {
-      $(this).addClass("green").removeClass("red");
-      $(this).text("Ongoing");
     }
   });
   
@@ -122,4 +147,16 @@ jQuery(function() {
       $('input').attr('autocomplete', 'off');
   }
   
+  if ( $('meta[name="broadcast-title"]').length ) {
+    $.jGrowl($('meta[name="broadcast-text"]').attr("content"), {
+      sticky: true, 
+      header: $('meta[name="broadcast-title"]').attr("content"),
+      close: function() {
+        $.ajax({
+          url: $('meta[name="broadcast-url"]').attr("content"),
+          type: 'POST'
+        });
+      }
+    })
+  }
 });
