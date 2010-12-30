@@ -10,7 +10,15 @@ class Api::V1::ProjectsController < Api::BaseController
   
   def show
     organization = current_user.organizations.find(params[:organization_id])
-    respond_with(@project = organization.projects.find(params[:id]))
+    @project = organization.projects.includes(:users).find(params[:id])
+    respond_to do |format|
+      format.json do
+        render :json => @project.to_json(:include => { :users => { :only => [:id, :email, :name] } })
+      end
+      format.xml do
+        render :xml => @project.to_xml(:include => { :users => { :only => [:id, :email, :name] } })
+      end
+    end
   end
   
   def github
