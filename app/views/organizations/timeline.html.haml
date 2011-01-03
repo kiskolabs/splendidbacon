@@ -4,19 +4,8 @@
     %span.push_1.project_label Timeline
     %h1.push_1= @organization.name
 
-  #project_filters.clearfix
+  = render "project_filters"
 
-    .project_status
-      %a.selected All
-      %a Ongoing
-      %a On Hold
-   
-    .project_mate.dropdown
-      %div.pictos.down
-      %ul.project_filter{"data-type" => "user"}
-        %li Everyone
-        - @organization.users.each do |user|
-          %li{"value" => user.id}= user.name
   .grid_1
     %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
   #inner_timeline.grid_22

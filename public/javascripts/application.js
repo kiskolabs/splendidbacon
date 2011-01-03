@@ -48,16 +48,74 @@ jQuery(function() {
   }
 
   // Filters
-  var projectFilters = $("select.project_filter");
-  projectFilters.change(function() {
-    applyProjectFilters();
-  }).change();
+  var ProjectToggle = function(elements) {
+    var self = this;
+    self.elements = $(elements);
+    self.elements.click(function() {
+      $(this).addClass("selected").siblings().removeClass("selected");
+      applyProjectFilters();
+    });
+    return self;
+  };
+  ProjectToggle.prototype.filterType = function() {
+    var element = this.elements.first();
+    return element.data("type");
+  };
+  ProjectToggle.prototype.filterValue = function() {
+    var element = this.elements.filter(".selected");
+    return element.data("value");
+  };
+
+  var ProjectCustomDropdown = function(element) {
+    var self = this;
+    self.element = $(element);
+    self.options = self.element.find(".options");
+    self.current = element.find(".current");
+    /* self.current.css("width", _.max(_.map(self.options.children, function(option) { return $(option).width(); }))); */
+
+    self.options.hide();
+    self.element.click(function(e) {
+      var select = self.options.clone();
+      select.css({"display": "block", "position": "absolute", "left": e.pageX + "px", "top": e.pageY + "px"});
+      var hide = function() {
+        select.remove();
+        $(this).unbind("click", hide);
+      }
+      select.click(function(e) {
+        var selection = $(e.target);
+        if(selection.data("value")) {
+          self.current.text(selection.text());
+          self.options.children().removeClass("selected");
+          self.options.children("[data-value=" + selection.data("value") + "]").addClass("selected");
+          applyProjectFilters();
+          hide();
+        }
+        e.stopPropagation();
+      });
+      $("body").append(select).click(hide);
+      e.stopPropagation();
+    });
+    return self;
+  };
+  ProjectCustomDropdown.prototype.filterType = function() {
+    return this.element.data("type");
+  };
+  ProjectCustomDropdown.prototype.filterValue = function() {
+    var element = this.options.find(".selected");
+    return element.data("value");
+  };
+
+  var projectFilters = [];
+  projectFilters.push(new ProjectToggle($(".project_status a")));
+  projectFilters.push(new ProjectCustomDropdown($(".project_mate")));
+
+  applyProjectFilters();
 
   function applyProjectFilters() {
     var values = [];
-    projectFilters.each(function() {
-      var self = $(this);
-      values.push([self.data("type"), self.val()]);
+    _.each(projectFilters, function(filter) {
+      console.log(filter.filterValue());
+      values.push([filter.filterType(), filter.filterValue()]);
     });
 
     var timelineProjects = $(".filterable_project").removeClass("dimmed");
@@ -125,18 +183,14 @@ jQuery(function() {
 
   $("#onav").hide(); 
 
-  $("#organization_nav #control").click(function () {
+  $("#organization_nav #control").click(function (e) {
     $(this).next("#onav").slideToggle("fast");
+    e.stopPropagation();
   });
  
   $("body").click(function () {
     $("#onav").hide();
   });
-
-  $("#organization_nav #control").click(function(e) {
-    e.stopPropagation();
-  });
-
 
   $("#timeline .project").hover(function() {
     $(this).css({ overflow: "visible" });
