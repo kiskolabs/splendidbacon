@@ -85,7 +85,9 @@ jQuery(function() {
   // Project form
   $(".relatize").relatizeDate();
   
-  $(".datepicker").datepicker({ dateFormat: 'd MM yy' });
+  if ( $('.datepicker').length ) {
+    $(".datepicker").datepicker({ dateFormat: 'd MM yy' });
+  };
   
   $(".project_state label.collection_radio").click(function() {
     $(this).addClass("selected").siblings().removeClass("selected");
@@ -120,7 +122,6 @@ jQuery(function() {
     window.location = $(this).find("a").attr("href");
     return false;
   });
-  
 
   $("#onav").hide(); 
 
