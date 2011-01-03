@@ -315,8 +315,6 @@ textarea {
   margin: 30px 0;
   border: 1px solid #0d7f94;
   @include border-radius(5px);
-  @include box-shadow(0, 2px, 6px, #000);
-  -webkit-transition: -webkit-box-shadow 0.25s linear;
   cursor: pointer;
   overflow: hidden;
 }
@@ -332,7 +330,6 @@ textarea {
 
 #timeline .project:hover {
   @include box-shadow(0, 0px, 10px, #0e84a2);
-  -webkit-transition: -webkit-box-shadow 0.25s linear;
 }
 
 #timeline #today_bar {
@@ -530,13 +527,11 @@ ul.sidebar_team li .avatar,
   margin-bottom:20px;
   margin-top:10px;
   @include border-radius(5px);
-  @include box-shadow(0px, 1px, 7px, #111);
-  -webkit-transition:-webkit-box-shadow 0.25s linear;
+  @include box-shadow(0px, 1px, 3px, #000);
 }
 
 #dashboard .projectdash:hover {
-  @include box-shadow(0px, 1px, 7px, #198ce5);
-  -webkit-transition:-webkit-box-shadow 0.25s linear;
+  @include box-shadow(0px, 0px, 4px, #198ce5);
   cursor:pointer;
 }
 
