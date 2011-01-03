@@ -75,24 +75,26 @@ jQuery(function() {
 
     self.options.hide();
     self.element.click(function(e) {
-      var select = self.options.clone();
-      select.css({"display": "block", "position": "absolute", "left": e.pageX + "px", "top": e.pageY + "px"});
-      var hide = function() {
-        select.remove();
-        $(this).unbind("click", hide);
-      }
-      select.click(function(e) {
-        var selection = $(e.target);
-        if(selection.data("value")) {
-          self.current.text(selection.text());
-          self.options.children().removeClass("selected");
-          self.options.children("[data-value=" + selection.data("value") + "]").addClass("selected");
-          applyProjectFilters();
-          hide();
+      if($("body > .options").length == 0) {
+        var select = self.options.clone();
+        select.css({"display": "block", "position": "absolute", "left": e.pageX + "px", "top": e.pageY + "px"});
+        var hide = function() {
+          select.remove();
+          $(this).unbind("click", hide);
         }
-        e.stopPropagation();
-      });
-      $("body").append(select).click(hide);
+        select.click(function(e) {
+          var selection = $(e.target);
+          if(selection.data("value")) {
+            self.current.text(selection.text());
+            self.options.children().removeClass("selected");
+            self.options.children("[data-value=" + selection.data("value") + "]").addClass("selected");
+            applyProjectFilters();
+            hide();
+          }
+          e.stopPropagation();
+        });
+        $("body").append(select).click(hide);
+      }
       e.stopPropagation();
     });
     return self;
