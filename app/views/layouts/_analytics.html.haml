@@ -11,7 +11,10 @@
 :javascript
   document.write(unescape("%3Cscript src='" + (("https:" == document.location.protocol) ? "https://ssl-" : "http://")
   + "include.reinvigorate.net/re_.js' type='text/javascript'%3E%3C/script%3E"));
-:javascript
+%script{:type => "text/javascript"}
+  - if user_signed_in?
+    = "var re_name_tag = '#{current_user.name}';"
+    = "var re_context_tag = '#{current_user.id}';"
   try {
   reinvigorate.track("70m85-chv7dyyg60");
   } catch(err) {}
