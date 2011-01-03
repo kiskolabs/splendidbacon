@@ -203,7 +203,7 @@ textarea {
   border-top:1px solid rgba(255, 255, 255, 0.1);
   border-bottom:1px solid rgba(0, 0, 0, 0.2);
   color: #FFF;
-  padding: 0 20px 0 0.5em;
+  padding: 0.1em 20px 0 0.9em;
   outline: none;
   @include border-radius(4px);
   height:26px;
@@ -214,7 +214,7 @@ textarea {
 .project_mate span.current {
   display: block;
   margin-top: 3px;
-  width: 120px;
+  width: 80px;
 }
 
 .project_mate .pictos.down:before {
@@ -237,11 +237,18 @@ textarea {
 ul.options {
   cursor: pointer;
   background: black;
+  padding:0.2em 0.8em;
+  @include box-shadow(0px, 1px, 2px, #000);
 }
 
 ul.options li {
   list-style: none;
-  margin-left: 0;
+  margin:0.5em 0;
+  padding:0 0.5em;
+}
+
+ul.options li:hover {
+  color:#328acf;
 }
 
 .project_status, .project_mate {
