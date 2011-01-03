@@ -1,19 +1,13 @@
-#top
-  %span.push_1.project_label Timeline
-  %h1.push_1.grid_20= @organization.name
-
 #project_filters
-  %strong FILTER BY
-  %br/
-  %span Team Member
+  %span Filter
   %select.project_filter{"data-type" => "user"}
-    %option{"value" => "all"} All
+    %option{"value" => "all"} TEAMMATE
     - @organization.users.each do |user|
       %option{"value" => user.id}= user.name
 
   %span Project Status
   %select.project_filter{"data-type" => "project_status"}
-    %option{"value" => "all"} All
+    %option{"value" => "all"} STATUS
     %option{"value" => "ongoing"} Ongoing
     %option{"value" => "on_hold"} On Hold
     %option{"value" => "completed"} Completed
