@@ -246,12 +246,18 @@ textarea {
 
 .dropdown {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2a2b2d), to(#222));
+  -webkit-box-shadow:#000 0px 0px 3px;
+  cursor:pointer;
 }
 
 .dropdown li {
   list-style:none;
   margin:0;
   padding:0.4em 0.6em;
+}
+
+#outer_timeline #project_filters {
+  margin-right:35px;
 }
 
 
