@@ -6,7 +6,7 @@ class OrganizationsController < ApplicationController
   
   def timeline
     navigation :timeline
-    @projects = @organization.projects
+    @projects = @organization.projects.current
     if @projects.empty?
       no_background!
       render :template => "projects/ghost"
