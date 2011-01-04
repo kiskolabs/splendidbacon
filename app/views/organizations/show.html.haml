@@ -9,4 +9,5 @@
   .clear
 
 .clearfix.completed
-  = link_to "View Completed Projects", completed_organization_path(@organization), :class => "button faded"
+  - if @organization.projects.completed.present?
+    = link_to "View Completed Projects", completed_organization_path(@organization), :class => "button faded"
