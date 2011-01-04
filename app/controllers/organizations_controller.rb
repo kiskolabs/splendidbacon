@@ -62,7 +62,7 @@ class OrganizationsController < ApplicationController
 
   def current_organization
     @organization = current_user.organizations.readonly(false).find(params[:id])
-    cookies[:organization] = @organization.id
+    cookies[:organization_id] = { :value => @organization.id, :secure => Rails.env.production? } = @organization.id
   rescue ActiveRecord::RecordNotFound
     cookies.delete(:organization)
     redirect_to root_path

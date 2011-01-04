@@ -48,11 +48,11 @@ class ProjectsController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
     @organization = @project.organization
-    cookies[:organization] = @organization.id
+    cookies[:organization_id] = { :value => @organization.id, :secure => Rails.env.production? }
   end
 
   def current_organization
-    current_user.organizations.find(cookies[:organization])
+    current_user.organizations.find(cookies[:organization_id])
   rescue ActiveRecord::RecordNotFound
     cookies.delete(:organization)
     flash[:alert] = "You must choose an organization first!"
