@@ -17,7 +17,7 @@ test: &test
 
 production:
   adapter: postgresql
-  database: splendidbacon_test
+  database: splendidbacon
   username: splendidbacon
   password: F2DXkPcZ7afkqE7wzZnd6wGi
   pool: 5
