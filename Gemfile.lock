@@ -97,8 +97,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mysql2 (0.2.6)
     nokogiri (1.4.4)
+    pg (0.10.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -171,7 +171,7 @@ DEPENDENCIES
   hoptoad_notifier
   kronic (~> 1.1.1)
   launchy
-  mysql2
+  pg
   rails (= 3.0.3)
   rspec-rails (~> 2.2.0)
   simple_form (~> 1.2.2)
