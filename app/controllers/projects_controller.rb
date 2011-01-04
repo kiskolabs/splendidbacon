@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
     @organization = @project.organization
-    cookies[:organization_id] = { :value => @organization.id, :secure => Rails.env.production? }
+    cookies[:organization] = @organization.id
   end
 
   def current_organization
