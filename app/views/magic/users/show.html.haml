@@ -1,0 +1,32 @@
+#top.clearfix
+  %span.push_1.project_label User
+  %h1.push_1.grid_24= @user.name
+  
+#leftcolumn.push_1.prepend-1.grid_15
+  %ul.magic_user
+    %li
+      %strong Email:
+      = mail_to @user.email
+    %li
+      %strong Signed in:
+      = pluralize(@user.sign_in_count, "time")
+    %li
+      %strong Created:
+      %span.relatize= @user.created_at.httpdate
+    %li
+      %strong Current sign in:
+      %span.relatize= @user.current_sign_in_at
+    %li
+      %strong Last sign in:
+      %span.relatize= @user.last_sign_in_at
+    %li
+      %strong Current sign in IP:
+      = @user.current_sign_in_ip
+    %li
+      %strong Last sign in IP:
+      = @user.last_sign_in_ip
+    %li
+      %strong Organizations:
+      %ul
+        - @user.organizations.each do |organization|
+          %li= organization.name

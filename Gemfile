@@ -7,7 +7,8 @@ gem "simple_form", "~> 1.2.2"
 gem "RedCloth", "~> 4.2.3"
 gem "validates_timeliness", "~> 3.0.0"
 gem "kronic", "~> 1.1.1"
-gem 'hoptoad_notifier'
+gem "hoptoad_notifier"
+gem "will_paginate", "~> 3.0.beta"
 
 group :development do
   gem "sqlite3-ruby", :require => "sqlite3"

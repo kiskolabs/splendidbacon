@@ -3,4 +3,5 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 public/stylesheets/application.css
+public/stylesheets/magic.css
 .DS_Store

@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_many :broadcast_reads, :dependent => :delete_all
   has_many :broadcasts, :through => :broadcast_reads
   
+  scope :real, where("email NOT LIKE ?", "%@demoaccount.com")
+  scope :demo, where("email LIKE ?", "%@demoaccount.com")
+  
   def gravatar_url(size = 64)
     "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=#{size.to_i}&d=#{CGI::escape("https://splendidbacon.com/images/default.png")}"
   end

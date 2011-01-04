@@ -1,0 +1,28 @@
+ul.magic_user,
+ul.magic_users {
+  margin-top: 20px;
+  list-style:none;
+}
+
+ul.magic_user li,
+ul.magic_users li {
+  margin-left: 0;
+}
+
+ul.magic_user strong,
+ul.magic_users strong {
+  color: #666;
+  display: inline-block;
+}
+
+ul.magic_user strong {
+  width: 10em;
+}
+
+ul.magic_users strong {
+  width: 3em;
+}
+
+ul.magic_user li ul {
+  margin-left: 8em;
+}
