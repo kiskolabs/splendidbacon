@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
   end
 
   def current_organization
-    current_user.organizations.find(cookies[:organization_id])
+    current_user.organizations.find(cookies[:organization])
   rescue ActiveRecord::RecordNotFound
     cookies.delete(:organization)
     flash[:alert] = "You must choose an organization first!"
