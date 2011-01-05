@@ -51,6 +51,5 @@ SplendidBacon::Application.configure do
   config.action_mailer.default_url_options = { :host => 'splendidbacon.com', :protocol => "https" }
   config.action_mailer.delivery_method = :sendmail
   
-  # Causes redirect loop.
-  # config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
+  config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
 end
