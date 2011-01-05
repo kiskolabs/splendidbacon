@@ -50,4 +50,6 @@ SplendidBacon::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'splendidbacon.com', :protocol => "https" }
   config.action_mailer.delivery_method = :sendmail
+  
+  config.middleware.insert_after ActionController::Failsafe, Rack::SSL
 end

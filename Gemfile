@@ -16,7 +16,7 @@ end
 
 group :production do
   gem "pg"
-  gem "unicorn"
+  gem "rack-ssl", "~> 1.1.0", :require => "rack/ssl"
 end
 
 group :test, :development do
