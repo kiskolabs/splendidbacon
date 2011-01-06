@@ -4,6 +4,11 @@ class OrganizationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :current_organization, :only => [:timeline, :show, :completed, :edit, :update, :destroy]
   
+  def index	
+    @organizations = current_user.organizations	
+  end
+  
+  
   def timeline
     navigation :timeline
     @projects = @organization.projects.current
