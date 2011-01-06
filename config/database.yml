@@ -16,14 +16,12 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   database: splendidbacon
-  username: root
-  password: 6f468a224d3b1bed8d1452af88ac99545429f6ef903ed2411d48eb6e1c2efe7a
+  username: splendidbacon
+  password: F2DXkPcZ7afkqE7wzZnd6wGi
   pool: 5
-  reconnect: true
-  timeout: 5000
-  socket: /var/run/mysqld/mysqld.sock
+  encoding: unicode
 
 cucumber:
   <<: *test

@@ -47,6 +47,7 @@ SplendidBacon::Application.routes.draw do
     root :to => "pages#dashboard"
     match "update_stats" => "pages#update_stats"
     resources :broadcasts
+    resources :users
   end
 
 end

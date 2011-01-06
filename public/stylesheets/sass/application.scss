@@ -187,18 +187,99 @@ textarea {
 }
 
 #project_filters {
-  padding: 10px 40px;
+  padding: 10px 10px;
   margin-top: 10px;
+  color:#ccc;
 }
 
-.project_filter {
-  margin-right: 20px;
-  font-size: 12px;
+#project_filter span {
+  margin:1em;
+}
+
+.project_mate {
+  margin-top:-5px;
+  margin-right:1em;
   background: #222;
-  border: 1px solid #333;
+  border-top:1px solid rgba(255, 255, 255, 0.1);
+  border-bottom:1px solid rgba(0, 0, 0, 0.2);
   color: #FFF;
-  padding: 2px;
+  padding: 0.1em 20px 0 0.9em;
   outline: none;
+  @include border-radius(4px);
+  height:26px;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.project_mate span.current {
+  display: block;
+  margin-top: 3px;
+  width: 80px;
+}
+
+.project_mate .pictos.down:before {
+  float:right;
+  font-size:10px;
+  margin-top:10px;
+  margin-right:-15px;
+}
+
+.dropdown {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2a2b2d), to(#222));
+}
+
+.dropdown li {
+  list-style:none;
+  margin:0;
+  padding:0.4em 0.6em;
+}
+
+ul.options {
+  cursor: pointer;
+  background: black;
+  padding:0.2em 0.8em;
+  @include box-shadow(0px, 1px, 2px, #000);
+}
+
+ul.options li {
+  list-style: none;
+  margin:0.5em 0;
+  padding:0 0.5em;
+}
+
+ul.options li:hover {
+  color:#328acf;
+}
+
+.project_status, .project_mate {
+  float:right;
+}
+
+.project_status a {
+  background:rgba(0, 0, 0, 0.2);
+  border-bottom:1px solid rgba(255, 255, 255, 0.1);
+  border-top:1px solid rgba(0, 0, 0, 0.2);
+  padding:0.5em 1em;
+  @include border-radius(2px);
+  cursor:pointer;
+  color:#999;
+}
+
+.project_status .selected, .project_status a:hover {
+   background:rgba(0, 0, 0, 0.5);
+   color:#fff;
+}
+
+.project_status :last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.project_status :first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+#outer_timeline #project_filters {
+  margin-right:35px;
 }
 
 #outer_timeline {
@@ -255,8 +336,6 @@ textarea {
   margin: 30px 0;
   border: 1px solid #0d7f94;
   @include border-radius(5px);
-  @include box-shadow(0, 2px, 6px, #000);
-  -webkit-transition: -webkit-box-shadow 0.25s linear;
   cursor: pointer;
   overflow: hidden;
 }
@@ -272,7 +351,6 @@ textarea {
 
 #timeline .project:hover {
   @include box-shadow(0, 0px, 10px, #0e84a2);
-  -webkit-transition: -webkit-box-shadow 0.25s linear;
 }
 
 #timeline #today_bar {
@@ -389,6 +467,12 @@ ul.sidebar_team li span.user {
   color:#fff;
   text-shadow:0 0px 6px #198ce5;
   -webkit-transition: text-shadow 0.20s linear;
+  opacity:1;
+}
+
+.faded {
+  opacity:0.6;
+  text-align:center;
 }
 
 #activity ol {
@@ -400,6 +484,13 @@ ul.sidebar_team li span.user {
   border-bottom:1px solid #222;
   padding:15px 20px;
   @include box-shadow(0, 1px, 1px, #111);
+}
+
+.completed {
+  margin:1.5em 0;
+  padding:2em 0;
+  text-align:center;
+  @include top-d-border();
 }
 
 .avatar {
@@ -417,6 +508,11 @@ ul.sidebar_team li .avatar,
 
 .user {
   font-size:18px;
+}
+
+#github, #destroy {
+  margin-top:2em;
+  @include top-d-border();
 }
 
 #activity .activity {
@@ -457,13 +553,11 @@ ul.sidebar_team li .avatar,
   margin-bottom:20px;
   margin-top:10px;
   @include border-radius(5px);
-  @include box-shadow(0px, 1px, 7px, #111);
-  -webkit-transition:-webkit-box-shadow 0.25s linear;
+  @include box-shadow(0px, 1px, 3px, #000);
 }
 
 #dashboard .projectdash:hover {
-  @include box-shadow(0px, 1px, 7px, #198ce5);
-  -webkit-transition:-webkit-box-shadow 0.25s linear;
+  @include box-shadow(0px, 0px, 4px, #198ce5);
   cursor:pointer;
 }
 
@@ -612,8 +706,6 @@ label[for='project_active'].toggle:hover,
   padding:2px 8px 8px 6px;
 }
 
-
-
 .membercell {
   display:inline;
   width: 200px;
@@ -693,6 +785,10 @@ label[for='project_active'].toggle:hover,
 
 .pictos.refresh:before {
   content: "r";
+}
+
+.pictos.users:before {
+  content: "g";
 }
 
 .pictos:before {

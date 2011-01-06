@@ -32,7 +32,8 @@ SplendidBacon::Application.configure do
   config.serve_static_assets = false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = "https://sprinkles%d.splendidbacon.com"
+  # config.action_controller.asset_host = "https://sprinkles%d.splendidbacon.com"
+  config.action_controller.asset_host = "https://pancetta.splendidbacon.com"
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -49,4 +50,6 @@ SplendidBacon::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'splendidbacon.com', :protocol => "https" }
   config.action_mailer.delivery_method = :sendmail
+  
+  config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
 end

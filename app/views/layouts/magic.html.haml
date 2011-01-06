@@ -4,10 +4,10 @@
     %meta{ :charset => "UTF-8" }
     %title Splendid Bacon
     <link href="/stylesheets/pictos_base64.css?1" media="screen" rel="stylesheet" type="text/css" />
-    = stylesheet_link_tag "reset", "text", "960_24_col", "jquery-ui", "application", :cache => true
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"
-    = javascript_include_tag :defaults, :cache => true
+    = stylesheet_link_tag "reset", "text", "960_24_col", "jquery-ui", "application", "magic", :cache => true
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"
+    = javascript_include_tag :defaults, "underscore", :cache => true
     = csrf_meta_tag
     %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
     %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" }
@@ -20,8 +20,9 @@
             %h1 Administration
         #buttons.grid_16
           - if admin_signed_in?
-            = navigate_to :dashboard, "Dashboard", magic_root_path, :class => "button pictos account"
+            = navigate_to :dashboard, "Dashboard", magic_root_path, :class => "button pictos dashboard"
             = navigate_to :account, "Account", edit_admin_registration_path, :class => "button pictos account"
+            = navigate_to :account, "Users", magic_users_path, :class => "button pictos users"
             = navigate_to :create_admin, "Create Admin", new_admin_registration_path, :class => "button pictos new"
             = link_to "Logout", destroy_admin_session_path, :class => "logout"
         #logo.grid_2.omega

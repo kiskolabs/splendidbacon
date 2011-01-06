@@ -1,5 +1,4 @@
 #dashboard
-  = link_to "Completed Projects", completed_organization_path(@organization), :class => "button right"
   = render "project_filters"
 
   .clearfix
@@ -7,5 +6,8 @@
     = render project
     - if (index + 1) % 2 == 0
       .clear
+  .clear
 
-.clearfix
+.clearfix.completed
+  - if @organization.projects.completed.present?
+    = link_to "View Completed Projects", completed_organization_path(@organization), :class => "button faded"
