@@ -9,7 +9,7 @@ SplendidBacon::Application.routes.draw do
   
   resources :invitations
   
-  resources :organizations, :except => [ :index ] do 
+  resources :organizations do 
     get :timeline, :on => :member
     get :completed, :on => :member
     resources :memberships
