@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  include ActionController::UrlWriter
+  include Rails.application.routes.url_helpers
   
   STATES = {:ongoing => "Ongoing", 
             :on_hold => "On Hold", 

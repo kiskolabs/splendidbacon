@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  include ActionController::UrlWriter
+  include Rails.application.routes.url_helpers
   
   has_many :projects, :dependent => :destroy
   has_many :memberships, :dependent => :destroy
