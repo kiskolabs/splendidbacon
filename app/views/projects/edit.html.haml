@@ -6,16 +6,18 @@
   = render "form"
 
 #github.push_1.prepend-1.grid_15
-  %h2 GitHub Post-Receive Hook
+  %h2 GitHub Service Hook
   %p You can use this to automatically post Git commit messages to the project page.
   %ol
-    %li Copy the post-receive hook URL from below
     %li Go to your project's repository administration page on GitHub
     %li Choose "Service hooks"
-    %li Add a new post-receive URL
-  :textile
-    More information can be found in GitHub's "Post-Receive Guide":http://help.github.com/post-receive-hooks/
-  %input#post-receive.flip.grid_15{:type => :text, :value => github_api_v1_project_url(@project, :token => @project.api_token), :readonly => "readonly"}
+    %li Scroll down to Splendid Bacon in the list
+    %li Copy/paste you Token and Project ID from below and mark the hook active
+    %li Save the settings, and that's it.
+  %label{:for => "project_id"} Project ID
+  %input#post-receive.flip.grid_15#project_id{:type => :text, :value => @project.id, :readonly => "readonly"}
+  %label{:for => "token"} Token
+  %input#post-receive.flip.grid_15#token{:type => :text, :value => @project.api_token, :readonly => "readonly"}
   
 #destroy.push_1.prepend-1.grid_15
   %h2 Destroy this project
