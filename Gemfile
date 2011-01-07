@@ -17,6 +17,7 @@ end
 group :production do
   gem "pg"
   gem "rack-ssl", "~> 1.1.0", :require => "rack/ssl"
+  gem "newrelic_rpm", "~> 2.13.4"
 end
 
 group :test, :development do
