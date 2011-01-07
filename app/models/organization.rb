@@ -1,4 +1,6 @@
 class Organization < ActiveRecord::Base
+  include ActionController::UrlWriter
+  
   has_many :projects, :dependent => :destroy
   has_many :memberships, :dependent => :destroy
   has_many :users, :through => :memberships
@@ -6,4 +8,16 @@ class Organization < ActiveRecord::Base
   validates_presence_of :name
   
   scope :real, where("name NOT LIKE ?", "Big Company").where("name NOT LIKE ?", "Freelancing")
+  
+  def as_json(opts={})
+    hash = super(opts)
+    hash["organization"]["url"] = url
+    hash
+  end
+  
+  def url
+    organization_url({ :host => Rails.application.config.action_mailer.default_url_options[:host],
+                       :protocol => Rails.application.config.action_mailer.default_url_options[:protocol],
+                       :id => id })
+  end
 end

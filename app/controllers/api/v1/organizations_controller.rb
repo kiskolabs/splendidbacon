@@ -1,5 +1,5 @@
 class Api::V1::OrganizationsController < Api::BaseController
-  respond_to :json, :xml
+  respond_to :json
   
   def show
     respond_with(@organization = current_user.organizations.find(params[:id]))

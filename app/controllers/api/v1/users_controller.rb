@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  respond_to :json, :xml
+  respond_to :json
   
   def index
     organization = Organization.find(params[:organization_id])

@@ -1,5 +1,5 @@
 class Api::V1::StatusesController < Api::BaseController
-  respond_to :json, :xml
+  respond_to :json
   
   def index
     organization = current_user.organizations.find(params[:organization_id])

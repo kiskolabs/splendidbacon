@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  include ActionController::UrlWriter
+  
   STATES = {:ongoing => "Ongoing", 
             :on_hold => "On Hold", 
             :completed => "Completed"}
@@ -71,6 +73,20 @@ class Project < ActiveRecord::Base
 
   def completed?
     state == :completed
+  end
+  
+  def as_json(opts={})
+    opts[:include] = { :users => { :only => [:id, :email, :name] } }
+    opts[:except] = [ :guest_token, :active, :api_token, :organization_id ]
+    hash = super(opts)
+    hash["project"]["url"] = url
+    hash
+  end
+  
+  def url
+    project_url({ :host => Rails.application.config.action_mailer.default_url_options[:host],
+                  :protocol => Rails.application.config.action_mailer.default_url_options[:protocol],
+                  :id => id })
   end
   
   protected

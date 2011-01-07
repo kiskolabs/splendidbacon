@@ -1,5 +1,5 @@
 class Api::V1::ProjectsController < Api::BaseController
-  respond_to :json, :xml
+  respond_to :json
   
   before_filter :current_project, :only => [:github]
   
@@ -14,14 +14,7 @@ class Api::V1::ProjectsController < Api::BaseController
   def show
     organization = current_user.organizations.find(params[:organization_id])
     @project = organization.projects.includes(:users).find(params[:id])
-    respond_to do |format|
-      format.json do
-        render :json => @project.to_json(:include => { :users => { :only => [:id, :email, :name] } })
-      end
-      format.xml do
-        render :xml => @project.to_xml(:include => { :users => { :only => [:id, :email, :name] } })
-      end
-    end
+    respond_with(@project)
   end
   
   def github
@@ -34,7 +27,7 @@ class Api::V1::ProjectsController < Api::BaseController
         status.save
       end
     end
-    head 200
+    head :created
   end
   
   private
