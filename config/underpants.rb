@@ -11,6 +11,8 @@ end
 on_deploy do
   run "bundle --deployment"
   run "rake db:migrate"
+  run "rm -f public/stylesheets/all.css"
+  run "rm -f public/javascripts/all.js"
 end
 
 on_first_deploy do
