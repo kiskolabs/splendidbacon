@@ -9,6 +9,12 @@
     = f.input :password_confirmation, :input_html => {:class => "flip"}
     = f.input :current_password, :hint => "we need your current password to confirm your changes", :input_html => {:class => "flip"}
     = f.button :submit, "Update", :class => "button", :style => "margin-top:10px"
+  %h3 API Token
+  :textile
+    You can use this token to access the Splendid Bacon JSON API. Keep this just as safe as your password. You can view the developer documentation at: "developer.splendidbacon.com":https://developer.splendidbacon.com
+  %label{:for => "token"} API Token
+  %input#token.flip.grid_15{:type => :text, :value => @user.authentication_token, :readonly => "readonly"}
+  = link_to "Reset authentication token", reset_authentication_token_users_path, :remote => true, :method => :post, :class => "button"
   %h3 Unhappy?
   %br/
   = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => "button"
