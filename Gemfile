@@ -21,6 +21,7 @@ end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.2.0"
+  gem "steak", "~> 1.0.1"
 end
 
 group :test do
