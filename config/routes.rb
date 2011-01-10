@@ -6,6 +6,8 @@ SplendidBacon::Application.routes.draw do
   
   match "/magic" => "magic/pages#dashboard", :as => "admin_root_path"
   root :to => "pages#home"
+
+  match "/sign_out_and_up" => "users#sign_out_and_up", :as => :sign_out_and_up
   
   resources :invitations
   

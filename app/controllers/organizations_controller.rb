@@ -70,6 +70,7 @@ class OrganizationsController < ApplicationController
     cookies[:organization] = @organization.id
   rescue ActiveRecord::RecordNotFound
     cookies.delete(:organization)
+    flash.keep
     redirect_to root_path
   end
   
