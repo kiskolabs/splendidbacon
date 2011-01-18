@@ -9,6 +9,7 @@ gem "validates_timeliness", "~> 3.0.0"
 gem "kronic", "~> 1.1.1"
 gem "hoptoad_notifier"
 gem "will_paginate", "~> 3.0.beta"
+gem "hominid", "~> 3.0.2"
 
 group :development do
   gem "sqlite3-ruby", :require => "sqlite3"

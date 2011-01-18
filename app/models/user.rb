@@ -6,9 +6,13 @@ class User < ActiveRecord::Base
          :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :newsletter
   
   validates_presence_of :name
+  
+  after_create :subscribe_mailchimp, :unless => :demo?
+  after_destroy :unsubscribe_mailchimp, :unless => :demo?
+  around_save :update_mailchimp, :unless => :demo?
   
   has_many :memberships, :dependent => :destroy
   has_many :organizations, :through => :memberships
@@ -25,6 +29,59 @@ class User < ActiveRecord::Base
   def gravatar_url(size = 64)
     "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=#{size.to_i}&d=#{CGI::escape("https://splendidbacon.com/images/default.png")}"
   end
+  
+  def demo?
+    !!self.email.match(/@demoaccount.com\z/i)
+  end
+  
+  def hominid
+    Hominid::API.new(APP_CONFIG["mailchimp"]["api_key"], { :secure => true })
+  end
+  
+  def mailchimp_member_info
+    hominid.list_member_info(APP_CONFIG["mailchimp"]["list_id"], [self.email])
+  rescue Hominid::APIError => e
+    logger.error "Hominid API error: #{e.message}"
+  end
+  
+  def subscribe_mailchimp
+    if self.newsletter
+      hominid.list_subscribe(APP_CONFIG["mailchimp"]["list_id"], self.email, { :NAME => self.name }, "html", false)
+    end
+    
+  rescue Hominid::APIError => e
+    logger.error "Hominid API error: #{e.message}"
+  end
+  
+  def unsubscribe_mailchimp
+    hominid.list_unsubscribe(APP_CONFIG["mailchimp"]["list_id"], self.email, true, false, false)
+    
+  rescue Hominid::APIError => e
+    logger.error "Hominid API error: #{e.message}"
+  end
+  
+  def update_mailchimp
+    if changed.include?("newsletter")
+      @action = self.changes["newsletter"].last ? :subscribe : :unsubscribe
+    end
+      
+    if changed.include?("email") || changed.include?("name")
+      @old_email = changes["email"].try(:first) || self.email
+    end
+
+    yield
+    
+    if [:subscribe, :unsubscribe].include? @action
+      @action == :subscribe ? subscribe_mailchimp : unsubscribe_mailchimp
+    else
+      if @old_email.present? && @action.nil? && self.newsletter
+        hominid.list_update_member(APP_CONFIG["mailchimp"]["list_id"], @old_email, { :EMAIL => self.email, :NAME => self.name })
+      end
+    end
+    
+  rescue  Hominid::APIError => e
+    logger.error "Hominid API error: #{e.message}"
+  end
 
   def create_demo_data
     users = ["Fred Astair", "Rick Rack", "Nemo Relic", "David Handsome"]
@@ -38,7 +95,7 @@ class User < ActiveRecord::Base
     u = []
     users.each do |user|
       pass = SecureRandom.hex(8)
-      u += [User.create!(:name => user, :email => SecureRandom.hex(8) + "@demoaccount.com", :password => pass, :password_confirmation => pass)]
+      u += [User.create!(:name => user, :email => SecureRandom.hex(8) + "@demoaccount.com", :password => pass, :password_confirmation => pass, :newsletter => false)]
       Membership.create!(:organization_id => o1.id, :user_id => u.last.id)
     end
     

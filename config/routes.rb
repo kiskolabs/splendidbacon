@@ -34,6 +34,9 @@ SplendidBacon::Application.routes.draw do
       resources :projects, :only => [] do
         post :github, :on => :member
       end
+      resources :users, :only => [] do
+        post :mailchimp, :on => :collection
+      end
       
       authenticate :user do
         resources :organizations, :only => [:index, :show] do

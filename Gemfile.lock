@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/aslakhellesoy/cucumber-rails.git
-  revision: ad3a1f4ffdab02fe6871ce1e0a9a5cc753dd677c
+  revision: ad3a1f4
   ref: ad3a1f4ffdab02fe6871
   specs:
     cucumber-rails (0.4.0)
@@ -80,6 +80,7 @@ GEM
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     haml (3.0.24)
+    hominid (3.0.2)
     hoptoad_notifier (2.3.12)
       activesupport
       builder
@@ -170,6 +171,7 @@ DEPENDENCIES
   devise (~> 1.1.3)
   factory_girl_rails (~> 1.0.0)
   haml (~> 3.0.24)
+  hominid (~> 3.0.2)
   hoptoad_notifier
   kronic (~> 1.1.1)
   launchy
