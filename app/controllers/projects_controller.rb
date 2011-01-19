@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
   def show
     @comment ||= @project.statuses.new
+    @notification = @project.notifications.where(:user_id => current_user.id).first
   end
 
   def new

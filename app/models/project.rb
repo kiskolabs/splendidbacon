@@ -7,8 +7,13 @@ class Project < ActiveRecord::Base
 
   has_many :participations, :dependent => :destroy
   has_many :users, :through => :participations
+  
   belongs_to :organization
+  
   has_many :statuses, :dependent => :destroy
+  
+  has_many :notifications, :dependent => :delete_all
+  has_many :subscribers, :source => :user, :through => :notifications
   
   before_create :generate_api_token
   
@@ -76,8 +81,8 @@ class Project < ActiveRecord::Base
   end
   
   def as_json(opts={})
-    opts[:include] = { :users => { :only => [:id, :email, :name] } }
-    opts[:except] = [ :guest_token, :active, :api_token, :organization_id ]
+    opts[:include] ||= { :users => { :only => [:id, :email, :name] } }
+    opts[:except] ||= [ :guest_token, :active, :api_token, :organization_id ]
     hash = super(opts)
     hash["project"]["url"] = url
     hash

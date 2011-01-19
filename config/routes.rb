@@ -20,6 +20,7 @@ SplendidBacon::Application.routes.draw do
   resources :projects do
     resources :participants
     resources :statuses
+    resources :notifications, :only => [ :create, :destroy ]
   end
   
   resources :users, :only => [] do
