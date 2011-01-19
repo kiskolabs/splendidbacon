@@ -19,7 +19,7 @@
           %div.activity
             %span.text= status.text
             %span= status.user.name if status.user
-            %span.relatize= status.created_at.httpdate
+            %span= timeago(status.created_at)
             %span.white
               = link_to "via #{status.source}", status.link if status.link.present?
 

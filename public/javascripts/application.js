@@ -2,6 +2,29 @@ function ClearForm() {
   document.new_invitation.invitation_email.value= "";
 }
 
+function countdown(iso8601) {
+  date = $.timeago.parse(iso8601)
+  days = Math.round((date.getTime() - new Date().getTime()) / 1000 / 60 / 60 / 24);
+  var suffix;
+  
+  if (days < -1) {
+    days = -days;
+    suffix = " days late";
+  }
+  else if (days == -1) {
+    days = -days;
+    suffix = " day late";
+  }
+  else if (days > 1 || days == 0) {
+    suffix = " days";
+  }
+  else if (days == 1) {
+    suffix = " day";
+  };
+  
+  return (days + suffix);
+}
+
 
 jQuery(function() {
 
@@ -116,7 +139,6 @@ jQuery(function() {
   function applyProjectFilters() {
     var values = [];
     _.each(projectFilters, function(filter) {
-      console.log(filter.filterValue());
       values.push([filter.filterType(), filter.filterValue()]);
     });
 
@@ -143,7 +165,36 @@ jQuery(function() {
   }
   
   // Project form
-  $(".relatize").relatizeDate();
+  // $(".relatize").relatizeDate();
+  $.timeago.settings.allowFuture = true;
+  $("abbr.timeago").timeago();
+  
+  $.timeago.settings.strings = {
+    prefixAgo: null,
+    prefixFromNow: null,
+    suffixAgo: null,
+    suffixFromNow: null,
+    seconds: "Today",
+    minute: "Today",
+    minutes: "Today",
+    hour: "Today",
+    hours: "Today",
+    day: "Yesterday",
+    days: "%d days ago",
+    month: "%d days ago",
+    months: "%d months ago",
+    year: "%d months ago",
+    years: "%d years ago",
+    numbers: []
+  };
+  
+  $("abbr.date_to_words").timeago();
+  
+  $("abbr.countdown").text(function() {
+    var text = countdown($(this).attr("title"));
+    $(this).attr("title", text);
+    return text;
+  });
   
   if ( $('.datepicker').length ) {
     $(".datepicker").datepicker({ dateFormat: 'd MM yy' });

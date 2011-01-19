@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def date_to_words(date_or_time)
+  def date_to_words(date_or_time, options = {})
     date = date_or_time.to_date
-    if date.today?
+    time = date.to_time
+    
+    string = if date.today?
       "Today"
     elsif date == Date.yesterday
       "Yesterday"
@@ -10,15 +12,28 @@ module ApplicationHelper
     else
       "#{(Date.today - date).to_i} days ago"
     end
+    
+    options[:class] ||= "date_to_words"
+    content_tag(:abbr, string, options.merge(:title => time.getutc.iso8601))
   end
   
-  def countdown(date_or_time)
+  def timeago(time, options = {})
+    options[:class] ||= "timeago"
+    content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
+  end
+  
+  def countdown(date_or_time, options = {})
     days = (date_or_time.to_date - Date.today).to_i
+    time = date_or_time.to_time
+    
     text = if days < 0
       pluralize(-days, "day") + " late"
     else
       pluralize(days, "day")
     end
+    
+    options[:class] ||= "countdown"
+    content_tag(:abbr, text, options.merge(:title => time.getutc.iso8601)) if time
   end
 
   def background?
