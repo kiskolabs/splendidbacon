@@ -54,7 +54,7 @@ describe Status do
       @statuses = Status.create_from_github_payload(github_payload, @project)
     end
     
-    it "creates new Statuses from a github JSON payload" do
+    it "creates new statuses from a GitHub JSON payload" do
       @project.statuses.count.should == 2
       @statuses.count.should == 2
       status = @statuses.find { |s| s.text == "okay i give in" }
@@ -73,6 +73,103 @@ describe Status do
       @statuses.each do |status|
         status.project == @project
       end
+    end
+  end
+  
+  context "Pivotal Tracker" do
+    before(:each) do
+      @project = Project.create({ :name => "Pivotal Tracker", 
+                                  :start => Date.today - 7.days, 
+                                  :end => Date.today + 3.months, 
+                                  :state => :ongoing })
+      
+      @story_update = %(<?xml version="1.0" encoding="UTF-8"?>
+                        <activity>
+                          <id type="integer">1031</id>
+                          <version type="integer">175</version>
+                          <event_type>story_update</event_type>
+                          <occurred_at type="datetime">2009/12/14 14:12:09 PST</occurred_at>
+                          <author>James Kirk</author>
+                          <project_id type="integer">26</project_id>
+                          <description>James Kirk accepted &quot;More power to shields&quot;</description>
+                          <stories>
+                            <story>
+                              <id type="integer">109</id>
+                              <url>https://projects/26/stories/109</url>
+                              <accepted_at type="datetime">2009/12/14 22:12:09 UTC</accepted_at>
+                              <current_state>accepted</current_state>
+                            </story>
+                          </stories>
+                        </activity>)
+      
+      @story_create = %(<?xml version="1.0" encoding="UTF-8"?>
+                        <activity>
+                          <id type="integer">1031</id>
+                          <version type="integer">175</version>
+                          <event_type>story_create</event_type>
+                          <occurred_at type="datetime">2009/12/14 14:12:09 PST</occurred_at>
+                          <author>James Kirk</author>
+                          <project_id type="integer">26</project_id>
+                          <description>James Kirk created new shields</description>
+                          <stories>
+                            <story>
+                              <id type="integer">110</id>
+                              <url>https://projects/26/stories/110</url>
+                              <accepted_at type="datetime">2009/12/14 22:12:09 UTC</accepted_at>
+                              <current_state>accepted</current_state>
+                            </story>
+                          </stories>
+                        </activity>)
+      @story_random = %(<?xml version="1.0" encoding="UTF-8"?>
+                        <activity>
+                          <id type="integer">1031</id>
+                          <version type="integer">175</version>
+                          <event_type>story_random</event_type>
+                          <occurred_at type="datetime">2009/12/14 14:12:09 PST</occurred_at>
+                          <author>James Kirk</author>
+                          <project_id type="integer">26</project_id>
+                          <description>The entropy is sky high!</description>
+                          <stories>
+                            <story>
+                              <id type="integer">111</id>
+                              <url>https://projects/26/stories/111</url>
+                              <accepted_at type="datetime">2009/12/14 22:12:09 UTC</accepted_at>
+                              <current_state>accepted</current_state>
+                            </story>
+                          </stories>
+                        </activity>)
+    end
+    
+    it "creates a new status from the Pivotal Tracker XML payload" do
+      status = Status.create_from_pivotal_tracker_payload(@story_update, @project)
+      status.text.should == "James Kirk accepted \"More power to shields\""
+      status.link.should == "https://projects/26/stories/109"
+      status.source.should == "Pivotal Tracker"
+      
+      status = Status.create_from_pivotal_tracker_payload(@story_create, @project)
+      status.text.should == "James Kirk created new shields"
+      status.link.should == "https://projects/26/stories/110"
+      status.source.should == "Pivotal Tracker"
+    end
+    
+    it "associates a project with the status" do
+      status = Status.create_from_pivotal_tracker_payload(@story_update, @project)
+      status.project.should == @project
+    end
+    
+    it "creates a new status when the event type is 'story_update'" do
+      status = Status.create_from_pivotal_tracker_payload(@story_update, @project)
+      status.text.should == "James Kirk accepted \"More power to shields\""
+    end
+    
+    it "creates a new status when the event type is 'story_create'" do
+      status = Status.create_from_pivotal_tracker_payload(@story_create, @project)
+      status.text.should == "James Kirk created new shields"
+    end
+      
+    it "does not create a new status when the event type is not 'story_update' or 'story_create'" do
+      status = Status.create_from_pivotal_tracker_payload(@story_random, @project)
+      status.should be_nil
     end
   end
 end
