@@ -5,3 +5,6 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 SplendidBacon::Application.load_tasks
+
+require "resque/tasks"
+task "resque:setup" => :environment

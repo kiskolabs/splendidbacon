@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{ :charset => "UTF-8" }
+  %body
+    %ul
+      %li
+        %strong Project:
+        = link_to @project_name, @project_url
+      %li
+        %strong Organization:
+        = link_to @organization_name, @organization_url
+      %li
+        %strong Project URL:
+        = @project_url
+    %hr
+    %p
+      %strong= @comment_author
+      made the following comment:
+    %p= @comment
+    %hr
+    %p{ :style => "color: #ccc" } You can change your notification preferences on the project page.

@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
   has_many :broadcast_reads, :dependent => :delete_all
   has_many :broadcasts, :through => :broadcast_reads
   
+  has_many :notifications, :dependent => :delete_all
+  has_many :subscriptions, :source => :project, :through => :notifications
+  
   scope :real, where("email NOT LIKE ?", "%@demoaccount.com")
   scope :demo, where("email LIKE ?", "%@demoaccount.com")
   

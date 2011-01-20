@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118141157) do
+ActiveRecord::Schema.define(:version => 20110119111303) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(:version => 20110118141157) do
   end
 
   add_index "memberships", ["user_id", "organization_id"], :name => "index_memberships_on_user_id_and_organization_id"
+
+  create_table "notifications", :force => true do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+  end
+
+  add_index "notifications", ["project_id"], :name => "index_notifications_on_project_id"
+  add_index "notifications", ["user_id", "project_id"], :name => "index_notifications_on_user_id_and_project_id", :unique => true
+  add_index "notifications", ["user_id"], :name => "index_notifications_on_user_id"
 
   create_table "organizations", :force => true do |t|
     t.string   "name"
