@@ -225,7 +225,7 @@ jQuery(function() {
     }
   });
   
-  $("#post-receive").click(function() {
+  $(".copy_url").click(function() {
     $(this).focus().select();
   });
 

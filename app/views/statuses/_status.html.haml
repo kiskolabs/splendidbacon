@@ -1,0 +1,8 @@
+%li.clearfix
+  .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
+  %div.activity
+    %span.text= status.text
+    %span= status.user.name if status.user
+    %span= timeago(status.created_at)
+    %span.white
+      = link_to "via #{status.source}", status.link if status.link.present?

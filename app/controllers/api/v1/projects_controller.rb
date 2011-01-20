@@ -1,6 +1,8 @@
 class Api::V1::ProjectsController < Api::BaseController
   before_filter :current_project, :only => [:github, :pivotal_tracker]
   
+  respond_to :json
+  
   def index
     organization = current_user.organizations.find(params[:organization_id])
     @projects = organization.projects  

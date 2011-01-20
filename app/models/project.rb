@@ -33,14 +33,23 @@ class Project < ActiveRecord::Base
     self.generate_api_token
     self.save
   end
+
+  def guest_access?
+    guest_token.present?
+  end
+
+  def authenticate_guest_access(token)
+    guest_access? && guest_token == token
+  end
   
-  def toggle_guest_access
-    self.guest_token = if self.guest_token.present?
-      nil
-    else
-      SecureRandom.hex 16
-    end
-    self.save
+  def enable_guest_access
+    self.guest_token = SecureRandom.hex(16)
+    self.save!
+  end
+
+  def disable_guest_access
+    self.guest_token = nil
+    self.save!
   end
   
   def human_start

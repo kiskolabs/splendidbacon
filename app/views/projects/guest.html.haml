@@ -1,0 +1,13 @@
+#top
+  %span.push_1.project_label Project
+  %h1.push_1.grid_20= @project.name
+#leftcolumn.push_1.grid_14.guest
+  %h2 Activity
+  #activity
+    %ol
+      = render @project.statuses.limit(20)
+
+#sidebar.grid_7.push_2
+  = render "sidebar"
+.clear
+
