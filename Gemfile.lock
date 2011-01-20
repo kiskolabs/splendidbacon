@@ -176,6 +176,7 @@ DEPENDENCIES
   kronic (~> 1.1.1)
   launchy
   newrelic_rpm (~> 2.13.4)
+  nokogiri (~> 1.4.4)
   pg
   rack-ssl (~> 1.1.0)
   rails (= 3.0.3)

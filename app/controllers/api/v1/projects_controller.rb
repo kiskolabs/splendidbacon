@@ -1,7 +1,5 @@
 class Api::V1::ProjectsController < Api::BaseController
-  respond_to :json
-  
-  before_filter :current_project, :only => [:github]
+  before_filter :current_project, :only => [:github, :pivotal_tracker]
   
   def index
     organization = current_user.organizations.find(params[:organization_id])
@@ -20,6 +18,18 @@ class Api::V1::ProjectsController < Api::BaseController
   def github
     Status.create_from_github_payload(params["payload"], @project)
     head :created
+  end
+
+  def pivotal_tracker
+    activity = Nokogiri::XML(request.body.read)
+    event_type = activity.xpath("/activity/event_type").try(:text)
+    if ["story_create", "story_update"].include? event_type
+      status = @project.statuses.build(:link => activity.xpath("/activity//story[1]/url").text, 
+                                       :text => activity.xpath("/activity/description").text, 
+                                       :source => "Pivotal Tracker")
+      status.save
+    end
+    head 200
   end
   
   private
