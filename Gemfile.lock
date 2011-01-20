@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/aslakhellesoy/cucumber-rails.git
-  revision: ad3a1f4ffdab02fe6871ce1e0a9a5cc753dd677c
+  revision: ad3a1f4
   ref: ad3a1f4ffdab02fe6871
   specs:
     cucumber-rails (0.4.0)
@@ -42,6 +42,7 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-growl (0.2.9)
+    awesome_print (0.3.1)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     capybara (0.4.0)
@@ -165,6 +166,7 @@ DEPENDENCIES
   RedCloth (~> 4.2.3)
   autotest
   autotest-growl
+  awesome_print
   capybara (~> 0.4.0)
   cucumber-rails!
   devise (~> 1.1.3)
