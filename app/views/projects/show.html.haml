@@ -14,17 +14,6 @@
         = link_to "Subscribe to comment notifications", project_notifications_path(@project), :remote => true, :method => :post
       
     %ol
-<<<<<<< HEAD
-      - @project.statuses.limit(20).each do |status|
-        %li.clearfix
-          .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
-          %div.activity
-            %span.text= status.text
-            %span= status.user.name if status.user
-            %span= timeago(status.created_at)
-            %span.white
-              = link_to "via #{status.source}", status.link if status.link.present?
-=======
       = render @project.statuses.limit(20)
 >>>>>>> origin/guest-access
 
