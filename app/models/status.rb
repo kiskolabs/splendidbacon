@@ -6,6 +6,8 @@ class Status < ActiveRecord::Base
   validates_presence_of :text
   validates_presence_of :source
   
+  validates_uniqueness_of :text, :scope => [:project_id, :source, :link]
+  
   def self.create_from_github_payload(json, project)
     payload = JSON.parse(json)
     
