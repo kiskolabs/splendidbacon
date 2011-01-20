@@ -7,6 +7,8 @@
     = f.input :name, :input_html => {:class => "flip"}, :required => false
     = f.input :password, :hint => "leave blank if you don't want to change it", :input_html => {:class => "flip"}, :required => false
     = f.input :password_confirmation, :input_html => {:class => "flip"}
+    = f.input :newsletter, :label => "Subscribe to newsletter?"
+    .clear
     = f.input :current_password, :hint => "we need your current password to confirm your changes", :input_html => {:class => "flip"}
     = f.button :submit, "Update", :class => "button", :style => "margin-top:10px"
   %h3 API Token

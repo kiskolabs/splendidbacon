@@ -1,0 +1,18 @@
+# config/config.yml
+development:
+  mailchimp:
+    api_key: 35aaa2076e3c6b64cd8f35592453d5c9-us1
+    list_id: 1787fb8b2d
+    token: cde97209191e5d9a9535e1900045876d
+
+test:
+  mailchimp:
+    api_key: 35aaa2076e3c6b64cd8f35592453d5c9-us1
+    list_id: 1787fb8b2d
+    token: cde97209191e5d9a9535e1900045876d
+
+production:
+  mailchimp:
+    api_key: 35aaa2076e3c6b64cd8f35592453d5c9-us1
+    list_id: 1787fb8b2d
+    token: cde97209191e5d9a9535e1900045876d

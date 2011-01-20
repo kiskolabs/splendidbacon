@@ -10,6 +10,7 @@ gem "kronic", "~> 1.1.1"
 gem "hoptoad_notifier"
 gem "will_paginate", "~> 3.0.beta"
 gem "nokogiri", "~> 1.4.4"
+gem "hominid", "~> 3.0.2"
 
 group :development do
   gem "sqlite3-ruby", :require => "sqlite3"
