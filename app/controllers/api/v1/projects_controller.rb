@@ -21,15 +21,8 @@ class Api::V1::ProjectsController < Api::BaseController
   end
 
   def pivotal_tracker
-    activity = Nokogiri::XML(request.body.read)
-    event_type = activity.xpath("/activity/event_type").try(:text)
-    if ["story_create", "story_update"].include? event_type
-      status = @project.statuses.build(:link => activity.xpath("/activity//story[1]/url").text, 
-                                       :text => activity.xpath("/activity/description").text, 
-                                       :source => "Pivotal Tracker")
-      status.save
-    end
-    head 200
+    Status.create_from_pivotal_tracker_payload(request.body.read, @project)
+    head :created
   end
   
   private

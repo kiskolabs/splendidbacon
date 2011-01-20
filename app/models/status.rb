@@ -21,4 +21,16 @@ class Status < ActiveRecord::Base
       end
     end
   end
+  
+  def self.create_from_pivotal_tracker_payload(xml, project)
+    activity = Nokogiri::XML(xml)
+    event_type = activity.xpath("/activity/event_type").try(:text)
+    if ["story_create", "story_update"].include? event_type
+      status = project.statuses.build( :link => activity.xpath("/activity//story[1]/url").text, 
+                                       :text => activity.xpath("/activity/description").text, 
+                                       :source => "Pivotal Tracker" )
+      status.save
+      status
+    end
+  end
 end
