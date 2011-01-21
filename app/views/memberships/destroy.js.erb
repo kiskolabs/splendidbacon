@@ -1,1 +1,1 @@
-$('#member_<%= @membership.id.to_s %>').hide(); // Insert the _comment partial at the bottom of the comments list
+$('#member_<%= @membership.id.to_s %>').fadeOut("slow", function() { $(this).remove() });

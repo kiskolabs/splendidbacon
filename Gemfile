@@ -25,16 +25,17 @@ group :production do
 end
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.2.0"
-  gem "steak", "~> 1.1.0"
+  gem "rspec-rails"
+  gem "steak"
+  gem "akephalos"
   gem "awesome_print", :require => "ap"
 end
 
 group :test do
-  gem "cucumber-rails", :git => "git://github.com/aslakhellesoy/cucumber-rails.git", :ref => "ad3a1f4ffdab02fe6871"
-  gem "factory_girl_rails", "~> 1.0.0"
-  gem "capybara", "~> 0.4.0"
+  gem "factory_girl_rails"
+  gem "capybara"
   gem "launchy"
   gem "autotest"
   gem "autotest-growl"
+  gem "database_cleaner"
 end

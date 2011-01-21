@@ -9,9 +9,9 @@
   #activity
     #notifications
       - if @notification.present?
-        = link_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete
+        = button_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete
       - else
-        = link_to "Subscribe to comment notifications", project_notifications_path(@project), :remote => true, :method => :post
+        = button_to "Subscribe to comment notifications", project_notifications_path(@project), :remote => true, :method => :post
       
     %ol
       = render @project.statuses.limit(20)

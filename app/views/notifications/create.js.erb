@@ -1,1 +1,1 @@
-$("#notifications").html('<%= link_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete %>');
+$("#notifications").html('<%= button_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete %>');

@@ -11,7 +11,7 @@ class InvitationsController < ApplicationController
     unless in_demo?
       @invitation = Invitation.new(params[:invitation])
       organization = @invitation.organization
-      @invitation.token = SecureRandom.hex(8)
+      
       unless current_user.organizations.include?(organization)
         @invitation = nil
       else
@@ -26,8 +26,7 @@ class InvitationsController < ApplicationController
     organization = @invitation.organization
     Membership.create(:user_id => current_user.id, :organization_id => @invitation.organization_id) unless current_user.organizations.include?(organization)
     @invitation.destroy
-    flash[:notice] = "You are now a part of #{organization.name}"
-    redirect_to organization
+    redirect_to organization, :notice => "You are now a part of #{organization.name}"
   end
   
 end

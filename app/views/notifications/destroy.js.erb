@@ -1,1 +1,1 @@
-$("#notifications").html('<%= link_to "Subscribe to comment notifications", project_notifications_path(@project), :remote => true, :method => :post %>');
+$("#notifications").html('<%= button_to "Subscribe to comment notifications", project_notifications_path(@project), :remote => true, :method => :post %>');
