@@ -5,3 +5,4 @@ tmp/**/*
 public/stylesheets/application.css
 public/stylesheets/magic.css
 .DS_Store
+capybara-*
