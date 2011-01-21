@@ -26,7 +26,7 @@ end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.2.0"
-  gem "steak", "~> 1.0.1"
+  gem "steak", "~> 1.1.0"
   gem "awesome_print", :require => "ap"
 end
 
