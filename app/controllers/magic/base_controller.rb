@@ -4,6 +4,10 @@ class Magic::BaseController < ActionController::Base
   
   protected
   
+  def title(title)
+    @title = title
+  end
+  
   def navigation(identifier)
     @navigation_id = identifier
   end

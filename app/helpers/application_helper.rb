@@ -81,4 +81,8 @@ module ApplicationHelper
     html << ": #{broadcast.text}"
     html.html_safe
   end
+  
+  def title(title = nil)
+    [title, "Splendid Bacon"].compact.join(" :: ")
+  end
 end

@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
   def navigation(identifier)
     @navigation_id = identifier
   end
+  
+  def title(title)
+    @title = title
+  end
 
   def set_navigation_for_devise_controllers
     if controller_name == "registrations" && action_name == "edit"
