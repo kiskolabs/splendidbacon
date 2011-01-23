@@ -8,7 +8,10 @@
     = simple_form_for [:magic, @broadcast] do |f|
       = f.input :title, :required => false, :input_html => { :class => "grid_13 flip" }
       = f.input :text, :label => "Text", :input_html => {  :rows => 2, :cols => 40, :class => "grid_13"}, :required => false
-      = f.input :expiry, :required => false
+      .input.datetime.optional.expiry
+        = f.label :expiry
+        = f.datetime_select :expiry
+        %input.magic_datepicker{:type => "hidden"}
       .clear
       = f.button :submit, "Post", :class => "button right"
 

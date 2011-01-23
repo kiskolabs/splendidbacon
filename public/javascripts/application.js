@@ -267,4 +267,17 @@ jQuery(function() {
       }
     })
   }
+  
+  if ( $('.magic_datepicker').length ) {
+    $(".magic_datepicker").datepicker({
+      showOn: "button",
+      buttonText: "\\",
+      onSelect: function(dateText, inst) {
+        $("#broadcast_expiry_1i").val(inst.selectedYear);
+        $("#broadcast_expiry_2i").val(inst.selectedMonth + 1);
+        $("#broadcast_expiry_3i").val(inst.selectedDay);
+        console.log(inst);
+      }
+    });
+  };
 });
