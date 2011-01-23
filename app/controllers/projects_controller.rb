@@ -5,11 +5,13 @@ class ProjectsController < ApplicationController
   before_filter :current_project, :only => [:show, :edit, :update, :destroy, :enable_guest_access, :disable_guest_access]
 
   def show
+    title @project.name
     @comment ||= @project.statuses.new
     @notification = @project.notifications.where(:user_id => current_user.id).first
   end
 
   def guest
+    title "#{@project.name} (guest access)"
     @project = Project.find(params[:id])
     unless @project.authenticate_guest_access(params[:token])
       # TODO Actually show the flash message on front page.
@@ -20,6 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    title "New project for #{current_organization.name}"
     @project = Project.new(:state => :ongoing)
     @organization = current_organization
   end
@@ -36,6 +39,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    title "Edit '#{@project.name}'"
   end
 
   def update

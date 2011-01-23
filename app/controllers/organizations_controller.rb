@@ -4,12 +4,14 @@ class OrganizationsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :current_organization, :only => [:timeline, :show, :completed, :edit, :update, :destroy]
   
-  def index	
+  def index
+    title "Organizations"
     @organizations = current_user.organizations	
   end
   
   
   def timeline
+    title "#{@organization.name} timeline"
     navigation :timeline
     @projects = @organization.projects.current
     if @projects.empty?
@@ -19,17 +21,20 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    title @organization.name
     navigation :dashboard
     no_background!
     render :template => "projects/ghost" if @organization.projects.empty?
   end
 
   def completed
+    title "#{@organization.name} Completed Projects"
     navigation :dashboard
     no_background!
   end
   
   def new
+    title "New Organization"
     @organization = Organization.new
   end
   
@@ -46,6 +51,7 @@ class OrganizationsController < ApplicationController
   end
   
   def edit
+    title "Edit '#{@organization.name}'"
     @invitation = Invitation.new
   end
   

@@ -3,6 +3,7 @@ class InvitationsController < ApplicationController
   before_filter :authenticate_user!
   
   def show
+    title "Invitation"
     @invitation = Invitation.where(:token => params[:id]).first
     respond_with(@invitation)
   end

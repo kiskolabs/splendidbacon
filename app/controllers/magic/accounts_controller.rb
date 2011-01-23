@@ -1,9 +1,11 @@
 class Magic::AccountsController < Magic::BaseController
   def edit
+    title "Edit Account"
     navigation :account
   end
   
   def new
+    title "New Administrator"
     navigation :create_admin
     @admin = Admin.new
   end
