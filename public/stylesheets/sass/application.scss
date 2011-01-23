@@ -655,29 +655,23 @@ label[for='project_active'].toggle:hover,
   @include box-shadow(0, 0, 8px, #198ce5);
 }
 
-/* Override the Datepicker backround */
-.ui-widget-content {
-  background: #181819;
-}
-
 #organization_nav li {
-  margin:4px 0;
-  font-size:16px;
+  margin: 4px 0;
+  font-size: 16px;
   @include top-d-border();
 }
 
 #organization_nav li a {
-  display:block;
-  padding:4px 2px;
- text-shadow:0 0px 1px #222;
- font-weight:bold;
+  display: block;
+  padding: 4px 2px;
+  text-shadow: 0 0px 1px #222;
+  font-weight: bold;
 }
 
 #organization_nav a:hover {
   color:#fff;
   text-shadow:0 0px 6px #198ce5;
   -webkit-transition: text-shadow 0.20s linear;
-
 }
 
 #organization_nav {
