@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_navigation_for_devise_controllers
   before_filter :get_broadcasts
   
-  helper_method :in_demo?
+  helper_method :in_demo?, :guest_view?
   
   layout :layout_by_resource
   
@@ -36,6 +36,10 @@ class ApplicationController < ActionController::Base
   
   def in_demo?
     user_signed_in? && current_user.email =~ /@demoaccount.com/
+  end
+  
+  def guest_view?
+    request.path =~ /\/guest\//i
   end
   
   def layout_by_resource

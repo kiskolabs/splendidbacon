@@ -8,26 +8,25 @@
   %h2 Activity
   #activity
     #notifications
-      - if @notification.present?
-        = button_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete
-      - else
-        = button_to "Subscribe to comment notifications", project_notifications_path(@project), :remote => true, :method => :post
-      
+      - unless guest_view?
+        - if @notification.present?
+          = button_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete, :class => "button"
+        - else
+          = button_to "Subscribe to notifications", project_notifications_path(@project), :remote => true, :method => :post, :class => "button right"
     %ol
       = render @project.statuses.limit(20)
 
 #sidebar.grid_7.push_2
   = render "sidebar"
-
+  
   %h2 Guest Access
   - if @project.guest_access?
-    = button_to "Disable guest access", disable_guest_access_project_path(@project), :method => :put
-
-    %input#guest_access.copy_url.grid_7.flip{:value => guest_project_url(@project, :token => @project.guest_token), :readonly => "readonly"}
-    %p Copy and give this url to people you want to give access to this page. Editing is not allowed for guests.
+    = button_to "Disable guest access", disable_guest_access_project_path(@project), :method => :put, :class => "button"
+    %input#guest_access.copy_url.grid_6.flip{:value => guest_project_url(@project, :token => @project.guest_token), :readonly => "readonly"}
+    %p{ :style => "text-transform: none;" }
+      Copy and give this url to people you want to give access to this page.
+      Editing is not allowed for guests.
   - else
-    = button_to "Enable guest access", enable_guest_access_project_path(@project), :method => :put
-    %p Enable guest access to give guests ability to view this project.
-
-  
+    = button_to "Enable guest access", enable_guest_access_project_path(@project), :method => :put, :class => "button"
+    %p{ :style => "text-transform: none;" } Enable guest access to give guests ability to view this project.
 .clear

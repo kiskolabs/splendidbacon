@@ -462,7 +462,6 @@ ul.sidebar_team li span.user {
   @include inset-shadow(0, 1px, 1px, #444);
   text-shadow:0 0 1px #111;
   -webkit-transition: text-shadow 0.30s linear;
-
 }
 
 .button:hover,
@@ -783,7 +782,7 @@ label[for='project_active'].toggle:hover,
 }
 
 .pictos.alert:before {
-  content:"!";
+  content: "!";
 }
 
 .pictos.refresh:before {
