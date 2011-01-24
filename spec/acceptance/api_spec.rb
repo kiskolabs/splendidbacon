@@ -29,13 +29,15 @@ feature "API Feature" do
     
     json.count.should == 2
     
-    json.first["organization"]["id"].should be_present
-    json.first["organization"]["name"].should == "Kisko Labs"
-    json.first["organization"]["url"].should match(URI.regexp(["http", "https"]))
+    json.each do |org|
+      org["organization"]["id"].should be_present
+      Time.parse(org["organization"]["created_at"]).should be_kind_of Time
+      Time.parse(org["organization"]["updated_at"]).should be_kind_of Time
+      org["organization"]["url"].should match(URI.regexp(["http", "https"]))
+    end
     
-    json.second["organization"]["id"].should be_present
-    json.second["organization"]["name"].should == "Not Kisko Labs"
-    json.second["organization"]["url"].should match(URI.regexp(["http", "https"]))
+    json.find { |org| org["organization"]["name"] == "Kisko Labs"}.should be_present
+    json.find { |org| org["organization"]["name"] == "Not Kisko Labs"}.should be_present
   end
   
   scenario "organizations show" do
@@ -53,18 +55,24 @@ feature "API Feature" do
     
     json.count.should == 2
     
-    json.first["project"]["id"].should be_present
-    json.first["project"]["name"].should == "Ongoing project"
-    json.first["project"]["state"].should == "ongoing"
-    json.first["project"]["url"].should match(URI.regexp(["http", "https"]))
-    json.first["project"]["users"].count.should == 1
-    json.first["project"]["users"].first["email"].should == @al.email
+    json.each do |project|
+      project["project"]
+      project["project"]["id"].should be_present
+      project["project"]["name"].should be_present
+      project["project"]["state"].should be_present
+      project["project"]["url"].should match(URI.regexp(["http", "https"]))
+    end
     
-    json.second["project"]["id"].should be_present
-    json.second["project"]["name"].should == "On hold project"
-    json.second["project"]["state"].should == "on_hold"
-    json.second["project"]["url"].should match(URI.regexp(["http", "https"]))
-    json.second["project"]["users"].count.should == 0
+    with_users = json.find { |project| project["project"]["name"] == "Ongoing project" }
+    with_users["project"]["state"].should == "ongoing"
+    with_users["project"]["users"].count.should == 1
+    with_users["project"]["users"].first["email"].should == @al.email
+    
+    
+    no_users = json.find { |project| project["project"]["name"] == "On hold project" }
+    no_users["project"]["state"].should == "on_hold"
+    no_users["project"]["users"].count.should == 0
+    
   end
   
   scenario "projects index, filter by user IDs" do
@@ -84,8 +92,8 @@ feature "API Feature" do
     json["project"]["name"].should == "Ongoing project"
     json["project"]["state"].should == "ongoing"
     json["project"]["url"].should match(URI.regexp(["http", "https"]))
-    json["project"]["users"].count == 1
-    json["project"]["users"].first["email"].should == @al.email
+    json["project"]["users"].count.should == 1
+    json["project"]["users"].find { |user| user["email"] == @al.email }.should be_present
   end
   
   scenario "users index" do
