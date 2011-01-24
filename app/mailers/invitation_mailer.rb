@@ -1,4 +1,4 @@
-class Notifier < ActionMailer::Base
+class InvitationMailer < ActionMailer::Base
   default :from => "no-reply@splendidbacon.com"
   
   def new_invitation(invitation)

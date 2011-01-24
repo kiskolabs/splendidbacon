@@ -11,7 +11,7 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :token
   
   def send_notification
-    Notifier.new_invitation(self).deliver
+    InvitationMailer.new_invitation(self).deliver
   end
   
   def generate_token
