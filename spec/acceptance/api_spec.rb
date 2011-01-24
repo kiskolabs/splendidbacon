@@ -57,14 +57,14 @@ feature "API Feature" do
     json.first["project"]["name"].should == "Ongoing project"
     json.first["project"]["state"].should == "ongoing"
     json.first["project"]["url"].should match(URI.regexp(["http", "https"]))
-    json.first["project"]["users"].count == 1
+    json.first["project"]["users"].count.should == 1
     json.first["project"]["users"].first["email"].should == "al@kiskolabs.com"
     
     json.second["project"]["id"].should be_present
     json.second["project"]["name"].should == "On hold project"
     json.second["project"]["state"].should == "on_hold"
     json.second["project"]["url"].should match(URI.regexp(["http", "https"]))
-    json.first["project"]["users"].count == 0
+    json.second["project"]["users"].count.should == 0
   end
   
   scenario "projects index, filter by user IDs" do
