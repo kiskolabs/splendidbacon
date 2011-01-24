@@ -5,6 +5,7 @@ class InvitationsController < ApplicationController
   def show
     title "Invitation"
     @invitation = Invitation.where(:token => params[:id]).first
+    raise ActiveRecord::RecordNotFound if @invitation.nil?
     respond_with(@invitation)
   end
   
