@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   
+  attr_accessor :user
+  
   STATES = {:ongoing => "Ongoing", 
             :on_hold => "On Hold", 
             :completed => "Completed"}
@@ -16,6 +18,7 @@ class Project < ActiveRecord::Base
   has_many :subscribers, :source => :user, :through => :notifications
   
   before_create :generate_api_token
+  after_create :create_initial_status
   
   validates_presence_of :start
   validates_presence_of :end
@@ -112,5 +115,9 @@ class Project < ActiveRecord::Base
   
   def generate_api_token
     self.api_token = SecureRandom.hex 32
+  end
+  
+  def create_initial_status
+    self.statuses.create(:user => @user, :text => "Project created", :source => "Comment")
   end
 end

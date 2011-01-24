@@ -55,8 +55,8 @@ describe Status do
     end
     
     it "creates new statuses from a GitHub JSON payload" do
-      @project.statuses.count.should == 2
       @statuses.count.should == 2
+      @project.statuses.count.should == 3
       status = @statuses.find { |s| s.text == "okay i give in" }
       status.link.should == "http://github.com/defunkt/github/commit/41a212ee83ca127e3c8cf465891ab7216a705f59"
       

@@ -10,6 +10,10 @@ module HelperMethods
     resource
   end
   
+  def logout
+    click_link "Logout"
+  end
+  
   def fill_in_sign_up_form(opts = {})
     fill_in "Email", :with => opts[:email]
     fill_in "Name", :with => opts[:name]

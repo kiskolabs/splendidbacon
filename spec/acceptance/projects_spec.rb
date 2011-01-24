@@ -112,6 +112,15 @@ feature "Projects" do
     visit project_page(@ongoing.id)
     click_button "Enable guest access"
     page.should have_css("input.copy_url")
-    find(:css, "input.copy_url").value.should match(URI::regexp(["http", "https"]))
+    guest_url = find(:css, "input.copy_url").value
+    guest_url.should match(URI::regexp(["http", "https"]))
+    
+    logout
+    
+    visit guest_url
+    page.should have_content("[Guest access]")
+    page.should have_no_xpath("//form")
+    page.should have_no_xpath("//input")
+    page.should have_no_content("Edit Project")
   end
 end
