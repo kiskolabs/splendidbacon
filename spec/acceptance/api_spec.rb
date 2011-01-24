@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "API Feature" do
   background do
-    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "123456")
+    @al = Factory :user
     @al.reset_authentication_token
     @al.save
     
@@ -18,13 +18,13 @@ feature "API Feature" do
   end
   
   scenario "Fails with an invalid token" do
-    visit "/api/v1/organizations.json?token=INVALID"
+    visit api_v1_organizations_json("INVALID_TOKEN")
     json = JSON.parse page.body
     json["error"].should be_present
   end
 
   scenario "organizations index" do
-    visit "/api/v1/organizations.json?token=#{@al.authentication_token}"
+    visit api_v1_organizations_json(@al.authentication_token)
     json = JSON.parse page.body
     
     json.count.should == 2
@@ -39,7 +39,7 @@ feature "API Feature" do
   end
   
   scenario "organizations show" do
-    visit "/api/v1/organizations/#{@kisko.id}.json?token=#{@al.authentication_token}"
+    visit api_v1_organization_json(@al.authentication_token, @kisko.id)
     json = JSON.parse page.body
     
     json["organization"]["id"].should be_present
@@ -48,7 +48,7 @@ feature "API Feature" do
   end
   
   scenario "projects index" do
-    visit "/api/v1/organizations/#{@kisko.id}/projects.json?token=#{@al.authentication_token}"
+    visit api_v1_organization_projects_json(@al.authentication_token, @kisko.id)
     json = JSON.parse page.body
     
     json.count.should == 2
@@ -58,7 +58,7 @@ feature "API Feature" do
     json.first["project"]["state"].should == "ongoing"
     json.first["project"]["url"].should match(URI.regexp(["http", "https"]))
     json.first["project"]["users"].count.should == 1
-    json.first["project"]["users"].first["email"].should == "al@kiskolabs.com"
+    json.first["project"]["users"].first["email"].should == @al.email
     
     json.second["project"]["id"].should be_present
     json.second["project"]["name"].should == "On hold project"
@@ -68,15 +68,16 @@ feature "API Feature" do
   end
   
   scenario "projects index, filter by user IDs" do
+    visit api_v1_organization_projects_json(@al.authentication_token, @kisko.id, [@al.id])
     visit "/api/v1/organizations/#{@kisko.id}/projects.json?token=#{@al.authentication_token}&users=#{@al.id}"
     json = JSON.parse page.body
     
     json.count.should == 1
-    json.first["project"]["users"].first["email"].should == "al@kiskolabs.com"
+    json.first["project"]["users"].first["email"].should == @al.email
   end
   
   scenario "projects show" do
-    visit "/api/v1/organizations/#{@kisko.id}/projects/#{@ongoing.id}.json?token=#{@al.authentication_token}"
+    visit api_v1_organization_project_json(@al.authentication_token, @kisko.id, @ongoing.id)
     json = JSON.parse page.body
     
     json["project"]["id"].should be_present
@@ -84,15 +85,15 @@ feature "API Feature" do
     json["project"]["state"].should == "ongoing"
     json["project"]["url"].should match(URI.regexp(["http", "https"]))
     json["project"]["users"].count == 1
-    json["project"]["users"].first["email"].should == "al@kiskolabs.com"
+    json["project"]["users"].first["email"].should == @al.email
   end
   
   scenario "users index" do
-    visit "/api/v1/organizations/#{@kisko.id}/users.json?token=#{@al.authentication_token}"
+    visit api_v1_organization_users_json(@al.authentication_token, @kisko.id)
     json = JSON.parse page.body
     json.count.should == 1
     json.first["user"]["id"].should be_present
-    json.first["user"]["name"].should == "Al"
-    json.first["user"]["email"].should == "al@kiskolabs.com"
+    json.first["user"]["name"].should == @al.name
+    json.first["user"]["email"].should == @al.email
   end
 end
