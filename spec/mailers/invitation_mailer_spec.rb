@@ -7,7 +7,7 @@ describe InvitationMailer do
     @invitation = organization.invitations.create(:email => @email)
   end
   
-  it "should send the invitation notification" do
+  it "sends the invitation notification" do
     email = InvitationMailer.new_invitation(@invitation).deliver
     ActionMailer::Base.deliveries.should_not be_empty
     email.to.should == [@email]
