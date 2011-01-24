@@ -280,4 +280,8 @@ jQuery(function() {
       }
     });
   };
+  
+  $("#demo a").click(function() {
+    $("#spinner").show();
+  });
 });

@@ -15,3 +15,6 @@
     %div
       = yield
     = render :partial => "layouts/analytics" if Rails.env.production?
+  #spinner{ :style => "display: none;" }
+    %span Please wait while we prepare a demo account for you&hellip;
+    = image_tag "spinner.gif", :height => 32, :width => 32
