@@ -56,8 +56,6 @@ feature "API Feature" do
     
     json.count.should == 2
     
-    ap json
-    
     json.each do |project|
       project["project"]
       project["project"]["id"].should be_present
