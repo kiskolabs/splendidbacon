@@ -90,10 +90,8 @@ class Project < ActiveRecord::Base
   end
   
   def as_json(opts={})
-    if opts
-      opts[:include] ||= { :users => { :only => [:id, :email, :name] } }
-      opts[:except] ||= [ :guest_token, :active, :api_token, :organization_id ]
-    end
+    opts[:include] ||= { :users => { :only => [:id, :email, :name] } }
+    opts[:except] ||= [ :guest_token, :active, :api_token, :organization_id ]
     hash = super(opts)
     hash["project"]["url"] = url
     hash
