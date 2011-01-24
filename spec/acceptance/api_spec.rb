@@ -56,6 +56,8 @@ feature "API Feature" do
     
     json.count.should == 2
     
+    ap json
+    
     json.each do |project|
       project["project"]
       project["project"]["id"].should be_present
@@ -73,7 +75,6 @@ feature "API Feature" do
     no_users = json.find { |project| project["project"]["name"] == "On hold project" }
     no_users["project"]["state"].should == "on_hold"
     no_users["project"]["users"].count.should == 0
-    
   end
   
   scenario "projects index, filter by user IDs" do
