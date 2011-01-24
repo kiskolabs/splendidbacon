@@ -20,4 +20,8 @@ class Organization < ActiveRecord::Base
                        :protocol => Rails.application.config.action_mailer.default_url_options[:protocol],
                        :id => id })
   end
+  
+  def to_param
+    "#{self.id}-#{self.name.parameterize}"
+  end
 end

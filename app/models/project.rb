@@ -103,6 +103,10 @@ class Project < ActiveRecord::Base
                   :id => id })
   end
   
+  def to_param
+    "#{self.id}-#{self.name.parameterize}"
+  end
+  
   protected
   
   def generate_api_token
