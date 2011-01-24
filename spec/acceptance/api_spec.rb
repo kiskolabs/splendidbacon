@@ -10,22 +10,23 @@ feature "API Feature" do
     not_kisko = @al.organizations.create(:name => "Not Kisko Labs")
     
     @ongoing = @kisko.projects.create(:name => "Ongoing project", :start => Date.today - 7.days, :end => Date.today + 3.months, :state => :ongoing)
-    @kisko.projects.create(:name => "On hold project", :start => Date.today - 7.days, :end => Date.today + 3.months, :state => :on_hold)
     @ongoing.users << @al
     @ongoing.save
+    
+    @kisko.projects.create(:name => "On hold project", :start => Date.today - 7.days, :end => Date.today + 3.months, :state => :on_hold)
     
     not_kisko.projects.create(:name => "Ongoing project", :start => Date.today - 7.days, :end => Date.today + 3.months, :state => :ongoing)
   end
   
   scenario "Fails with an invalid token" do
     visit api_v1_organizations_json("INVALID_TOKEN")
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     json["error"].should be_present
   end
 
   scenario "organizations index" do
     visit api_v1_organizations_json(@al.authentication_token)
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     
     json.count.should == 2
     
@@ -42,7 +43,7 @@ feature "API Feature" do
   
   scenario "organizations show" do
     visit api_v1_organization_json(@al.authentication_token, @kisko.id)
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     
     json["organization"]["id"].should be_present
     json["organization"]["name"].should == "Kisko Labs"
@@ -51,7 +52,7 @@ feature "API Feature" do
   
   scenario "projects index" do
     visit api_v1_organization_projects_json(@al.authentication_token, @kisko.id)
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     
     json.count.should == 2
     
@@ -77,8 +78,7 @@ feature "API Feature" do
   
   scenario "projects index, filter by user IDs" do
     visit api_v1_organization_projects_json(@al.authentication_token, @kisko.id, [@al.id])
-    visit "/api/v1/organizations/#{@kisko.id}/projects.json?token=#{@al.authentication_token}&users=#{@al.id}"
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     
     json.count.should == 1
     json.first["project"]["users"].first["email"].should == @al.email
@@ -86,7 +86,7 @@ feature "API Feature" do
   
   scenario "projects show" do
     visit api_v1_organization_project_json(@al.authentication_token, @kisko.id, @ongoing.id)
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     
     json["project"]["id"].should be_present
     json["project"]["name"].should == "Ongoing project"
@@ -98,7 +98,7 @@ feature "API Feature" do
   
   scenario "users index" do
     visit api_v1_organization_users_json(@al.authentication_token, @kisko.id)
-    json = JSON.parse page.body
+    json = JSON.parse(page.body)
     json.count.should == 1
     json.first["user"]["id"].should be_present
     json.first["user"]["name"].should == @al.name
