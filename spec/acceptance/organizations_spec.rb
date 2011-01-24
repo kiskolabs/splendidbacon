@@ -7,12 +7,12 @@ feature "Organizations" do
     @kisko = @al.organizations.create(:name => "Kisko Labs")
   end
   
-  scenario "If the user has no organizations, they should asked directed to create one" do
+  scenario "If the user has no organizations, they should be directed to create one" do
     login_as(:user)
     visit homepage
     page.should have_content("Add New Organization")
     fill_in "Name", :with => "Kisko Labs"
-    click_button "organization_submit"
+    click_button "Create Organization"
     page.should have_content("Kisko Labs")
     page.should have_content("Organization was successfully created.")
   end
@@ -31,7 +31,7 @@ feature "Organizations" do
     visit organization_path(@kisko.id)
     find(:css, "#organization_nav h1 a").click
     fill_in "Name", :with => "Not Kisko"
-    click_button "organization_submit"
+    click_button "Update Organization"
     page.should have_content("Organization was successfully updated.")
     page.should have_content("Not Kisko")
   end

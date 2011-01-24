@@ -6,7 +6,7 @@ module HelperMethods
     fill_in "Email", :with => resource.email
     fill_in "Password", :with => opts[:password] || resource.password
     click_button "Sign in"
-
+    
     resource
   end
   

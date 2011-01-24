@@ -41,6 +41,8 @@ class Status < ActiveRecord::Base
     project = self.project
     emails = project.subscribers.map { |n| n.email }
     organization = project.organization
-    Resque.enqueue(NotificationJob, emails, project.to_json(:include => []), organization.to_json, self.to_json, self.user.name)
+    if emails.any?
+      Resque.enqueue(NotificationJob, emails, project.to_json(:include => []), organization.to_json, self.to_json, self.user.name)
+    end
   end
 end
