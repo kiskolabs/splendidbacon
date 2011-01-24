@@ -98,13 +98,13 @@ feature "Projects" do
     login_as(@al)
     visit project_page(@ongoing.id)
     
-    page.should have_css("input[value='Subscribe to comment notifications']")
+    page.should have_css("input[value='Subscribe to notifications']")
     
-    click_button "Subscribe to comment notifications"
+    click_button "Subscribe to notifications"
     page.should have_css("input[value='Unsubscribe from notifications']")
     
     click_button "Unsubscribe from notifications"
-    page.should have_css("input[value='Subscribe to comment notifications']")
+    page.should have_css("input[value='Subscribe to notifications']")
   end
   
   scenario "Enable/disable guest access" do
