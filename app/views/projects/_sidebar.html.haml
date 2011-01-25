@@ -6,7 +6,7 @@
   %span= date_to_words(@project.last_activity)
 %p Countdown
 %div.flip
-  %span= countdown(@project.end)
+  %span= countdown(@project.end, :state => @project.state)
 %h2 Team
 %ul.sidebar_team
   - @project.users.each do |user|

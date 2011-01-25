@@ -23,17 +23,21 @@ module ApplicationHelper
   end
   
   def countdown(date_or_time, options = {})
-    days = (date_or_time.to_date - Date.today).to_i
-    time = date_or_time.to_time
-    
-    text = if days < 0
-      pluralize(-days, "day") + " late"
+    if [:on_hold, :completed].include? options[:state]
+      "&mdash;".html_safe
     else
-      pluralize(days, "day")
+      days = (date_or_time.to_date - Date.today).to_i
+      time = date_or_time.to_time
+
+      text = if days < 0
+        pluralize(-days, "day") + " late"
+      else
+        pluralize(days, "day")
+      end
+
+      options[:class] ||= "countdown"
+      content_tag(:abbr, text, options.merge(:title => time.getutc.iso8601)) if time
     end
-    
-    options[:class] ||= "countdown"
-    content_tag(:abbr, text, options.merge(:title => time.getutc.iso8601)) if time
   end
 
   def background?
