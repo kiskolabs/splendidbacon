@@ -581,6 +581,10 @@ ul.sidebar_team li .avatar,
   font-size:16px;
   height:22px;
   padding:5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
 
 .projectcontent .grid_4 {
