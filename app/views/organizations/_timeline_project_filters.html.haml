@@ -1,0 +1,11 @@
+#project_filters.clearfix
+
+  .project_mate.dropdown{"data-type" => "user"}
+    %span.pictos.down
+    %span.current
+      Everyone
+    %ul.options
+      %li.selected{:"data-value" => "all"} Everyone
+      - @organization.users.each do |user|
+        %li{:"data-value" => user.id}= user.name
+   

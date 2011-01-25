@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
   def timeline
     title "#{@organization.name} timeline"
     navigation :timeline
-    @projects = @organization.projects.current
+    @projects = @organization.projects.ongoing
     if @projects.empty?
       no_background!
       render :template => "projects/ghost"
