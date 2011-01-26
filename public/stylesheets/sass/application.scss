@@ -591,30 +591,40 @@ ul.sidebar_team li .avatar,
   width:136px;
 }
 
-#dashboard .grid_12 {
-  width:460px;
-  margin-right:13px;
-}
+#dashboard {
+  .grid_12 {
+    width:460px;
+    margin-right:13px;
+  }
 
-#dashboard .team {
-  margin:0;
-  padding:0;
-}
+  .team {
+    margin:0;
+    padding:0;
+  }
 
-#dashboard .lineup {
-  margin:0 0 10px 0;
-}
+  .lineup {
+    display:inline;
+    margin:0 0 10px 0;
+    width: 100%;
+    
+    ul {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 
-#dashboard h2 {
-  margin:0 0 -8px 0;
-  padding:0; 
-  font-size:24px; 
-  text-transform:none;
-}
+  h2 {
+    margin:0 0 -8px 0;
+    padding:0; 
+    font-size:24px; 
+    text-transform:none;
+  }
 
-#dashboard .stats {
-  height:60px;
-  padding:0px 0;
+  .stats {
+    height:60px;
+    padding:0px 0;
+  }
 }
 
 .hr {
