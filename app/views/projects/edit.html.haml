@@ -15,9 +15,21 @@
     %li Copy/paste you Token and Project ID from below and mark the hook active
     %li Save the settings, and that's it.
   %label{:for => "project_id"} Project ID
-  %input#post-receive.flip.grid_15#project_id{:type => :text, :value => @project.id, :readonly => "readonly"}
+  %input.flip.grid_15.copy_url#project_id{:type => :text, :value => @project.id, :readonly => "readonly"}
   %label{:for => "token"} Token
-  %input#post-receive.flip.grid_15#token{:type => :text, :value => @project.api_token, :readonly => "readonly"}
+  %input.flip.grid_15.copy_url#token{:type => :text, :value => @project.api_token, :readonly => "readonly"}
+  
+
+#github.push_1.prepend-1.grid_15
+  %h2 Pivotal Tracker Web Hook
+  %p By using this web hook, Pivotal Tracker can automatically post status messages to the project page.
+  %ol
+    %li Go to your project's settings page on Pivotal Tracker
+    %li Choose "Integrations"
+    %li Scroll down to "Activity Web Hook"
+    %li Copy/paste the URL below into the "Web Hook URL" field and save. <br />The API version should be "v3".
+  %label{:for => "project_id"} Web Hook URL
+  %input#post-receive.flip.grid_15.copy_url{:type => :text, :value => pivotal_tracker_api_v1_project_url(@project.id, :protocol => "https", :token => @project.api_token), :readonly => "readonly"}
   
 #destroy.push_1.prepend-1.grid_15
   %h2 Destroy this project
