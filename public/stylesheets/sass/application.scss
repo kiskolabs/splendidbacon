@@ -393,6 +393,27 @@ ul.options {
   }
 }
 
+#activity_title {
+  clear:both;
+  margin-top: 60px;
+  height: 40px;
+  
+  h2 {
+    width: 40%;
+    float:left;
+    clear:none;
+    margin: 0!important;
+    line-height: 40px;
+    vertical-align: bottom;
+  }
+  
+  #notifications {
+    float:right;
+    clear: none;
+    margin: 0;
+  }
+}
+
 .team,
 .sidebar_team {
   margin:0;
@@ -425,6 +446,11 @@ ul.sidebar_team {
   li span.user {
     line-height: 48px;
     vertical-align: middle;
+    width: 210px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -436,9 +462,40 @@ ul.sidebar_team li .avatar,
   margin-right: 10px;
 }
 
+
+
 #guest_access {
-  text-transform: none;
-  font-size: 16px;
+  width: 100%;
+  margin-top:10px;
+  @include top-d-border();
+  
+  h2 {
+    border: none;
+    margin-top: 0;
+    width: 55%;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+    float: left;
+  }
+  
+  .copy_url {
+    text-transform: none;
+    font-size: 16px;
+  }
+  
+  .button {
+    float: right;
+    clear: none;
+    
+    &.enabled {
+      @extend .button.active;
+    }
+  }
+  
+  p {
+    clear:both;
+    text-transform: none !important;
+  }
 }
 
 .flip {
