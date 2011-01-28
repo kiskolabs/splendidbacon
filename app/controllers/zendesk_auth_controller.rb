@@ -6,7 +6,7 @@ class ZendeskAuthController < ApplicationController
   def authorize
     if in_demo?
       redirect_to root_path, :alert => "You can't login to the support site while in demo mode!"
-    end
+    else
       redirect_to zendesk_remote_auth_url(current_user)
     end
   end
