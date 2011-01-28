@@ -1,0 +1,15 @@
+%script{ :type => "text/javascript", :src => "//asset0.zendesk.com/external/zenbox/zenbox-2.0.js" }
+%style{ :type => "text/css", :media => "screen, projection"}
+  @import url(//asset0.zendesk.com/external/zenbox/zenbox-2.0.css);
+:javascript
+  if (typeof(Zenbox) !== "undefined") {
+    Zenbox.init({
+      dropboxID:   "10361",
+      url:         "https://splendidbacon.zendesk.com",
+      tabID:       "support",
+      tabColor:    "black",
+      tabPosition: "Left",
+      requester_name: "#{current_user.name}",
+      requester_email: "#{current_user.email}"
+    });
+  }

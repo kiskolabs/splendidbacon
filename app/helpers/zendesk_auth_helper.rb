@@ -1,0 +1,2 @@
+module ZendeskAuthHelper
+end

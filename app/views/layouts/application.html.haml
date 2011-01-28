@@ -56,3 +56,4 @@
     .container_24{ :id => background? ? "content" : nil }
       = yield
     = render :partial => "layouts/analytics" if Rails.env.production?
+    = render :partial => "layouts/zendesk" if user_signed_in? && !in_demo?

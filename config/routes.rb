@@ -9,6 +9,9 @@ SplendidBacon::Application.routes.draw do
 
   match "/sign_out_and_up" => "users#sign_out_and_up", :as => :sign_out_and_up
   
+  match "/zendesk/authorize" => "zendesk_auth#authorize"
+  match "/zendesk/logout" => "zendesk_auth#logout"
+  
   resources :invitations
   
   resources :organizations do 
