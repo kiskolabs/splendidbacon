@@ -46,6 +46,7 @@ SplendidBacon::Application.routes.draw do
       end
       resources :users, :only => [] do
         post :mailchimp, :on => :collection
+        get :mailchimp, :on => :collection
       end
       
       authenticate :user do
