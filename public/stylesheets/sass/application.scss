@@ -26,6 +26,11 @@
   @include box-shadow(0px, -1px, 0px, #444);
 }
 
+@mixin text-overflow($value) {
+  text-overflow: $value;
+  -o-text-overflow: $value;
+}
+
 html {
   background: url("/images/bg.jpg") repeat #222;
   color: #fff;
@@ -450,7 +455,7 @@ ul.sidebar_team {
     display: block;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    @include text-overflow(ellipsis);
   }
 }
 
@@ -676,8 +681,7 @@ ul.sidebar_team li .avatar,
       padding:5px 10px;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
+      @include text-overflow(ellipsis);
     }
     
     .grid_4 {
@@ -705,7 +709,7 @@ ul.sidebar_team li .avatar,
     ul {
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
+      @include text-overflow(ellipsis);
     }
   }
 
