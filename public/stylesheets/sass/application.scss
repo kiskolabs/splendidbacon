@@ -646,6 +646,12 @@ ul.sidebar_team li .avatar,
     margin-top:10px;
     @include border-radius(5px);
     @include box-shadow(0px, 1px, 3px, #000);
+    
+    h2 {
+      a:hover {
+        color: #fff;
+      }
+    }
   }
   
   .projectdash:hover {
