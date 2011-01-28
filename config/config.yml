@@ -13,6 +13,6 @@ test:
 
 production:
   mailchimp:
-    api_key: 35aaa2076e3c6b64cd8f35592453d5c9-us1
-    list_id: 1787fb8b2d
-    token: cde97209191e5d9a9535e1900045876d
+    api_key: 71980ca2c4162d29642c2ae2855d10cc-us2
+    list_id: 805b17ce06
+    token: b2a78f81927fdc7f2be280651d31d63e
