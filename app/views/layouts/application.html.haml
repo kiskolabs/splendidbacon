@@ -42,6 +42,7 @@
               = navigate_to :timeline, "Timeline", timeline_organization_path(current_organization), :class => "button pictos time"
             = link_to "New Project", new_project_path, :class => "button pictos new"
             = navigate_to :account, "Account", edit_user_registration_path, :class => "account"
+            = navigate_to :support, "Support", "https://splendidbacon.zendesk.com/", :class => "support"
             = link_to "Logout", destroy_user_session_path, :class => "logout"
           - else
             - if controller.controller_name == "sessions" && controller.action_name == "new"
@@ -56,4 +57,3 @@
     .container_24{ :id => background? ? "content" : nil }
       = yield
     = render :partial => "layouts/analytics" if Rails.env.production?
-    = render :partial => "layouts/zendesk" if user_signed_in? && !in_demo?
