@@ -17,13 +17,15 @@ class Api::V1::UsersController < Api::BaseController
   
   def mailchimp
     @user = User.where(:email => params["data"]["email"]).first
-    case params["type"]
-    when "subscribe"
-      @user.update_attributes(:newsletter => true) if @user
-    when "unsubscribe"
-      @user.update_attributes(:newsletter => false) if @user
-    when "cleaned"
-      @user.update_attributes(:newsletter => false) if @user
+    if @user.present?
+      case params["type"]
+      when "subscribe"
+        @user.update_attributes(:newsletter => true)
+      when "unsubscribe"
+        @user.update_attributes(:newsletter => false)
+      when "cleaned"
+        @user.update_attributes(:newsletter => false)
+      end
     end
     head :ok
   end
@@ -31,10 +33,12 @@ class Api::V1::UsersController < Api::BaseController
   protected
   
   def authorize_mailchimp
-    if params[:token] == APP_CONFIG["mailchimp"]["token"] && params["data"]["list_id"] == APP_CONFIG["mailchimp"]["list_id"]
-      head :ok unless ["subscribe", "unsubscribe", "cleaned"].include?(params["type"])
+    if params["data"] && params["data"]["list_id"]
+      unless params[:token] == APP_CONFIG["mailchimp"]["token"] && params["data"]["list_id"] == APP_CONFIG["mailchimp"]["list_id"]
+        head :ok
+      end
     else
-      head 422
+      head :ok
     end
   end
 end
