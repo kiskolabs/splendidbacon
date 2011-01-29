@@ -16,7 +16,7 @@ class Api::V1::UsersController < Api::BaseController
   end
   
   def mailchimp
-    @user = User.where(:email => params["data"]["email"]).first
+    @user = User.real.where(:email => params["data"]["email"]).first
     if @user.present?
       case params["type"]
       when "subscribe"
