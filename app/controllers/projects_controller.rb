@@ -14,8 +14,7 @@ class ProjectsController < ApplicationController
   def guest
     @project = Project.find(params[:id])
     unless @project.authenticate_guest_access(params[:token])
-      # TODO Actually show the flash message on front page.
-      redirect_to root_path, :notice => "You're not allowed to view that project. Please check the link."
+      redirect_to root_path, :alert => "You're not allowed to view that project. Please check the link."
     else
       title "[Guest access] #{@project.name}"
       render :layout => "guest"
