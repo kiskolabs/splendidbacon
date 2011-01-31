@@ -22,9 +22,9 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    title "New project for #{current_organization.name}"
-    @project = Project.new(:state => :ongoing)
     @organization = current_organization
+    title "New project for #{@organization.name}"
+    @project = Project.new(:state => :ongoing)
   end
 
   def create
