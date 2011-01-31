@@ -15,7 +15,7 @@ on_deploy do
   run "rm -f public/stylesheets/magic_all.css"
   run "rm -f public/javascripts/all.js"
   run 'bundle exec newrelic deployments -r `git log -1 --format="%H"`'
-  run 'bundle exec rake hoptoad:deploy TO=production REVISION=`git log -1 --format="%H"` REPO=`git remote -v show | cut -f 2`'
+  run 'bundle exec rake hoptoad:deploy TO=production REVISION=`git log -1 --format="%H"`'
 end
 
 on_first_deploy do
