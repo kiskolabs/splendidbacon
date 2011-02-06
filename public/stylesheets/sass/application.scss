@@ -919,6 +919,10 @@ label[for='project_active'].toggle:hover,
   content: "g";
 }
 
+.pictos.resque:before {
+  content: "y";
+}
+
 .pictos:before {
   font-family: "Pictos", sans-serifx;
   padding-right:3px;

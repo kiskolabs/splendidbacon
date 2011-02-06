@@ -15,15 +15,13 @@
   %body
     #header
       .container_24
-        #title.grid_6
-          #organization_nav
-            %h1 Administration
-        #buttons.grid_16
+        #buttons.grid_22
           - if admin_signed_in?
             = navigate_to :dashboard, "Dashboard", magic_root_path, :class => "button pictos dashboard"
             = navigate_to :account, "Account", edit_admin_registration_path, :class => "button pictos account"
             = navigate_to :users, "Users", magic_users_path, :class => "button pictos users"
             = navigate_to :create_admin, "Create Admin", new_admin_registration_path, :class => "button pictos new"
+            = navigate_to :resque, "Resque", magic_resque_path, :class => "button pictos resque"
             = link_to "Logout", destroy_admin_session_path, :class => "logout"
         #logo.grid_2.omega
           = link_to image_tag("header-logo.png"), root_path
