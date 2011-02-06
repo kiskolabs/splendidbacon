@@ -66,5 +66,9 @@ SplendidBacon::Application.routes.draw do
     resources :broadcasts
     resources :users
   end
+  
+  authenticate :admin do
+    mount Resque::Server.new, :at => "/magic/resque"
+  end
 
 end

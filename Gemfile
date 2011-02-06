@@ -12,7 +12,7 @@ gem "will_paginate", "~> 3.0.beta"
 gem "nokogiri", "~> 1.4.4"
 gem "hominid", "~> 3.0.2"
 gem "yajl-ruby", "~> 0.7.9"
-gem "resque", "~> 1.10.0", :require => "resque"
+gem "resque", "~> 1.10.0"
 gem "zendesk_remote_auth"
 
 group :development do
