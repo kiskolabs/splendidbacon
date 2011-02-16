@@ -6,7 +6,7 @@ SplendidBacon::Application.routes.draw do
   
   match "/magic" => "magic/pages#dashboard", :as => "admin_root_path"
   root :to => "pages#home"
-
+  match "/privacy" => "pages#privacy"
   match "/sign_out_and_up" => "users#sign_out_and_up", :as => :sign_out_and_up
   
   match "/zendesk/authorize" => "zendesk_auth#authorize"
