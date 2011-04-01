@@ -1,7 +1,7 @@
 class Magic::UsersController < Magic::BaseController
   def index
     title "Users"
-    @users = User.real.order("email ASC").paginate :page => params[:page], :per_page => 50
+    @users = User.real.order("email ASC").page(params[:page]).per(50)
   end
   
   def show

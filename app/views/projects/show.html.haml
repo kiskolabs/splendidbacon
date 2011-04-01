@@ -14,7 +14,8 @@
         - else
           = button_to "Subscribe to notifications", project_notifications_path(@project), :remote => true, :method => :post, :class => "button right"
     %ol
-      = render @project.statuses.limit(20)
+      = render @statuses
+      = paginate @statuses
 
 #sidebar.grid_7.push_2
   = render "sidebar"
