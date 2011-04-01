@@ -3,9 +3,9 @@
   %h1.push_1.grid_24 Users
   
 #leftcolumn.push_1.prepend-1.grid_15
-  %ul.magic_users
-    - @users.each do |user|
-      %li
-        %strong= user.id
-        = link_to user.email, magic_user_path(user)
-  = paginate @users
+  #users
+    %ul.magic_users
+      - list_of @users do |user|
+        = render user
+  #paginator
+    = paginate @users, :remote => true

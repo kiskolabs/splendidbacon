@@ -13,9 +13,9 @@
           = button_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete, :class => "button"
         - else
           = button_to "Subscribe to notifications", project_notifications_path(@project), :remote => true, :method => :post, :class => "button right"
-    %ol
+    %ol#statuses
       = render @statuses
-      = paginate @statuses
+    = link_to "Older", project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link"
 
 #sidebar.grid_7.push_2
   = render "sidebar"

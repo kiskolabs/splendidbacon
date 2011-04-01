@@ -3,6 +3,11 @@ class StatusesController < ApplicationController
   before_filter :authenticate_user!
   
   respond_to :html
+  respond_to :js, :only => [ :index ]
+  
+  def index
+    @statuses = @project.statuses.page(params[:page]).per(20)
+  end
   
   def create
     @comment = @project.statuses.new(params[:status])
