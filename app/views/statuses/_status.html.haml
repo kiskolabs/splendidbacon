@@ -1,7 +1,7 @@
 %li.clearfix
   .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
   %div.activity
-    %span.text= status.text
+    %span.text= auto_link(status.text)
     %span= status.user.name if status.user
     %span= timeago(status.created_at)
     %span.white
