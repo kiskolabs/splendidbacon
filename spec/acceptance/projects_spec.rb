@@ -110,7 +110,7 @@ feature "Projects" do
   scenario "Enable/disable guest access" do
     login_as(@al)
     visit project_page(@ongoing.id)
-    click_button "Enable guest access"
+    click_button "Off"
     page.should have_css("input.copy_url")
     guest_url = find(:css, "input.copy_url").value
     guest_url.should match(URI::regexp(["http", "https"]))

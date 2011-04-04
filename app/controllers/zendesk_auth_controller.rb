@@ -4,7 +4,11 @@ class ZendeskAuthController < ApplicationController
   before_filter :authenticate_user!, :except => [ :logout ]
 
   def authorize
-    redirect_to zendesk_remote_auth_url(current_user)
+    if in_demo?
+      redirect_to root_path, :alert => "You can't login to the support site while in demo mode!"
+    else
+      redirect_to zendesk_remote_auth_url(current_user)
+    end
   end
 
   def logout

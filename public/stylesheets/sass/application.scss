@@ -16,6 +16,18 @@
   -moz-border-radius: $radius;
 }
 
+@mixin border-top-left-radius($radius) {
+  border-top-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  -moz-border-radius-topleft: $radius;
+}
+
+@mixin border-top-right-radius($radius) {
+  border-top-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  -moz-border-radius-topright: $radius;
+}
+
 @mixin d-border () {
   border-bottom:1px solid #111;
   @include box-shadow(0px, 1px, 0px, #444);
@@ -24,6 +36,11 @@
 @mixin top-d-border () {
   border-top:1px solid #111;
   @include box-shadow(0px, -1px, 0px, #444);
+}
+
+@mixin text-overflow($value) {
+  text-overflow: $value;
+  -o-text-overflow: $value;
 }
 
 html {
@@ -393,6 +410,27 @@ ul.options {
   }
 }
 
+#activity_title {
+  clear:both;
+  margin-top: 60px;
+  height: 40px;
+  
+  h2 {
+    width: 40%;
+    float:left;
+    clear:none;
+    margin: 0!important;
+    line-height: 40px;
+    vertical-align: bottom;
+  }
+  
+  #notifications {
+    float:right;
+    clear: none;
+    margin: 0;
+  }
+}
+
 .team,
 .sidebar_team {
   margin:0;
@@ -425,6 +463,11 @@ ul.sidebar_team {
   li span.user {
     line-height: 48px;
     vertical-align: middle;
+    width: 210px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    @include text-overflow(ellipsis);
   }
 }
 
@@ -436,9 +479,40 @@ ul.sidebar_team li .avatar,
   margin-right: 10px;
 }
 
+
+
 #guest_access {
-  text-transform: none;
-  font-size: 16px;
+  width: 100%;
+  margin-top:10px;
+  @include top-d-border();
+  
+  h2 {
+    border: none;
+    margin-top: 0;
+    width: 55%;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+    float: left;
+  }
+  
+  .copy_url {
+    text-transform: none;
+    font-size: 16px;
+  }
+  
+  .button {
+    float: right;
+    clear: none;
+    
+    &.enabled {
+      @extend .button.active;
+    }
+  }
+  
+  p {
+    clear:both;
+    text-transform: none !important;
+  }
 }
 
 .flip {
@@ -589,6 +663,12 @@ ul.sidebar_team li .avatar,
     margin-top:10px;
     @include border-radius(5px);
     @include box-shadow(0px, 1px, 3px, #000);
+    
+    h2 {
+      a:hover {
+        color: #fff;
+      }
+    }
   }
   
   .projectdash:hover {
@@ -613,8 +693,7 @@ ul.sidebar_team li .avatar,
       padding:5px 10px;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
+      @include text-overflow(ellipsis);
     }
     
     .grid_4 {
@@ -642,7 +721,7 @@ ul.sidebar_team li .avatar,
     ul {
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
+      @include text-overflow(ellipsis);
     }
   }
 
@@ -840,6 +919,10 @@ label[for='project_active'].toggle:hover,
   content: "g";
 }
 
+.pictos.resque:before {
+  content: "y";
+}
+
 .pictos:before {
   font-family: "Pictos", sans-serifx;
   padding-right:3px;
@@ -936,9 +1019,9 @@ label[for='project_active'].toggle:hover,
   
   #frontbuttons {
     position:absolute;
-    background:url("/images/frontpage-buttons.png") no-repeat;
-    height:80px;
-    top:496px;
+    /*background:url("/images/frontpage-buttons.png") no-repeat bottom 0;*/
+    height:64px;
+    bottom:5px;
     right:-3px;
     width:489px;
   }
@@ -949,22 +1032,36 @@ label[for='project_active'].toggle:hover,
   }
   
   #frontbuttons #sign {
+    background: #59aa00;
+    height: 41px;
+    line-height: 41px;
+    vertical-align: middle;
+    width: 203px;
     position:absolute;
-    top:30px;
-    left:20px;
+    bottom:0;
+    left:0px;
     font-size:16px;
     font-weight:normal;
+    border-top: 1px solid #6dd000;
+    border-left: 1px solid #6dd000;
+    @include border-top-left-radius(10px);
   }
   
   #frontbuttons #demo {
+    background: #0092c8 url(/images/chevron.png) no-repeat 227px 17px;
     position:absolute;
-    width:300px;
-    left:230px;
-    top:5px;
-    height:110px;
+    height: 63px;
+    width: 283px;
+    right:0;
+    bottom:0;
     font-size:24px;
     text-align:left;
     line-height:0.8;
+    border-top: 1px solid #19b4ec;
+    border-left: 1px solid #19b4ec;
+    border-right: 1px solid #19b4ec;
+    @include border-top-left-radius(10px);
+    @include border-top-right-radius(10px);
   }
   
   #frontbuttons a {
@@ -974,8 +1071,11 @@ label[for='project_active'].toggle:hover,
   }
   
   #frontbuttons #demo a {
-    display:block;
-    padding:10px;
+    width: 240px;
+    position:absolute;
+    bottom: 0;
+    display: block;
+    padding: 10px 10px 10px 35px;
   }
   
   #frontbuttons #demo span {

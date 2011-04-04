@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:guest]
   before_filter :current_project, :only => [:show, :edit, :update, :destroy, :enable_guest_access, :disable_guest_access]
+  before_filter :current_organization, :only => [:new, :create]
 
   def show
     title @project.name
@@ -14,8 +15,7 @@ class ProjectsController < ApplicationController
   def guest
     @project = Project.find(params[:id])
     unless @project.authenticate_guest_access(params[:token])
-      # TODO Actually show the flash message on front page.
-      redirect_to root_path, :notice => "You're not allowed to view that project. Please check the link."
+      redirect_to root_path, :alert => "You're not allowed to view that project. Please check the link."
     else
       title "[Guest access] #{@project.name}"
       render :layout => "guest"
@@ -23,13 +23,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    title "New project for #{current_organization.name}"
+    title "New project for #{@organization.name}"
     @project = Project.new(:state => :ongoing)
-    @organization = current_organization
   end
 
   def create
-    @organization = current_organization
     @project = @organization.projects.new(params[:project])
     @project.user = current_user
     flash[:notice] = "Project was successfully created." if @project.save
@@ -77,7 +75,12 @@ class ProjectsController < ApplicationController
   end
 
   def current_organization
-    current_user.organizations.find(cookies[:organization])
+    @organization = current_user.organizations.find(cookies[:organization])
+    unless @organization.present?
+      flash[:alert] = "You must choose an organization first!"
+      redirect_to organizations_path
+    end
+    
   rescue ActiveRecord::RecordNotFound
     cookies.delete(:organization)
     flash[:alert] = "You must choose an organization first!"

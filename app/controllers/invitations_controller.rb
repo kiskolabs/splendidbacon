@@ -10,7 +10,9 @@ class InvitationsController < ApplicationController
   end
   
   def create
-    unless in_demo?
+    if in_demo?
+      render :nothing => true
+    else
       @invitation = Invitation.new(params[:invitation])
       organization = @invitation.organization
       

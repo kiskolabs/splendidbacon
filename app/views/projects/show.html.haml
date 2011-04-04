@@ -4,30 +4,35 @@
   = link_to "Edit Project", edit_project_path(@project), :class => "button pictos edit right"
 #leftcolumn.push_1.grid_14
   = render "update_form"
-
-  %h2 Activity
-  #activity
+  .clear
+  #activity_title
+    %h2 Activity
     #notifications
-      - unless guest_view?
+      - unless guest_view? || in_demo?
         - if @notification.present?
           = button_to "Unsubscribe from notifications", project_notification_path(@project, @notification), :remote => true, :method => :delete, :class => "button"
         - else
           = button_to "Subscribe to notifications", project_notifications_path(@project), :remote => true, :method => :post, :class => "button right"
+    .clear
+  .clear
+  #activity
     %ol#statuses
       = render @statuses
-    = link_to "Older", page_project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link"
+    = link_to "Older", page_project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link", :class => "button"
 
 #sidebar.grid_7.push_2
   = render "sidebar"
   
-  %h2 Guest Access
-  - if @project.guest_access?
-    = button_to "Disable guest access", disable_guest_access_project_path(@project), :method => :put, :class => "button"
-    %input#guest_access.copy_url.grid_6.flip{:value => guest_project_url(@project, :token => @project.guest_token), :readonly => "readonly"}
-    %p{ :style => "text-transform: none;" }
-      Copy and give this url to people you want to give access to this page.
-      Editing is not allowed for guests.
-  - else
-    = button_to "Enable guest access", enable_guest_access_project_path(@project), :method => :put, :class => "button"
-    %p{ :style => "text-transform: none;" } Enable guest access to give guests ability to view this project.
+  #guest_access
+    .clear
+    %h2 Guest Access
+    - if @project.guest_access?
+      = button_to "On", disable_guest_access_project_path(@project), :method => :put, :class => "button enabled"
+      %input.copy_url.grid_6.flip{:value => guest_project_url(@project, :token => @project.guest_token), :readonly => "readonly"}
+      %p
+        Copy and give this url to people you want to give access to this page.
+        Editing is not allowed for guests.
+    - else
+      = button_to "Off", enable_guest_access_project_path(@project), :method => :put, :class => "button disabled"
+      %p{ :style => "text-transform: none;" } Enable guest access to give guests ability to view this project.
 .clear

@@ -1,4 +1,3 @@
- 
 #frontheader.clearfix
   #fbuttons_outer.container_24
     #frontbuttons
@@ -8,12 +7,15 @@
         = link_to "Signup now!", new_user_registration_path
       #demo
         = link_to "Try the Demo<br /><span>No registration required</span>".html_safe, demo_path, :rel => "nofollow", :remote => :true
+    - unless flash.empty?
+      - flash.each do |key, value|
+        %div{:class => "#{key} flash"}= value
+        .clear
     %span.logo Splendid Bacon
     %h1 Project Management* for hackers
     %span{:class => "tagline"} * Now with bacon sprinkles!
     = image_tag "screenshots.png", :alt => "Screenshot"
 
-  
 #fbottom
   .container_24#benefits.clearfix
     .p.grid_8.benefit

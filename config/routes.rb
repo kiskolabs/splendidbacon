@@ -49,6 +49,7 @@ SplendidBacon::Application.routes.draw do
       end
       resources :users, :only => [] do
         post :mailchimp, :on => :collection
+        get :mailchimp, :on => :collection
       end
       
       authenticate :user do
@@ -67,6 +68,10 @@ SplendidBacon::Application.routes.draw do
     match "update_stats" => "pages#update_stats"
     resources :broadcasts
     resources :users
+  end
+  
+  authenticate :admin do
+    mount Resque::Server.new, :at => "/magic/resque"
   end
 
 end

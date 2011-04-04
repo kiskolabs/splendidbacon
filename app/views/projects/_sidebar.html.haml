@@ -11,7 +11,7 @@
 %ul.sidebar_team
   - @project.users.each do |user|
     %li
-      .avatar{:style => "background: url(#{user.gravatar_url(48)});"}
-      %span.user.white= user.name
+      .avatar{ :style => "background: url(#{user.gravatar_url(48)});" }
+      %span.user.white{ :title => user.name }= user.name
       .clear
 .clearfix
