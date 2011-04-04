@@ -576,14 +576,24 @@ ul.sidebar_team li .avatar,
   text-align:center;
 }
 
-#activity ol {
-  list-style:none;
+#activity {
+  ol {
+    list-style: none;
+    margin-bottom: 0;
   
-  li {
-    margin:0;
-    border-bottom:1px solid #222;
-    padding:15px 20px;
-    @include box-shadow(0, 1px, 1px, #111);
+    li {
+      margin:0;
+      border-bottom:1px solid #222;
+      padding:15px 20px;
+      @include box-shadow(0, 1px, 1px, #111);
+    }
+  }
+  
+  #more_statuses_link {
+    display: block;
+    width: 70px;
+    margin: 10px auto;
+    text-align: center;
   }
 }
 

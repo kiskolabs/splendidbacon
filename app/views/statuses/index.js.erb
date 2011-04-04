@@ -1,6 +1,7 @@
 $("#statuses").append("<%= escape_javascript(render @statuses) %>");
 <% if @statuses.any? %>
   $("#more_statuses_link").attr("href", "<%= page_project_statuses_path(@project, :page => params[:page].to_i + 1 )%>")
+  $("abbr.timeago").timeago();
   $.scrollTo("#status_<%= @statuses.first.id %>", 800);
 <% end %>
 
