@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     title @project.name
     @comment ||= @project.statuses.new
     @notification = @project.notifications.where(:user_id => current_user.id).first
-    @statuses = @project.statuses.limit(20)
+    @statuses = @project.statuses.page(params[:page])
   end
 
   def guest

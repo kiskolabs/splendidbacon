@@ -6,7 +6,7 @@ class StatusesController < ApplicationController
   respond_to :js, :only => [ :index ]
   
   def index
-    @statuses = @project.statuses.page(params[:page]).per(20)
+    @statuses = @project.statuses.page(params[:page])
   end
   
   def create

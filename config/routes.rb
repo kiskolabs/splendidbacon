@@ -28,7 +28,9 @@ SplendidBacon::Application.routes.draw do
       put :enable_guest_access, :disable_guest_access
     end
     resources :participants
-    resources :statuses
+    resources :statuses do
+      match "pages((/:restore)/:page)" => "statuses#index", :as => :page, :constraints => { :page => /\d+/ }, :on => :collection
+    end
     resources :notifications, :only => [ :create, :destroy ]
   end
   

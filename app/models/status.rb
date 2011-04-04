@@ -9,6 +9,8 @@ class Status < ActiveRecord::Base
   
   after_create :enqueue_notification_emails, :if => proc { |s| s.source == "Comment" }
   
+  paginates_per 10
+  
   def self.create_from_github_payload(json, project)
     payload = JSON.parse(json)
     

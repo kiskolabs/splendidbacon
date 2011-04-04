@@ -1,5 +1,5 @@
-%li.clearfix
-  .avatar{:style => "background: url(#{gravatar_url_for_user(status.user, 48)});"}
+%li.clearfix{ :id => "status_#{status.id}" }
+  .avatar{ :style => "background: url(#{gravatar_url_for_user(status.user, 48)});" }
   %div.activity
     %span.text= status.text
     %span= status.user.name if status.user

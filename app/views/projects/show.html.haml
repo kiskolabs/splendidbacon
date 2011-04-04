@@ -15,7 +15,7 @@
           = button_to "Subscribe to notifications", project_notifications_path(@project), :remote => true, :method => :post, :class => "button right"
     %ol#statuses
       = render @statuses
-    = link_to "Older", project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link"
+    = link_to "Older", page_project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link"
 
 #sidebar.grid_7.push_2
   = render "sidebar"
