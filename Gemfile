@@ -2,7 +2,7 @@ source :rubygems
 
 gem "rails", "3.0.5"
 gem "haml", "~> 3.0.24"
-gem "devise", "~> 1.1.3"
+gem "devise", "~> 1.2.1"
 gem "simple_form", "~> 1.2.2"
 gem "RedCloth", "~> 4.2.3"
 gem "validates_timeliness", "~> 3.0.0"
