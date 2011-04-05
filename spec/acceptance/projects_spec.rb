@@ -60,6 +60,18 @@ feature "Projects" do
     page.should have_content("Everything is fine and dandy.")
   end
   
+  scenario "Comments are listed and paginated", :js => true do
+    20.times do
+      Factory.create(:status, { :project_id => @ongoing.id, :user_id => @al.id })
+    end
+    login_as(@al)
+    visit project_page(@ongoing.id)
+    page.should have_content("Activity")
+    page.all(".activity").count.should == 10
+    click_link "Show more"
+    page.all(".activity").count.should == 20
+  end
+  
   scenario "User can edit a project", :js => true do
     login_as(@al)
     visit project_page(@ongoing.id)
