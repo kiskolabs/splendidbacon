@@ -959,6 +959,17 @@ label[for='project_active'].toggle:hover,
     height:100px;
     @include top-d-border();
     padding-top:10px;
+    position: relative;
+    
+    .tagline {
+      display: block;
+      right:100px;
+      bottom:18px;
+      position:absolute;
+      font-size:16px;
+      color:#999;
+      font-weight:normal;
+    }
   }
   
   #frontheader {
@@ -969,15 +980,6 @@ label[for='project_active'].toggle:hover,
     background:url("/images/top-bg.png") repeat-x;
     width:100%;
     @include inset-shadow(0, -10px, 15px, #222);
-    
-    .tagline {
-      right:100px;
-      top:130px;
-      position:absolute;
-      font-size:16px;
-      color:#999;
-      font-weight:normal;
-    }
   }
   
   .logo {
