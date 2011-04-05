@@ -30,6 +30,7 @@ group :test, :development do
   gem "steak"
   gem "akephalos"
   gem "awesome_print", :require => "ap"
+  gem "ffaker"
 end
 
 group :test do
