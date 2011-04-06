@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails", "3.0.5"
+gem "rails", "3.0.6"
 gem "haml", "~> 3.0.24"
 gem "devise", "~> 1.2.1"
 gem "simple_form", "~> 1.2.2"
