@@ -24,23 +24,8 @@
                 Edit
 
   .clear
-  .grid_1
-    %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
-  #inner_timeline.grid_22
-    #outer_months
-      #months{ :style => "width: #{timeline_width(@on_going_projects)+870}px;" }
-        = months(@on_going_projects)
-    .clear
-    #timeline
-      #today_bar{ :style => "left: #{today_left_margin}px;" }
-      - @on_going_projects.each do |project|
-        .project.filterable_project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project), :"data-users" => project.user_ids, :"data-state" => project.state }
-          .inner
-            .name= link_to project.name, project_path(project)
-            %ul.team
-              - project.users.each do |user|
-                %li= user.name
-  .grid_1.omega
-    %a.nav{ :href => "#next" }= image_tag "timeline-arrow-right.png"
-  .clear
-  %p{:class => "right pull_1", :style => "font-style:italic"} You can also use left and right arrow keys to move the timeline.
+  - if @on_going_projects.any?
+    = render "timeline"
+  - else
+    .grid_22.push_1
+      %p If your organization had any ongoing projects, they would be shown here. 
