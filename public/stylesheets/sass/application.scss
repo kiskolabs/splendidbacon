@@ -877,6 +877,18 @@ label[for='project_active'].toggle:hover,
   }
 }
 
+h2#people {
+  margin-bottom: 10px;
+}
+
+form.organization input[type="text"] {
+  width: 420px;
+}
+
+form.invitation input[type="email"] {
+  width: 420px; display: inline;
+}
+
 .membercell {
   display:inline;
   width: 200px;

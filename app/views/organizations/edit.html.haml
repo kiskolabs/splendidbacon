@@ -6,20 +6,20 @@
     = f.input :name, :input_html => {:class => "flip"}, :required => false
     = f.submit :class => "button"
 
-  %br/
+  %hr/
+
+  %h2#people People
 
   = simple_form_for(@invitation, :html => {:name => "new_invitation"}, :remote => true) do |f|
     = f.input :organization_id, :input_html => {:value => @organization.id}, :as => :hidden, :class => "flip"
-    = f.input :email, :label => "Invite new member", :input_html => { :placeholder => "email@example.com", :class => "flip", :style => "width:420px;display:inline;", :disabled => in_demo? }, :required => false
+    = f.input :email, :label => "Invite new member", :input_html => { :placeholder => "email@example.com", :class => "flip", :disabled => in_demo? }, :required => false
     = f.submit "Send", :class => "button", :style => "display:inline;", :disabled => in_demo?
     
   - if in_demo?
     %p.red Invitations cannot be sent in the demo mode.
 
   #sent_invitations
-  
-  %h2= "People"
-    
+
   #people
     %ul
       - @organization.memberships && @organization.memberships.each do |member|
@@ -30,4 +30,12 @@
             %br/
             = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
     .clearfix
-  = button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button"
+
+  %hr/
+
+  %h2 Bankrupt?
+
+  %p Deletion is permanent and cannot be undone.
+
+  = button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button", :id => "organization_delete_button"
+
