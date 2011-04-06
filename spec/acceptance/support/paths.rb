@@ -28,6 +28,10 @@ module NavigationHelpers
   def project_edit_page(id)
     project_page(id) + "/edit"
   end
+
+  def timeline_page(id)
+    "/organizations/#{id}/timeline"
+  end
   
   def accept_invitation_page(token)
     "/invitations/#{token}"

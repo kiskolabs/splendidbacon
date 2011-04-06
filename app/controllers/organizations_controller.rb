@@ -13,8 +13,9 @@ class OrganizationsController < ApplicationController
   def timeline
     title "#{@organization.name} timeline"
     navigation :timeline
-    @projects = @organization.projects.ongoing
-    if @projects.empty?
+    @on_going_projects = @organization.projects.ongoing.on_time
+    @late_projects = @organization.projects.ongoing.late
+    if @on_going_projects.empty? && @late_projects.empty?
       no_background!
       render :template => "projects/ghost"
     end

@@ -36,14 +36,33 @@ jQuery(function() {
 	});
 
   // Timeline
+
   var scroll = 448;
   var maxScroll = $("#months").width() - $("#timeline").width() - 870;
   var currentScroll = 0;
+
+  function updateTimelineNavigation() {
+    if($("#timeline").length > 0) {
+      if (currentScroll < maxScroll) {
+        $("a[href='#next']").addClass("active");
+      } else {
+        $("a[href='#next']").removeClass("active");
+      }
+
+      if (currentScroll >= scroll) {
+        $("a[href='#prev']").addClass("active");
+      } else {
+        $("a[href='#prev']").removeClass("active");
+      }
+    }
+  };
+  updateTimelineNavigation();
 
   $("a[href='#next']").click(function() {
     if (currentScroll < maxScroll) {
       $("#timeline .project, .month, #today_bar").animate({ left: "-=" + scroll + "px" });
       currentScroll += scroll;
+      updateTimelineNavigation();
     }
     return false;
   });
@@ -52,6 +71,7 @@ jQuery(function() {
     if (currentScroll >= scroll) {
       $("#timeline .project, .month, #today_bar").animate({ left: "+=" + scroll + "px" });
       currentScroll -= scroll;
+      updateTimelineNavigation();
     }
     return false;
   });

@@ -6,16 +6,34 @@
 
   = render "timeline_project_filters"
 
+  - if @late_projects.any?
+    #late_projects.push_1.grid_22
+      .help.grid_10.alpha
+        %h2
+          = pluralize(@late_projects.size, "project is", "projects are")
+          overdue
+        %p The projects are over 2 weeks late. Please extend the ending time or put the project on hold by using the edit links.
+      .project_list.grid_10.omega
+        %h2 Edit overdue projects
+
+        %ul
+          - @late_projects.each do |project|
+            %li
+              = project.name
+              = link_to(edit_project_path(project), :class => "button") do
+                Edit
+
+  .clear
   .grid_1
     %a.nav.left{ :href => "#prev" }= image_tag "timeline-arrow-left.png"
   #inner_timeline.grid_22
     #outer_months
-      #months{ :style => "width: #{timeline_width(@projects)+870}px;" }
-        = months(@projects)
+      #months{ :style => "width: #{timeline_width(@on_going_projects)+870}px;" }
+        = months(@on_going_projects)
     .clear
     #timeline
       #today_bar{ :style => "left: #{today_left_margin}px;" }
-      - @projects.each do |project|
+      - @on_going_projects.each do |project|
         .project.filterable_project{ :style => "width: #{width(project)-2}px; left: #{left_margin(project)}px;", :class => older_class(project), :"data-users" => project.user_ids, :"data-state" => project.state }
           .inner
             .name= link_to project.name, project_path(project)

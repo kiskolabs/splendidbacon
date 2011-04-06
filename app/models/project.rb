@@ -32,6 +32,8 @@ class Project < ActiveRecord::Base
   scope :completed, where(:state => :completed)
   scope :for_users, lambda { |users| includes(:participations).where("participations.user_id" => users) }
   scope :real, where("name NOT LIKE ?", "Agi Project").where("name NOT LIKE ?", "Cash Cow").where("name NOT LIKE ?", "Doomed")
+  scope :on_time, where("end > ?", 2.weeks.ago)
+  scope :late, where("end < ?", 2.weeks.ago)
 
   def last_activity
     status = self.statuses.select(:created_at).first

@@ -325,6 +325,13 @@ ul.options {
   
   .nav {
     position: relative;
+    opacity: 0.2;
+    cursor: default;
+
+    &.active {
+      opacity: 1.0;
+      cursor: pointer;
+    }
   }
   
   .nav.left {
@@ -354,6 +361,35 @@ ul.options {
   line-height: 22px;
   top: 10px;
   float: left;
+}
+
+#late_projects {
+  background: #1c1c1f;
+  border: 1px solid #333;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  margin-bottom: 1em;
+
+  .project_list li {
+    font-size: 14px;
+    margin-left: 0;
+    padding: 8px;
+    list-style: none;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #111;
+    a {
+      float: right;
+      padding-top: 1px;
+      padding-bottom: 1px;
+      position: relative;
+      top: -5px;
+    }
+  }
+}
+
+#late_projects > div {
+  margin: 0 17px;
 }
 
 #timeline {
