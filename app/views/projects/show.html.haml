@@ -18,7 +18,8 @@
   #activity
     %ol#statuses
       = render @statuses
-    = link_to "Show more", page_project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link", :class => "button"
+    - if @statuses.num_pages > 1
+      = link_to "Show more", page_project_statuses_path(@project, :page => 2), :remote => true, :id => "more_statuses_link", :class => "button"
 
 #sidebar.grid_7.push_2
   = render "sidebar"
