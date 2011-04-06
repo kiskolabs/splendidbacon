@@ -283,4 +283,6 @@ jQuery(function() {
   $("#demo a").click(function() {
     $("#spinner").show();
   });
+  
+  $("#more_statuses_link").css("display", "block");
 });
