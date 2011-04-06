@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :only => [:reset_authentication_token]
+
   respond_to :js
 
   def sign_out_and_up
