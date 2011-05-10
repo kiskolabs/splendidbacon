@@ -305,4 +305,6 @@ jQuery(function() {
   });
   
   $("#more_statuses_link").css("display", "block");
+  
+  $("span.text").autolink();
 });
