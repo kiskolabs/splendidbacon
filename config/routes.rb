@@ -35,7 +35,7 @@ SplendidBacon::Application.routes.draw do
   end
   
   resources :users, :only => [] do
-    post :reset_authentication_token, :on => :collection
+    get :reset_authentication_token, :on => :collection
     resources :broadcasts, :only => [] do
       resources :broadcast_reads, :only => [ :create ]
     end

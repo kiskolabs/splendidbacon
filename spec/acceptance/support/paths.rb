@@ -13,6 +13,10 @@ module NavigationHelpers
     "/users/sign_up"
   end
   
+  def edit_user_registration_path
+    "/users/edit"
+  end
+  
   def organization_page(id)
     "/organizations/#{id}"
   end
