@@ -90,7 +90,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    newrelic_rpm (2.13.4)
+    newrelic_rpm (3.0.1)
     nokogiri (1.4.4)
     orm_adapter (0.0.5)
     pg (0.10.1)
@@ -189,7 +189,7 @@ DEPENDENCIES
   kaminari (~> 0.10.4)
   kronic (~> 1.1.1)
   launchy
-  newrelic_rpm (~> 2.13.4)
+  newrelic_rpm (~> 3.0.1)
   nokogiri (~> 1.4.4)
   pg
   rack-ssl (~> 1.1.0)
