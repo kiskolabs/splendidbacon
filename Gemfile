@@ -1,20 +1,20 @@
 source :rubygems
 
-gem "rails", "3.0.7"
+gem "rails", "3.0.11"
 gem "haml", "~> 3.0.24"
 gem "devise", "~> 1.3.4"
 gem "simple_form", "~> 1.2.2"
 gem "RedCloth", "~> 4.2.3"
 gem "validates_timeliness", "~> 3.0.0"
 gem "kronic", "~> 1.1.1"
-gem "hoptoad_notifier"
+gem "airbrake"
 gem "kaminari", "~> 0.10.4"
 gem "nokogiri", "~> 1.4.4"
 gem "hominid", "~> 3.0.2"
 gem "yajl-ruby", "~> 0.7.9"
 gem "resque", "~> 1.10.0"
 gem "zendesk_remote_auth"
-gem "rake", "~> 0.8.7"
+gem "rake"
 
 group :development do
   gem "sqlite3-ruby", :require => "sqlite3"
