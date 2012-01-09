@@ -10,7 +10,7 @@ end
 
 on_deploy do
   run "bundle --deployment"
-  run "rake db:migrate"
+  run "bundle exec rake db:migrate"
   run "rm -f public/stylesheets/all.css"
   run "rm -f public/stylesheets/magic_all.css"
   run "rm -f public/javascripts/all.js"
