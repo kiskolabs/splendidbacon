@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   layout "homepage"
 
+  before_filter :set_format
+
   def home
     if user_signed_in?
       flash.keep
@@ -13,9 +15,12 @@ class PagesController < ApplicationController
           redirect_to organization_path(current_user.organizations.first)
         end
       end
-    else
-      render
     end
   end
 
+  private
+
+  def set_format
+    request.format = :html if request.format.to_s.include? '*/*'
+  end
 end
