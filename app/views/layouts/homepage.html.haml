@@ -12,6 +12,7 @@
     %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
     %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" }
   %body#frontpage
+    = render "layouts/shutdown"
     %div
       = yield
     = render :partial => "layouts/analytics" if Rails.env.production?

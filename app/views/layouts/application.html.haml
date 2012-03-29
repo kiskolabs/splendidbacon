@@ -22,6 +22,8 @@
           You are currently using the <strong>demo</strong> mode.
           Any changes you make <strong>will be lost</strong> after you log out or close your browser.
           = link_to "Sign up here.", sign_out_and_up_path
+    - else
+      = render "layouts/shutdown"
     #header
       .container_24
         #title.grid_6
