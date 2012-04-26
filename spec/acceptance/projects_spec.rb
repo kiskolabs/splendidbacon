@@ -71,6 +71,7 @@ feature "Projects" do
 
     Capybara.default_wait_time = 10
     click_link "Show more"
+    sleep(5)
     page.all(".activity").count.should == 20
     Capybara.default_wait_time = 5
   end
