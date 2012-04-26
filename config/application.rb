@@ -41,5 +41,8 @@ module SplendidBacon
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Disable mass-assignment for all models
+    # ActiveRecord::Base.send(:attr_accessible, nil)
   end
 end
