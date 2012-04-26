@@ -13,25 +13,19 @@ Project Management* for hackers
 
 2. Check that you have the right ruby version (> 1.9.2)
 
-3. You need to have QT installed to run the test suite. Install it with:
-
-    `brew update && brew install qt`
-
-    If it doesn't work, you can find instructions here: <https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit>
-
-4. Install the required gems
+3. Install the required gems
 
     `bundle install`
 
     in development you might want to also pass `--without production`
 
-5. Create database.yml in the config folder. You can `cp config/database.example.yml config/database.yml` to get a starting point.
+4. Create database.yml in the config folder. You can `cp config/database.example.yml config/database.yml` to get a starting point.
 
-6. Setup the database (create DB, load schema, load seed data)
+5. Setup the database (create DB, load schema, load seed data)
 
     `rake db:setup`
 
-7. Start the app
+6. Start the app
 
     `rails server`
 
