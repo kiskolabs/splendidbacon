@@ -1,5 +1,9 @@
-Factory.define :user do |u|
-  u.name "John Doe"
-  u.sequence(:email) { |n| "user-#{n}@rails.fi" }
-  u.password "123456"
+FactoryGirl.define do
+  sequence(:email) { |n| "user-#{n}@rails.fi" }
+
+  factory :user do
+    name "John Doe"
+    email { generate(:email) }
+    password "123456"
+  end
 end

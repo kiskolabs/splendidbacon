@@ -62,7 +62,7 @@ feature "Projects" do
   
   scenario "Comments are listed and paginated", :js => true do
     20.times do
-      Factory.create(:status, { :project_id => @ongoing.id, :user_id => @al.id })
+      FactoryGirl.create(:status, { :project_id => @ongoing.id, :user_id => @al.id })
     end
     login_as(@al)
     visit project_page(@ongoing.id)

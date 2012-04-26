@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "API Feature" do
   background do
-    @al = Factory :user
+    @al = FactoryGirl.create :user
     @al.reset_authentication_token
     @al.save
     

@@ -1,4 +1,8 @@
-Factory.define :status do |s|
-  s.source "Comment"
-  s.sequence(:text) { |t| "#{Faker::Lorem.sentence} #{t}" }
+FactoryGirl.define do
+  sequence(:lorem) { |t| "#{Faker::Lorem.sentence} #{t}" }
+
+  factory :status do
+    source "Comment"
+    text { generate(:lorem) }
+  end
 end

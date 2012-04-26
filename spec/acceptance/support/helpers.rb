@@ -1,6 +1,6 @@
 module HelperMethods
   def login_as(resource, opts={})
-    resource =  resource.is_a?(Symbol) ? Factory(resource, opts) : resource
+    resource =  resource.is_a?(Symbol) ? FactoryGirl.create(resource, opts) : resource
 
     visit sign_in_page
     fill_in "Email", :with => resource.email
