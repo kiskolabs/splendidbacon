@@ -47,7 +47,7 @@ RSpec.configure do |config|
   config.after(:each) do
     Capybara.use_default_driver if example.metadata[:js]
   end
-  
+
   # Useful for development with a slow test suite.
   # config.fail_fast = true
 end

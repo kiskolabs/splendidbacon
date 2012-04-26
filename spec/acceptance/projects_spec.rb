@@ -68,8 +68,11 @@ feature "Projects" do
     visit project_page(@ongoing.id)
     page.should have_content("Activity")
     page.all(".activity").count.should == 10
+
+    Capybara.default_wait_time = 10
     click_link "Show more"
     page.all(".activity").count.should == 20
+    Capybara.default_wait_time = 5
   end
   
   scenario "User can edit a project", :js => true do

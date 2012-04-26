@@ -50,6 +50,6 @@ feature "Invites" do
     
     Capybara.default_wait_time = 10
     page.should have_no_xpath("//li[@id='member_#{member.id}']")
-    Capybara.default_wait_time = 2
+    Capybara.default_wait_time = 5
   end
 end
