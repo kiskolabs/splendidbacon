@@ -2,7 +2,8 @@
 
 Project Management* for hackers
 
-<http://blog.kiskolabs.com/post/20108267834/the-regrettable-end-of-splendid-bacon>
+* <http://blog.kiskolabs.com/post/24195529239/open-source-bacon>
+* <http://blog.kiskolabs.com/post/20108267834/the-regrettable-end-of-splendid-bacon>
 
 ## Caveats
 
