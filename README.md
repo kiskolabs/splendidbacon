@@ -40,6 +40,8 @@ There are a few issues that should be fixed before taking this into production u
 
     `rails server`
 
+The admin console is located at <http://localhost:3000/magic>
+
 ## License and Copyright
 
 Copyright © 2010-2012 Kisko Labs & contributors.
