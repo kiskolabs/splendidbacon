@@ -1,11 +1,19 @@
 # Splendid Bacon
 
-
 Project Management* for hackers
 
 <http://blog.kiskolabs.com/post/20108267834/the-regrettable-end-of-splendid-bacon>
 
-## Installation
+## Caveats
+
+There are a few issues that should be fixed before taking this into production use:
+
+* Fix the mass assignment vulnerabilities (this is the most important thing)
+* Upgrade to a more recent Rails version (in other words, Rails 3.2.x)
+* Remove the Mailchimp integration
+* Remove the Zendesk integration
+
+## Installation (for development)
 
 1. Clone the repository
 
