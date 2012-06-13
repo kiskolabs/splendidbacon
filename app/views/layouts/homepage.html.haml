@@ -6,8 +6,8 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tag
-    %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
-    %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" }
+    = favicon_link_tag("/favicon.png", :type => "image/png")
+    = favicon_link_tag("app-icon.png", :rel => "apple-touch-icon-precomposed")
   %body#frontpage
     %div
       = yield

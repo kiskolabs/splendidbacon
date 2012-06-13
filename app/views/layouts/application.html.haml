@@ -10,8 +10,8 @@
       %meta{:name => "broadcast-title", :content => @broadcast.title }
       %meta{:name => "broadcast-text", :content => @broadcast.text }
       %meta{:name => "broadcast-url", :content => user_broadcast_broadcast_reads_path(current_user, @broadcast) }
-    %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
-    %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" } 
+    = favicon_link_tag("/favicon.png", :type => "image/png")
+    = favicon_link_tag("app-icon.png", :rel => "apple-touch-icon-precomposed")
   %body
     - if in_demo?
       #demo_banner
