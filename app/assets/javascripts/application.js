@@ -1,3 +1,12 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.timeago
+//= require jquery.jgrowl
+//= require jquery.scrollto
+//= require jquery.autolink
+//= require underscore
+//= require_self
+
 function ClearForm() {
   document.new_invitation.invitation_email.value= "";
 }
@@ -28,12 +37,12 @@ function countdown(iso8601) {
 
 jQuery(function() {
 
-	var organization = $("#organization_nav h1 a").text();
-	$("#organization_nav").hover(function() {
-		$(this).find("a:first").text("Edit");
-	}, function() {
-		$(this).find("a:first").text(organization);
-	});
+  var organization = $("#organization_nav h1 a").text();
+  $("#organization_nav").hover(function() {
+    $(this).find("a:first").text("Edit");
+  }, function() {
+    $(this).find("a:first").text(organization);
+  });
 
   // Timeline
 

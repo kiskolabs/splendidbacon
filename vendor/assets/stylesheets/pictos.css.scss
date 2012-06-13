@@ -11,10 +11,9 @@
 */
 
 @font-face {
-	font-family: 'Pictos';
-	src: url('/stylesheets/pictos-web.eot');
-	src: local('☺'), url('/stylesheets/pictos-web.woff') format('woff'), url('/stylesheets/pictos-web.ttf') format('truetype'), url('/stylesheets/pictos-web.svg#webfontphKv1xv9') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'Pictos';
+  src: font-url('pictos-web.eot');
+  src: local('☺'), font-url('pictos-web.woff') format('woff'), font-url('pictos-web.ttf') format('truetype'), font-url('pictos-web.svg#webfontphKv1xv9') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
-

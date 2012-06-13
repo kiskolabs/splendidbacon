@@ -44,7 +44,7 @@
 }
 
 html {
-  background: url("/images/bg.jpg") repeat #222;
+  background: image-url("bg.jpg") repeat #222;
   color: #fff;
   text-rendering: optimizeLegibility;
 }
@@ -93,7 +93,7 @@ div.input {
 
 #footerlinks {
   margin-top:20px;
-  
+
   a {
     margin:20px 20px 0 0;
     color:#999;
@@ -105,7 +105,7 @@ div.input {
     width:50%;
     float:left;
   }
-  
+
   .button {
     margin-top:15px;
   }
@@ -127,26 +127,26 @@ textarea {
 
 #header {
   height: 80px;
-  background: url("/images/dark-bg.jpg") repeat;
+  background: image-url("dark-bg.jpg") repeat;
   border-bottom: 1px solid #303030;
   margin-bottom: 40px;
   @include box-shadow(0px, 1px, 7px, #111);
-  
+
   #logo img {
     position: relative;
     top: 30px;
     right:0;
     width:80px;
   }
-  
+
   #buttons {
     margin-top: 30px;
   }
-  
+
   a {
     margin-right: 10px;
   }
-  
+
   .logout {
     font-weight:bold;
     text-shadow:0 0 1px #111;
@@ -154,7 +154,7 @@ textarea {
 }
 
 #content {
-  background: url("/images/dark-bg.jpg") repeat;
+  background: image-url("dark-bg.jpg") repeat;
   border: 1px solid #303030;
   padding:0 0 40px 0;
   @include border-radius(5px);
@@ -184,11 +184,11 @@ textarea {
   padding-bottom: 20px;
   height:40px;
   @include d-border;
-  
+
   .button {
     margin-top:-8px;
   }
-  
+
   h1 {
     margin: 0;
     font-size: 29px;
@@ -243,13 +243,13 @@ textarea {
   height:26px;
   overflow:hidden;
   cursor: pointer;
-  
+
   span.current {
     display: block;
     margin-top: 3px;
     width: 80px;
   }
-  
+
   .pictos.down:before {
     float:right;
     font-size:10px;
@@ -260,7 +260,7 @@ textarea {
 
 .dropdown {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2a2b2d), to(#222));
-  
+
   li {
     list-style:none;
     margin:0;
@@ -273,13 +273,13 @@ ul.options {
   background: black;
   padding:0.2em 0.8em;
   @include box-shadow(0px, 1px, 2px, #000);
-  
+
   li {
     list-style: none;
     margin:0.5em 0;
     padding:0 0.5em;
   }
-  
+
   li:hover {
     color:#328acf;
   }
@@ -300,16 +300,16 @@ ul.options {
     cursor:pointer;
     color:#999;
   }
-  
+
   .selected, .project_status a:hover {
      background:rgba(0, 0, 0, 0.5);
      color:#fff;
   }
-  
+
   :last-child {
     border-radius: 0 10px 10px 0;
   }
-  
+
   :first-child {
     border-radius: 10px 0 0 10px;
   }
@@ -318,11 +318,11 @@ ul.options {
 #outer_timeline {
   padding: 20px 0 40px 0;
   margin-bottom: 0px;
-  
+
   #project_filters {
     margin-right:35px;
   }
-  
+
   .nav {
     position: relative;
     opacity: 0.2;
@@ -333,11 +333,11 @@ ul.options {
       cursor: pointer;
     }
   }
-  
+
   .nav.left {
     left: 12px;
   }
-  
+
   #months {
     height: 32px;
     border-bottom: 1px solid #515254;
@@ -394,16 +394,16 @@ ul.options {
 
 #timeline {
   position: relative;
-  background: url("/images/timeline-bg.jpg") repeat;
+  background: image-url("timeline-bg.jpg") repeat;
   width: 100%;
   overflow: hidden;
   min-height:400px;
   @include border-radius(5px);
   border-bottom:1px solid #444;
-  
+
   .project {
     position: relative;
-    background: url("/images/project-bg.png") repeat-x;
+    background: image-url("project-bg.png") repeat-x;
     height: 62px;
     margin: 30px 0;
     border: 1px solid #0d7f94;
@@ -411,7 +411,7 @@ ul.options {
     cursor: pointer;
     overflow: hidden;
   }
-  
+
   .project.older {
     border-left: none !important;
     -webkit-border-top-left-radius: 0 !important;
@@ -419,28 +419,28 @@ ul.options {
     -moz-border-radius-bottomleft: 0 !important;
     -moz-border-radius-topleft: 0 !important;
   }
-  
+
   .project:hover {
     @include box-shadow(0, 0px, 10px, #0e84a2);
   }
-  
+
   #today_bar {
     position: absolute;
     width: 8px;
     height: 100%;
-    background: url("/images/today-bar.png") repeat-y;
+    background: image-url("today-bar.png") repeat-y;
   }
-  
+
   .project .inner {
     white-space: nowrap;
   }
-  
+
   .project .name {
     padding:8px 15px 4px 15px;
     font-size:16px;
     font-weight:bold;
   }
-  
+
   a:hover {
     color: #fff;
   }
@@ -450,7 +450,7 @@ ul.options {
   clear:both;
   margin-top: 60px;
   height: 40px;
-  
+
   h2 {
     width: 40%;
     float:left;
@@ -459,7 +459,7 @@ ul.options {
     line-height: 40px;
     vertical-align: bottom;
   }
-  
+
   #notifications {
     float:right;
     clear: none;
@@ -477,7 +477,7 @@ ul.options {
 
 .team li,
 .sidebar_team {
-  background:url("/images/user-icon.png") no-repeat 0 2px;
+  background:image-url("user-icon.png") no-repeat 0 2px;
   margin:0;
   padding-left:16px;
   display:inline;
@@ -487,7 +487,7 @@ ul.sidebar_team {
   padding: 0;
   margin: 0;
   opacity: 1.0 !important;
-  
+
   li {
     background: none;
     margin-bottom: 20px;
@@ -495,7 +495,7 @@ ul.sidebar_team {
     padding-left: 0;
     display: block;
   }
-  
+
   li span.user {
     line-height: 48px;
     vertical-align: middle;
@@ -521,7 +521,7 @@ ul.sidebar_team li .avatar,
   width: 100%;
   margin-top:10px;
   @include top-d-border();
-  
+
   h2 {
     border: none;
     margin-top: 0;
@@ -530,21 +530,21 @@ ul.sidebar_team li .avatar,
     -webkit-box-shadow: none !important;
     float: left;
   }
-  
+
   .copy_url {
     text-transform: none;
     font-size: 16px;
   }
-  
+
   .button {
     float: right;
     clear: none;
-    
+
     &.enabled {
       @extend .button.active;
     }
   }
-  
+
   p {
     clear:both;
     text-transform: none !important;
@@ -616,7 +616,7 @@ ul.sidebar_team li .avatar,
   ol {
     list-style: none;
     margin-bottom: 0;
-  
+
     li {
       margin:0;
       border-bottom:1px solid #222;
@@ -624,7 +624,7 @@ ul.sidebar_team li .avatar,
       @include box-shadow(0, 1px, 1px, #111);
     }
   }
-  
+
   #more_statuses_link {
     display: none;
     width: 90px;
@@ -668,14 +668,14 @@ ul.sidebar_team li .avatar,
   background:#1c1c1f;
   border:1px solid #333;
   @include border-radius(4px);
-  
+
   .activity {
     margin-left:60px;
-    
+
     span {
       color:#999;
     }
-    
+
     .text {
       font-size:18px;
       display:block;
@@ -689,12 +689,12 @@ ul.sidebar_team li .avatar,
 
 #title {
   margin-top:15px;
-  
+
   a {
     color:#fff;
     text-decoration:none;
   }
-  
+
   li, ul {
     list-style:none;
     margin:0;
@@ -704,28 +704,28 @@ ul.sidebar_team li .avatar,
 #dashboard {
   .projectdash {
     background:#222;
-    background: url("/images/dark-bg.jpg") repeat;
+    background: image-url("dark-bg.jpg") repeat;
     border: 1px solid #303030;
     margin-bottom:20px;
     margin-top:10px;
     @include border-radius(5px);
     @include box-shadow(0px, 1px, 3px, #000);
-    
+
     h2 {
       a:hover {
         color: #fff;
       }
     }
   }
-  
+
   .projectdash:hover {
     @include box-shadow(0px, 0px, 4px, #198ce5);
     cursor:pointer;
   }
-  
+
   .projectcontent {
     padding:11px;
-    
+
     p {
       margin:0;
       text-shadow:0 1px 1px #222;
@@ -733,7 +733,7 @@ ul.sidebar_team li .avatar,
       color:#999;
       font-size:13px;
     }
-    
+
     .flip {
       font-size:16px;
       height:22px;
@@ -742,7 +742,7 @@ ul.sidebar_team li .avatar,
       overflow: hidden;
       @include text-overflow(ellipsis);
     }
-    
+
     .grid_4 {
       width:136px;
     }
@@ -764,7 +764,7 @@ ul.sidebar_team li .avatar,
     display:inline;
     margin:0 0 10px 0;
     width: 100%;
-    
+
     ul {
       white-space: nowrap;
       overflow: hidden;
@@ -774,8 +774,8 @@ ul.sidebar_team li .avatar,
 
   h2 {
     margin:0 0 -8px 0;
-    padding:0; 
-    font-size:24px; 
+    padding:0;
+    font-size:24px;
     text-transform:none;
   }
 
@@ -786,7 +786,7 @@ ul.sidebar_team li .avatar,
 }
 
 .hr {
-  margin:10px 0; 
+  margin:10px 0;
   border-top:1px solid #444;
   @include box-shadow(0px, -1px, 0px, #111);
 }
@@ -835,7 +835,7 @@ label[for='project_active'].toggle:hover,
   position:absolute;
   width:190px;
   z-index: 100;
-  
+
   li {
     margin: 4px 0;
     font-size: 16px;
@@ -848,13 +848,13 @@ label[for='project_active'].toggle:hover,
       font-weight: bold;
     }
   }
-  
+
   a:hover {
     color:#fff;
     text-shadow:0 0px 6px #198ce5;
     -webkit-transition: text-shadow 0.20s linear;
   }
-  
+
   h1 {
     margin:2px 0 0 0;
     width:160px;
@@ -862,7 +862,7 @@ label[for='project_active'].toggle:hover,
     overflow:hidden;
     padding:0;
     font-size:20px;
-    
+
     a {
       overflow:hidden;
       white-space: nowrap;
@@ -870,7 +870,7 @@ label[for='project_active'].toggle:hover,
       width: 155px;
     }
   }
-  
+
   #control {
     width:12px;
     height:18px;
@@ -878,7 +878,7 @@ label[for='project_active'].toggle:hover,
     top:5px;
     position:absolute;
   }
-  
+
   #control.button {
     padding:2px 8px 8px 6px;
   }
@@ -922,7 +922,7 @@ form.invitation input[type="email"] {
 .notice, .alert {
   width:920px;
   margin:-35px auto 0 auto;
-  color:#fff; 
+  color:#fff;
   text-align:center;
   font-size:18px;
   height:35px;
@@ -1016,7 +1016,7 @@ form.invitation input[type="email"] {
     @include top-d-border();
     padding-top:10px;
     position: relative;
-    
+
     .tagline {
       display: block;
       right:100px;
@@ -1027,78 +1027,78 @@ form.invitation input[type="email"] {
       font-weight:normal;
     }
   }
-  
+
   #frontheader {
     text-align:center;
     padding-top:40px;
     height:558px;
     position:relative;
-    background:url("/images/top-bg.png") repeat-x;
+    background:image-url("top-bg.png") repeat-x;
     width:100%;
     @include inset-shadow(0, -10px, 15px, #222);
   }
-  
+
   .logo {
     width:300px;
     height:80px;
     display:block;
-    background:url("/images/logo.png") no-repeat;
+    background:image-url("logo.png") no-repeat;
     text-indent:-9999cm;
     margin:0 auto;
   }
-  
+
   #fbottom {
     margin-top:2px;
     border-top:1px solid #666;
     padding-top:40px;
   }
-  
+
   .pictos {
     width:72px;
     height:72px;
     float:left;
   }
-  
+
   .benefit p {
     font-size:16px;
     margin-left:80px;
     text-shadow:0 0 1px #333;
     line-height:1.2;
   }
-  
+
   .pictos.project:before {
     content: "%";
   }
-  
+
   .pictos.simple:before {
     content: "2";
   }
-  
+
   #footer {
     padding:10px;
     text-align:center;
     text-shadow:none;
   }
-  
+
   #benefits {
     padding:0 0 20px;
     @include d-border();
   }
-  
+
   #frontbuttons {
     position:absolute;
-    /*background:url("/images/frontpage-buttons.png") no-repeat bottom 0;*/
+    /*background:image-url("frontpage-buttons.png") no-repeat bottom 0;*/
     height:64px;
     bottom:5px;
     right:-3px;
     width:489px;
   }
-  
+
   #fbuttons_outer {
     width:960px;
     position:relative;
   }
-  
+
   #frontbuttons #sign {
     background: #59aa00;
     height: 41px;
@@ -1114,9 +1114,9 @@ form.invitation input[type="email"] {
     border-left: 1px solid #6dd000;
     @include border-top-left-radius(10px);
   }
-  
+
   #frontbuttons #demo {
-    background: #0092c8 url(/images/chevron.png) no-repeat 227px 17px;
+    background: #0092c8 image-url("chevron.png") no-repeat 227px 17px;
     position:absolute;
     height: 63px;
     width: 283px;
@@ -1131,13 +1131,13 @@ form.invitation input[type="email"] {
     @include border-top-left-radius(10px);
     @include border-top-right-radius(10px);
   }
-  
+
   #frontbuttons a {
     color:#fff;
     text-shadow:0 0px 2px #333;
     font-weight:bold;
   }
-  
+
   #frontbuttons #demo a {
     width: 240px;
     position:absolute;
@@ -1145,20 +1145,20 @@ form.invitation input[type="email"] {
     display: block;
     padding: 10px 10px 10px 35px;
   }
-  
+
   #frontbuttons #demo span {
     font-size:14px;
     font-weight:normal;
   }
-  
+
   #footer img {
     padding:20px;
   }
-  
+
   #footer p a {
     margin-right:15px;
   }
-  
+
   .pictos:before {
     font-size:72px;
     color:#111;
@@ -1175,19 +1175,19 @@ form.invitation input[type="email"] {
   height: 3em;
   font-size: 110%;
   text-align: center;
-  
+
   p {
     margin: 0;
     line-height: 3em;
     vertical-align: middle;
   }
-  
+
   a {
     text-shadow:0 0px 5px #000;
     font-weight: bold;
     color: #fff;
   }
-  
+
   a:hover {
     font-weight: bold;
     text-decoration: underline;
@@ -1207,7 +1207,7 @@ form.invitation input[type="email"] {
   height: 100%;
   z-index: 100;
   text-align: center;
-  
+
   img {
     position: relative;
     top: 45%;

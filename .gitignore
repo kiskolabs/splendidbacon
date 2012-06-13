@@ -7,3 +7,4 @@ public/stylesheets/magic.css
 .DS_Store
 capybara-*
 config/database.yml
+.sass-cache/

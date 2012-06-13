@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 
 gem "rails", "3.1.6"
 gem "haml", "~> 3.0.24"
@@ -22,7 +22,6 @@ gem "jquery-rails"
 # in production environments by default.
 group :assets do
   gem "sass-rails" #, "~> 3.2.5"
-  gem "compass-rails"
   gem "coffee-rails" #, "~> 3.2.2"
   gem "uglifier"
 end
