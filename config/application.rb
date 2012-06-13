@@ -6,8 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-require "resque"
-require "resque/server"
+# require "resque"
+# require "resque/server"
 
 module SplendidBacon
   class Application < Rails::Application

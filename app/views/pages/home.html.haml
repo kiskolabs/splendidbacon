@@ -2,9 +2,9 @@
   #fbuttons_outer.container_24
     #frontbuttons
       #sign
-        = link_to "Sign in", new_user_session_path
+        = link_to "Sign in" #, new_user_session_path
         or
-        = link_to "Signup now!", new_user_registration_path
+        = link_to "Signup now!" #, new_user_registration_path
       #demo
         = link_to "Try the Demo<br /><span>No registration required</span>".html_safe, demo_path, :rel => "nofollow", :remote => :true
     - unless flash.empty?
