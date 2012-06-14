@@ -44,11 +44,7 @@ SplendidBacon::Application.routes.draw do
         post :github, :on => :member
         post :pivotal_tracker, :on => :member
       end
-      resources :users, :only => [] do
-        post :mailchimp, :on => :collection
-        get :mailchimp, :on => :collection
-      end
-      
+
       authenticate :user do
         resources :organizations, :only => [:index, :show] do
           resources :projects, :only => [:index, :show] do

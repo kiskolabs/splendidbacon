@@ -2,106 +2,53 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, 
+         :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :newsletter
-  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+
   validates_presence_of :name
-  
-  after_create :subscribe_mailchimp, :unless => :demo?
-  after_destroy :unsubscribe_mailchimp, :unless => :demo?
-  around_save :update_mailchimp, :unless => :demo?
-  
+
   has_many :memberships, :dependent => :destroy
   has_many :organizations, :through => :memberships
 
   has_many :participations, :dependent => :destroy
   has_many :projects, :through => :participations
-  
+
   has_many :broadcast_reads, :dependent => :delete_all
   has_many :broadcasts, :through => :broadcast_reads
-  
+
   has_many :notifications, :dependent => :delete_all
   has_many :subscriptions, :source => :project, :through => :notifications
-  
+
   scope :real, where("email NOT LIKE ?", "%@demoaccount.com")
   scope :demo, where("email LIKE ?", "%@demoaccount.com")
-  
+
   def gravatar_url(size = 64)
     "https://secure.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.email)}?s=#{size.to_i}&d=#{CGI::escape("https://splendidbacon.com/images/default.png")}"
   end
-  
+
   def demo?
     !!self.email.match(/@demoaccount.com\z/i)
-  end
-  
-  def hominid
-    Hominid::API.new(APP_CONFIG["mailchimp"]["api_key"], { :secure => true })
-  end
-  
-  def mailchimp_member_info
-    hominid.list_member_info(APP_CONFIG["mailchimp"]["list_id"], [self.email])
-  rescue Hominid::APIError => e
-    logger.error "Hominid API error: #{e.message}"
-  end
-  
-  def subscribe_mailchimp
-    if self.newsletter
-      hominid.list_subscribe(APP_CONFIG["mailchimp"]["list_id"], self.email, { :NAME => self.name }, "html", false)
-    end
-    
-  rescue Hominid::APIError => e
-    logger.error "Hominid API error: #{e.message}"
-  end
-  
-  def unsubscribe_mailchimp
-    hominid.list_unsubscribe(APP_CONFIG["mailchimp"]["list_id"], self.email, true, false, false)
-    
-  rescue Hominid::APIError => e
-    logger.error "Hominid API error: #{e.message}"
-  end
-  
-  def update_mailchimp
-    if changed.include?("newsletter")
-      @action = self.changes["newsletter"].last ? :subscribe : :unsubscribe
-    end
-      
-    if changed.include?("email") || changed.include?("name")
-      @old_email = changes["email"].try(:first) || self.email
-    end
-
-    yield
-    
-    if [:subscribe, :unsubscribe].include? @action
-      @action == :subscribe ? subscribe_mailchimp : unsubscribe_mailchimp
-    else
-      if @old_email.present? && @action.nil? && self.newsletter
-        hominid.list_update_member(APP_CONFIG["mailchimp"]["list_id"], @old_email, { :EMAIL => self.email, :NAME => self.name })
-      end
-    end
-    
-  rescue  Hominid::APIError => e
-    logger.error "Hominid API error: #{e.message}"
   end
 
   def create_demo_data
     users = ["Fred Astair", "Rick Rack", "Nemo Relic", "David Handsome"]
-    
+
     o1=Organization.create!(:name => "Big Company")
     Membership.create!(:organization_id => o1.id, :user_id => self.id)
 
     o2=Organization.create!(:name => "Freelancing")
     Membership.create!(:organization_id => o2.id, :user_id => self.id)
-    
+
     u = []
     users.each do |user|
       pass = SecureRandom.hex(8)
-      u += [User.create!(:name => user, :email => SecureRandom.hex(8) + "@demoaccount.com", :password => pass, :password_confirmation => pass, :newsletter => false)]
+      u += [User.create!(:name => user, :email => SecureRandom.hex(8) + "@demoaccount.com", :password => pass, :password_confirmation => pass)]
       Membership.create!(:organization_id => o1.id, :user_id => u.last.id)
     end
-    
+
     p=Project.create!(:name => "Agi Project", :start => Date.today, :end => 38.days.from_now, :state => :ongoing, :organization_id => o1.id)
     Participation.create!(:user_id => u[0].id, :project_id => p.id)
     Participation.create!(:user_id => u[1].id, :project_id => p.id)
