@@ -15,7 +15,6 @@ There are a few issues that should be fixed before taking this into production u
   * Rails 3.2: `config.active_record.mass_assignment_sanitizer = :strict`
 * Upgrade to a more recent Rails version (in other words, Rails 3.2.x)
 * Remove the Mailchimp integration
-* Remove the Zendesk integration
 
 ## Installation (for development)
 

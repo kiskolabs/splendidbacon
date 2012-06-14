@@ -13,7 +13,6 @@ gem "nokogiri", "~> 1.4.4"
 gem "hominid", "~> 3.0.2"
 gem "yajl-ruby"
 gem "resque", "~> 1.20.0"
-gem "zendesk_remote_auth"
 gem "rake"
 
 gem "jquery-rails"
