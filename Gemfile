@@ -12,7 +12,7 @@ gem "kaminari" #, "~> 0.10.4"
 gem "nokogiri", "~> 1.4.4"
 gem "hominid", "~> 3.0.2"
 gem "yajl-ruby"
-gem "resque", "~> 1.10.0"
+gem "resque", "~> 1.20.0"
 gem "zendesk_remote_auth"
 gem "rake"
 
@@ -32,8 +32,6 @@ end
 
 group :production do
   gem "pg"
-#  gem "rack-ssl", "~> 1.1.0", :require => "rack/ssl"
-#  gem "newrelic_rpm", "~> 3.0.1"
 end
 
 group :test, :development do

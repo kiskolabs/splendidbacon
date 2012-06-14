@@ -9,8 +9,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-# require "resque"
-# require "resque/server"
+require "resque"
+require "resque/server"
 
 module SplendidBacon
   class Application < Rails::Application
