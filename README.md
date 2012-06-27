@@ -17,6 +17,10 @@ There are a few issues that should be fixed before taking this into production u
 * Remove the Mailchimp integration
 * Remove the Zendesk integration
 
+There is a `rails_upgrade` branch where some of this work has been started and pull requests are definitely welcome.
+
+*Note: Any API keys included in the source code have been revoked and cannot be used.*
+
 ## Installation (for development)
 
 1. Clone the repository
