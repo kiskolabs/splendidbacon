@@ -1,7 +1,7 @@
 class AddsTokenAuthenticatableToUser < ActiveRecord::Migration
   def self.up
     change_table :users do |t|
-      t.token_authenticatable
+      t.string :authentication_token
     end
     add_index :users, :authentication_token, :unique => true
   end
