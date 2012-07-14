@@ -47,6 +47,5 @@ group :test do
   gem "capybara"
   gem "launchy"
   gem "autotest"
-  gem "autotest-growl"
   gem "database_cleaner"
 end
