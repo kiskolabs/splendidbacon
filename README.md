@@ -53,6 +53,8 @@ On Heroku, you can set the session secret with this one-liner:
 
     heroku config:add SECRET_TOKEN=`rake test`
 
+If you do not set `SECRET_TOKEN`, the app **will** run, but your sessions **will not** persist beyond server restarts.
+
 ## License and Copyright
 
 Copyright © 2010-2012 Kisko Labs & contributors.
