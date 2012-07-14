@@ -53,6 +53,16 @@ On Heroku, you can set the session secret with this one-liner:
 
 [Foreman](http://ddollar.github.com/foreman/) is included to make managing environment variables easier in development. Include any environment variables you need in a `.env` file (see `sample.env` as a reference).
 
+## Tests [![Build Status](https://secure.travis-ci.org/kiskolabs/splendidbacon.png?branch=master)](http://travis-ci.org/kiskolabs/splendidbacon)
+
+Run the test suite with:
+
+    bundle exec rake spec
+
+Or:
+
+    bundle exec rspec spec
+
 ## License and Copyright
 
 Copyright © 2010-2012 Kisko Labs & contributors.
