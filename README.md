@@ -47,6 +47,14 @@ There is a `rails_upgrade` branch where some of this work has been started and p
 
 The admin console is located at <http://localhost:3000/magic>
 
+**NB. The session secret should be set as an environment variable called `SECRET_TOKEN`.**
+
+You can generate a new secret with `rake secret`.
+
+On Heroku, you can set the session secret with this one-liner:
+
+    heroku config:add SECRET_TOKEN=`rake test`
+
 ## License and Copyright
 
 Copyright © 2010-2012 Kisko Labs & contributors.
