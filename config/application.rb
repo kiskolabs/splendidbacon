@@ -52,7 +52,7 @@ module SplendidBacon
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    # Disable mass-assignment for all models
-    # ActiveRecord::Base.send(:attr_accessible, nil)
+    # Raise exception on mass assignment protection for Active Record models
+    # config.active_record.mass_assignment_sanitizer = :strict
   end
 end

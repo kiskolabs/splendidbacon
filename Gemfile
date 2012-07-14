@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-gem "rails", "3.1.6"
+gem "rails", "3.2.6"
 
 gem "airbrake"
 gem "devise", "~> 1.5.3"
-gem "haml", "~> 3.0.24"
+gem "haml", "~> 3.1.6"
 gem "jquery-rails"
-gem "kaminari" #, "~> 0.10.4"
+gem "kaminari", "~> 0.13.0"
 gem "kronic", "~> 1.1.1"
 gem "nokogiri", "~> 1.4.4"
 gem "rake"
@@ -18,8 +18,8 @@ gem "yajl-ruby"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem "sass-rails" #, "~> 3.2.5"
-  gem "coffee-rails" #, "~> 3.2.2"
+  gem "sass-rails", "~> 3.2.5"
+  gem "coffee-rails", "~> 3.2.2"
   gem "uglifier"
 end
 
