@@ -9,9 +9,6 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-require "resque"
-require "resque/server"
-
 module SplendidBacon
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -19,7 +16,7 @@ module SplendidBacon
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    config.autoload_paths += %W( #{config.root}/app/jobs )
+    # config.autoload_paths += %W( #{config.root}/app/jobs )
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
