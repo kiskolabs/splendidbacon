@@ -9,8 +9,8 @@
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"
     = javascript_include_tag :defaults, :cache => true
     = csrf_meta_tag
-    %link{ :rel => "shortcut icon", :href => "/favicon.png", :type => "image/png" }
-    %link{ :rel => "apple-touch-icon-precomposed", :href => "/images/app-icon.png" }
+    = favicon_link_tag("/favicon.ico", :type => "image/png")
+    = favicon_link_tag("app-icon.png", :rel => "apple-touch-icon-precomposed")
     %meta{ :name => "robots", :content => "noindex, nofollow" }
   %body
     #header
