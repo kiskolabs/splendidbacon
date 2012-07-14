@@ -32,7 +32,7 @@
             %span.white
               = broadcast.created_at.httpdate
             %br
-            = link_to "Delete this broadcast", magic_broadcast_path(broadcast), :method => :delete, :remote => true, :class => :right, :confirm => "Are you sure?"
+            = link_to "Delete this broadcast", magic_broadcast_path(broadcast), :method => :delete, :remote => true, :class => :right, :data => { :confirm => "Are you sure?" }
 
 #sidebar.grid_7.push_2
   %p Users

@@ -18,4 +18,4 @@
   = link_to "Reset authentication token", reset_authentication_token_users_path, :class => "button"
   %h3 Unhappy?
   %br/
-  = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => "button"
+  = link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?", :method => :delete, :class => "button" }

@@ -28,7 +28,7 @@
           %span.user
             = member.user.name
             %br/
-            = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :confirm => "Are you sure you want to remove this user from the organization?", :remote => true
+            = link_to "Remove", organization_membership_path(@organization, member), :method => :delete, :data => { :confirm => "Are you sure you want to remove this user from the organization?" }, :remote => true
     .clearfix
 
   %hr/
@@ -37,5 +37,5 @@
 
   %p Deletion is permanent and cannot be undone.
 
-  = button_to "Delete the organization", @organization, :method => :delete, :confirm => "Are you sure you want delete this organization?", :class => "button", :id => "organization_delete_button"
+  = button_to "Delete the organization", @organization, :method => :delete, :data => { :confirm => "Are you sure you want delete this organization?", :class => "button", :id => "organization_delete_button" }
 
