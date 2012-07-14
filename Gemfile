@@ -2,9 +2,9 @@ source "https://rubygems.org"
 
 gem "rails", "3.2.6"
 
-gem "airbrake"
 gem "devise", "~> 1.5.3"
 gem "haml", "~> 3.1.6"
+gem "haml-rails"
 gem "jquery-rails"
 gem "kaminari", "~> 0.13.0"
 gem "kronic", "~> 1.1.1"
