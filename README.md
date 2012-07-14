@@ -13,8 +13,6 @@ There are a few issues that should be fixed before taking this into production u
   * `config.active_record.mass_assignment_sanitizer = :strict`
   * `config.active_record.whitelist_attributes = true`
 
-There is a `rails_upgrade` branch where some of this work has been started and pull requests are definitely welcome.
-
 *Note: Any API keys included in the source code have been revoked and cannot be used.*
 
 ## Installation (for development)
