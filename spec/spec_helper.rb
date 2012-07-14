@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+ENV["SECRET_TOKEN"] ||= "ThisIsAReallyBadSecretBecauseItIsHardCoded45697e2ea3339531210b1971d2cf41362eec4471f78483ea6f5dfe3c84c73b3d3b75bff8daf3155f02a0b3"
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 

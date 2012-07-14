@@ -33,11 +33,13 @@ There is a `rails_upgrade` branch where some of this work has been started and p
 
 4. Create database.yml in the config folder. You can `cp config/database.example.yml config/database.yml` to get a starting point.
 
-5. Setup the database (create DB, load schema, load seed data)
+5. Create the `.env` file. You can `cp sample.env .env` to get a starting point.
+
+6. Setup the database (create DB, load schema, load seed data)
 
     `rake db:setup`
 
-6. Start the app
+7. Start the app
 
     `foreman start`
 
