@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+  - 1.9.3
+
+# Ensure Bundler >= 1.1
+before_install:
+  - gem install bundler
+
+before_script:
+  - "cp config/database.example.yml config/database.yml"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
+script: "RAILS_ENV=test bundle exec rake db:migrate spec"
+
+notifications:
+  email: false
+
+branches:
+  only:
+    - master
