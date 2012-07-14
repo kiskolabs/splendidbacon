@@ -15,6 +15,10 @@ There are a few issues that should be fixed before taking this into production u
   * Rails 3.2: `config.active_record.mass_assignment_sanitizer = :strict`
 * Upgrade to a more recent Rails version (in other words, Rails 3.2.x)
 
+There is a `rails_upgrade` branch where some of this work has been started and pull requests are definitely welcome.
+
+*Note: Any API keys included in the source code have been revoked and cannot be used.*
+
 ## Installation (for development)
 
 1. Clone the repository
@@ -40,6 +44,14 @@ There are a few issues that should be fixed before taking this into production u
     `rails server`
 
 The admin console is located at <http://localhost:3000/magic>
+
+**NB. The session secret should be set as an environment variable called `SECRET_TOKEN`.**
+
+You can generate a new secret with `rake secret`.
+
+On Heroku, you can set the session secret with this one-liner:
+
+    heroku config:add SECRET_TOKEN=`rake test`
 
 ## License and Copyright
 
