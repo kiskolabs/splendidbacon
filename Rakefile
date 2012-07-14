@@ -6,5 +6,4 @@ require 'rake'
 
 SplendidBacon::Application.load_tasks
 
-require "resque/tasks"
 task "resque:setup" => :environment
