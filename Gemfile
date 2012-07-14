@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "rails", "3.2.6"
 
 gem "devise", "~> 1.5.3"
+gem "foreman", "~> 0.51.0"
 gem "haml", "~> 3.1.6"
 gem "haml-rails"
 gem "jquery-rails"
@@ -14,6 +15,7 @@ gem "RedCloth", "~> 4.2.3"
 gem "simple_form", "~> 1.2.2"
 gem "validates_timeliness", "~> 3.0.0"
 gem "yajl-ruby"
+gem "thin", "~> 1.4.1"
 
 # Gems used only for assets and not required
 # in production environments by default.

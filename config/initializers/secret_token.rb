@@ -7,4 +7,8 @@
 
 # Set the session secret as an environment variable.
 # Generate a new secret with `rake secret`
-SplendidBacon::Application.config.secret_token = ENV["SECRET_TOKEN"] || SecureRandom.hex(15)
+if ENV["SECRET_TOKEN"]
+  SplendidBacon::Application.config.secret_token = ENV["SECRET_TOKEN"]
+else
+  raise "You must set the SECRET_TOKEN environment variable!"
+end

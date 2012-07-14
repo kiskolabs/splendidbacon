@@ -10,10 +10,8 @@ Project Management* for hackers
 There are a few issues that should be fixed before taking this into production use:
 
 * Fix the [mass assignment vulnerabilities](http://guides.rubyonrails.org/security.html#mass-assignment) (this is the most important thing)
-  * Rails 3.0: `ActiveRecord::Base.send(:attr_accessible, nil)`
-  * Rails 3.1: `config.active_record.whitelist_attributes = true`
-  * Rails 3.2: `config.active_record.mass_assignment_sanitizer = :strict`
-* Upgrade to a more recent Rails version (in other words, Rails 3.2.x)
+  * `config.active_record.mass_assignment_sanitizer = :strict`
+  * `config.active_record.whitelist_attributes = true`
 
 There is a `rails_upgrade` branch where some of this work has been started and pull requests are definitely welcome.
 
@@ -41,11 +39,11 @@ There is a `rails_upgrade` branch where some of this work has been started and p
 
 6. Start the app
 
-    `rails server`
+    `foreman start`
 
-The admin console is located at <http://localhost:3000/magic>
+The admin console is located at <http://localhost:5000/magic>
 
-**NB. The session secret should be set as an environment variable called `SECRET_TOKEN`.**
+**NB. The session secret must be set as an environment variable called `SECRET_TOKEN`.**
 
 You can generate a new secret with `rake secret`.
 
@@ -53,7 +51,7 @@ On Heroku, you can set the session secret with this one-liner:
 
     heroku config:add SECRET_TOKEN=`rake test`
 
-If you do not set `SECRET_TOKEN`, the app **will** run, but your sessions **will not** persist beyond server restarts.
+[Foreman](http://ddollar.github.com/foreman/) is included to make managing environment variables easier in development. Include any environment variables you need in a `.env` file (see `sample.env` as a reference).
 
 ## License and Copyright
 

@@ -29,10 +29,10 @@ SplendidBacon::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
-  config.action_mailer.default_url_options = { :host => 'rails.fi:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:5000' }
 
   # Raise exception on mass assignment protection for Active Record models
-  # config.active_record.mass_assignment_sanitizer = :strict
+  config.active_record.mass_assignment_sanitizer = :logger #:strict
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
