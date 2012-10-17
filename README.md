@@ -49,7 +49,7 @@ You can generate a new secret with `rake secret`.
 
 On Heroku, you can set the session secret with this one-liner:
 
-    heroku config:add SECRET_TOKEN=`rake test`
+    heroku config:add SECRET_TOKEN=\`rake secret`
 
 [Foreman](http://ddollar.github.com/foreman/) is included to make managing environment variables easier in development. Include any environment variables you need in a `.env` file (see `sample.env` as a reference).
 
