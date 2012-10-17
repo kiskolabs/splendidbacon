@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "do-not-reply@splendidbacon.com"
+  config.mailer_sender = "do-not-reply@#{ENV['HOST']}"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

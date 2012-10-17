@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default :from => "notifications@splendidbacon.com"
+  default :from => "notifications@#{ENV['HOST']}"
   
   def new_comment(email, project_name, project_id, organization_name, organization_id, comment, comment_author)
     @project_url = project_url(project_id)
