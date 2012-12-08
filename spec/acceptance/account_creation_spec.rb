@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 feature "Account Creation" do
   scenario "Sign up" do
     visit sign_up_page
-    fill_in_sign_up_form(:email => "joe@doe.com", :name => "John Doe", :password => "123456")
+    fill_in_sign_up_form(:email => "joe@doe.com", :name => "John Doe", :password => "12345678")
     click_button "Sign up"
     
     page.should have_content("Your account was successfully created. Welcome to Splendid Bacon")
@@ -23,7 +23,7 @@ feature "Account Creation" do
     visit "/"
     click_link "Try the Demo"
     click_link "Sign up here."
-    fill_in_sign_up_form(:email => "joe@doe.com", :name => "John Doe", :password => "123456")
+    fill_in_sign_up_form(:email => "joe@doe.com", :name => "John Doe", :password => "12345678")
     click_button "Sign up"
     
     page.should have_content("Your account was successfully created. Welcome to Splendid Bacon")

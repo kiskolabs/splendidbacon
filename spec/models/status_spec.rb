@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Status do
   context "GitHub" do
     before(:each) do
-      @user = User.create(:name => "Chris Wanstrath", :email => "chris@ozmm.org", :password => "123456")
+      @user = User.create(:name => "Chris Wanstrath", :email => "chris@ozmm.org", :password => "12345678")
       @organization = @user.organizations.create(:name => "Test")
       @project = @organization.projects.create({ :name => "GitHub", 
                                                  :start => Date.today - 7.days, 
