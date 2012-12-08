@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "3.2.9"
 
-gem "devise", "~> 1.5.3"
+gem "devise", "~> 2.1.2"
 gem "foreman", "~> 0.51.0"
 gem "haml", "~> 3.1.6"
 gem "haml-rails"
