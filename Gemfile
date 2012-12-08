@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "3.2.6"
+gem "rails", "3.2.9"
 
 gem "devise", "~> 1.5.3"
 gem "foreman", "~> 0.51.0"
