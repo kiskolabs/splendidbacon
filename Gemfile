@@ -13,9 +13,9 @@ gem "nokogiri", "~> 1.5.5"
 gem "rake"
 gem "RedCloth", "~> 4.2.9"
 gem "simple_form", "~> 1.2.2"
-gem "validates_timeliness", "~> 3.0.0"
+gem "validates_timeliness", "~> 3.0.14"
 gem "yajl-ruby"
-gem "thin", "~> 1.4.1"
+gem "thin", "~> 1.5.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
