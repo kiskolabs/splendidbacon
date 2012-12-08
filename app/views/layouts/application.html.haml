@@ -39,7 +39,7 @@
               = navigate_to :timeline, "Timeline", timeline_organization_path(current_organization), :class => "button pictos time"
             = link_to "New Project", new_project_path, :class => "button pictos new"
             = navigate_to :account, "Account", edit_user_registration_path, :class => "account"
-            = link_to "Logout", destroy_user_session_path, :class => "logout"
+            = link_to "Logout", destroy_user_session_path, :class => "logout", :method => :delete
           - else
             - if controller.controller_name == "sessions" && controller.action_name == "new"
               = link_to "Sign up", new_user_registration_path, :class => "button", :style => "float:right"
