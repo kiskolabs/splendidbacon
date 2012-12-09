@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Users" do
   background do
-    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "123456")
+    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "12345678")
     login_as(@al)
   end
 

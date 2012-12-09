@@ -1,21 +1,21 @@
 source "https://rubygems.org"
 
-gem "rails", "3.2.6"
+gem "rails", "3.2.9"
 
-gem "devise", "~> 1.5.3"
+gem "devise", "~> 2.1.2"
 gem "foreman", "~> 0.51.0"
 gem "haml", "~> 3.1.6"
 gem "haml-rails"
 gem "jquery-rails"
-gem "kaminari", "~> 0.13.0"
-gem "kronic", "~> 1.1.1"
-gem "nokogiri", "~> 1.4.4"
+gem "kaminari", "~> 0.14.1"
+gem "kronic", "~> 1.1.3"
+gem "nokogiri", "~> 1.5.5"
 gem "rake"
-gem "RedCloth", "~> 4.2.3"
+gem "RedCloth", "~> 4.2.9"
 gem "simple_form", "~> 1.2.2"
-gem "validates_timeliness", "~> 3.0.0"
+gem "validates_timeliness", "~> 3.0.14"
 gem "yajl-ruby"
-gem "thin", "~> 1.4.1"
+gem "thin", "~> 1.5.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,7 +27,7 @@ group :assets do
 end
 
 group :development do
-  gem "sqlite3-ruby", :require => "sqlite3"
+  gem "sqlite3"
 end
 
 group :production do

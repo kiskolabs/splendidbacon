@@ -2,14 +2,14 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Invites" do
   background do
-    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "123456")
-    @bob = User.create(:email => "bob@kiskolabs.com", :name => "Bob", :password => "123456")
-    
+    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "12345678")
+    @bob = User.create(:email => "bob@kiskolabs.com", :name => "Bob", :password => "12345678")
+
     @kisko = @al.organizations.create(:name => "Kisko Labs")
   end
   
   scenario "Creating a new invite", :js => true do
-    login_as(@al, :password => "123456")
+    login_as(@al, :password => "12345678")
     visit organization_page(@kisko.id)
     find(:css, "#organization_nav h1 a").click
     fill_in "invitation_email", :with => "foo@foo.com"
@@ -20,7 +20,7 @@ feature "Invites" do
   scenario "Accepting an invite as a user" do
     invite = Invitation.create(:email => @bob.email, :organization => @kisko)
     
-    login_as(@bob, :password => "123456")
+    login_as(@bob, :password => "12345678")
     visit accept_invitation_page(invite.token)
     click_button "Accept invitation"
     page.should have_content("You are now a part of #{invite.organization.name}")
@@ -37,7 +37,7 @@ feature "Invites" do
     @kisko.save
     member = @kisko.memberships.where(:user_id => @bob.id).first
     
-    login_as(@al, :password => "123456")
+    login_as(@al, :password => "12345678")
     visit organization_edit_page(@kisko.id)
     find(:xpath, "//li[@id='member_#{member.id}']/span/a").click
     

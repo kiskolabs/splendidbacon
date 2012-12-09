@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Organizations" do
   background do
-    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "123456")
+    @al = User.create(:email => "al@kiskolabs.com", :name => "Al", :password => "12345678")
 
     @kisko = @al.organizations.create(:name => "Kisko Labs")
   end
