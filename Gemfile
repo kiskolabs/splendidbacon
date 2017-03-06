@@ -37,14 +37,14 @@ end
 group :test, :development do
   gem "rspec-rails"
   gem "steak"
-  gem "akephalos"
+  gem "akephalos", ">= 0.2.5"
   gem "awesome_print", :require => "ap"
   gem "ffaker"
 end
 
 group :test do
   gem "factory_girl_rails"
-  gem "capybara"
+  gem "capybara", ">= 0.4.1.2"
   gem "launchy"
   gem "autotest"
   gem "database_cleaner"
